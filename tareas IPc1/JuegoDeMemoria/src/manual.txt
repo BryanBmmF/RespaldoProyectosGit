@@ -1,0 +1,95 @@
+	Manual De Usuario para Juego de Memoria.
+
+	Descripción del Juego:
+
+	El juego consiste en el tradicional juego de memoria el cual despliega en pantalla una
+	cierta cantidad de cartas  con su respectiva pareja, las cuales deberán ser volteadas 
+	por los jugadores y así acumular puntos  por cada pareja descubierta acertada.
+
+	Puntos a tomar en cuenta antes de iniciar el juego.
+
+	1. Modo de juego.
+
+	El modo de juego es unicamente Jugador vs Jugador esto quiere decir que se necesitan dos
+	jugadores diferentes para jugar dicho juego y mejorar la experiencia.
+
+	2. Ventana principal.
+
+	El juego desplegara una ventana principal la cual posee un menú en donde se podrá elegir
+	una opción a realizar.
+
+	Opciones del menú:
+
+	1.1 Opción Juego:
+
+	Esta opción  posee dos ítems los cuales son iniciar Partida y el segunda es Salir del juego.
+
+	1.2 Opción Reportes:
+
+	Esta opción posee también dos ítems los cuales son  desplegar el historial de jugadores  
+	que han jugado, y  el reporte del mejor jugador actual en el juego.
+
+	1.3 Opción Acerca De:
+
+	Esta opción posee unicamente un ítem el cual es Acerca del desarrollador,  el cual muestra
+	los datos del creador del juego.
+
+	1.4 Opción Ayuda:
+
+	Esta opción es exclusivamente para el jugador la cual muestra este manual de usuario y un 
+	resumen del mismo si así lo desea el usuario
+
+	3. Modo de Iniciar Partida.
+
+	Para iniciar una nueva partida el jugador debe dirigirse a la opción Juego del menú de 
+	opciones y seleccionar la opción ‘nueva partida’ , la cual solicitara los siguientes aspectos.
+
+	-  Nombre de cada Jugador.
+	-  Dificultad del juego. 
+
+
+	4. Dificultad del juego.
+
+	El juego posee tres dificultades las cuales se diferencian por el numero de parejas de cartas
+	que se desee manejar.
+
+	3.1 Dificultad Fácil:
+
+	Esta dificultad lanzara 5 parejas de cartas en el panel principal, las cuales son escogidas 
+	aleatoriamente por el juego.
+
+	3.2 Dificultad Media:
+
+	Esta dificultad lanzara 10 parejas de cartas en el panel principal, las cuales son escogidas
+	aleatoriamente por el juego.
+
+	3.3 Dificultad Difícil:
+
+	Esta dificultad lanzara 15 parejas de cartas en el panel principal, las cuales son escogidas 
+	aleatoriamente por el juego.
+
+	4. Modo de voltear cartas.
+
+	Para darle vuelta a una carta basta solamente con hacer click sobre la carta que se desee voltear
+	y el juego automáticamente pondrá al descubierto la carta solicitada.
+
+
+	Reglas de Juego.
+
+	1. Si el jugador de turno halla una pareja , automáticamente se le acreditara un turno mas en 
+	donde tendrá la oportunidad de voltear otras dos cartas y así sucesivamente.
+
+	2. Si el jugador de turno no halla la pareja, automáticamente el juego le sedera el turno 
+	correspondiente al otro jugador y así sucesivamente.
+
+	3. Al momento de no ser descubierta una pareja el juego volteara las cartas seleccionadas 
+	nuevamente y las cambiara de posición para volver mas interesante el juego.
+
+	4. Si el jugador descubre  una pareja el juego le recompensara con 50 puntos los cuales se 
+	le acreditaran automáticamente y serán mostrados en pantalla.
+
+	5. Si el jugador no descubre una pareja el juego le restara  10 puntos los cuales también 
+	serán mostrados en pantalla.
+
+	6. Para finalizar el juego se deberán voltear todas las cartas, gana el jugador que mas puntos 
+	acumule durante la estadía en el juego.

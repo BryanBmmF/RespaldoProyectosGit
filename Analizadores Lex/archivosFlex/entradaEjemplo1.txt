@@ -1,0 +1,11 @@
+aaaababb abb
+aaab
+baababab
+abababb
+babbbbbbabb
+asdasd
+abaaabb
+
+sumando = 25
+id = sumando + 32.25
+25as.dasds3 = sumando2.

@@ -1,0 +1,42 @@
+Iniciar Juego:
+
+Para iniciar una nueva partida dirijase al menu principal e ingrese el numero de opcion
+que corresponde a iniciar juego.
+
+Esta opción  inicia una nueva partida y despliega un submenu el cual permite elegir 
+cuantos jugadores participaran en la partida, posteriormente se pide ingresar el nombre
+de cada jugador, otorgando los turnos correspondiente  y por ultimo se abre una ventana
+para poder visualizar los avances de cada jugador en un tablero.
+
+Punteos:
+
+Para acceder a los punteos dirijase al menu principal e ingrese el numero de opcion
+que corresponde a la opcion Punteos.
+
+Esta opción despliega en consola el historial de ganadores que posee el juego, 
+esto  incluye el nombre del ganador y el numero de monedas que logro recolectar
+hasta el final de la partida, dicha información sera visualizada de mayor a menor
+según el numero de monedas de cada jugador.
+
+Configuraciones:
+
+Para acceder a los punteos dirijase al menu principal e ingrese el numero de opcion
+que corresponde a la opcion configuraciones.
+
+Esta opción permite visualizar las configuraciones actuales del juego, como lo es
+la acreditación de monedas por proyecto, fracaso o acreditación final de ganador, 
+dicha información podrá ser modificada si así lo desea el usuario
+
+Reglas de Juego.
+
+1. Se permite unicamente una tirada de dado durante el turno del jugador.
+
+2. Si el jugador de turno avanza hacia una casilla donde existe un proyecto
+se le premiara con monedas.
+
+3. Si el jugador de turno avanza hacia una casilla donde existe un fracaso,
+se le restaran puntos y perderá su turno en la siguiente vuelta.
+
+4. Para finalizar el juego uno de los jugadores deberá llegar a la casilla 
+numero 100 donde  se le premiara con la Fortuna en monedas, y se registraran 
+sus datos como nuevo ganador.

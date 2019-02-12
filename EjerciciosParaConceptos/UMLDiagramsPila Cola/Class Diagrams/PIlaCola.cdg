@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PIlaCola">
+  <ClassDiagramComponents>
+    <Class name="Pila" package="" visibility="public" xPosition="45.0" yPosition="40.0">
+      <Fields>
+        <Field name="tope" type="int" visibility="private"/>
+        <Field name="datos" type="int[]" visibility="private"/>
+        <Field name="untitledField" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="apilar" returnType="void" visibility="public">
+          <Argument type="int" name="datos"/>
+        </Method>
+        <Method name="desapilar" returnType="int" visibility="public"/>
+        <Method name="estaVacia" returnType="bolean" visibility="public"/>
+        <Method name="estaLlena" returnType="bolean" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

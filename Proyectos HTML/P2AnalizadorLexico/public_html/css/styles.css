@@ -1,0 +1,39 @@
+/*
+Estilos de los Componentes Visuales de la Aplicacion Web
+*/
+/* 
+    Created on : 21/08/2018, 10:35:18 AM
+    Author     : bryan
+*/
+/*Styles para Pagina de Inicio */
+body header {
+    background: #FFC107
+}
+body header h1 {
+    text-align: center;
+    color:white;
+    letter-spacing:14px;
+    font-family: Alex Brush Normal;
+}
+table {
+  width: 100%;
+}
+div {
+    width: 60%;
+    margin-top: 30px;
+    border: solid 1px black;
+    padding: 5px;
+}
+#selectFile {
+    width:870px;
+    height:550px;
+    margin:0px auto;
+    background: rgba(192,192,192,0.55); 
+    border-radius: 0.5em;
+    -webkit-border-radius:0.5em;
+    box-shadow: rgba(0,0,0,0.6) 0px 5px 10px;
+    color: white;
+    margin: 1em auto;
+    padding: 1em;
+    cursor:pointer;
+}

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FacturaRestauranteNueva" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2c0b9b32-f620-4edf-8462-6e064e3bf634">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="Parameter1" class="java.lang.Double"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="numeroPorciones" class="java.lang.Integer">
+		<fieldDescription><![CDATA[numeroPorciones]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.time.LocalDate">
+		<fieldDescription><![CDATA[fecha]]></fieldDescription>
+	</field>
+	<field name="cliente" class="proyecto2ipc2.backend.Hotel.Cliente">
+		<fieldDescription><![CDATA[cliente]]></fieldDescription>
+	</field>
+	<field name="restaurante" class="proyecto2ipc2.backend.Restaurante.Restaurante">
+		<fieldDescription><![CDATA[restaurante]]></fieldDescription>
+	</field>
+	<field name="menu" class="proyecto2ipc2.backend.Restaurante.Menu">
+		<fieldDescription><![CDATA[menu]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="a20039d9-c507-4238-8a7b-5d698e8ead4c"/>
+				<staticText>
+					<reportElement x="20" y="20" width="480" height="43" forecolor="#FFFFFF" uuid="0170a8bd-4517-4172-b8b5-57293c742c86"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FACTURA RESTAURANTE]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="83">
+			<textField>
+				<reportElement x="100" y="20" width="100" height="16" uuid="119e11da-2cb3-4ea7-9c2b-abf2bf99b94e"/>
+				<textFieldExpression><![CDATA[$F{cliente}.getNombre()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="100" height="20" uuid="f4ed3c10-7562-4022-acc8-4194d4e8f2eb"/>
+				<text><![CDATA[Nombre Cliente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="16" uuid="b4af7759-d850-41ae-b570-83d7778ee7ff"/>
+				<text><![CDATA[NIT Cliente:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="40" width="100" height="17" uuid="26d9c3f5-fdc9-4588-8cbd-2f8785951e5f"/>
+				<textFieldExpression><![CDATA[$F{cliente}.getNit()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="20" width="100" height="14" uuid="fd574ff3-6e3a-4e90-99c8-64fafa31068f"/>
+				<text><![CDATA[Restaurante:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="382" y="19" width="100" height="21" uuid="aae5bfa6-7e0c-42b2-8863-0c5c503ecd88"/>
+				<textFieldExpression><![CDATA[$F{restaurante}.getNombre()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="280" y="36" width="100" height="17" uuid="a023f0f5-9f39-4496-85d1-b578cd515be4"/>
+				<text><![CDATA[Total a Pagar:    Q.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="382" y="38" width="100" height="20" uuid="038b2030-c50e-4ecc-b093-29db07f34bd8"/>
+				<textFieldExpression><![CDATA[$P{Parameter1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="63600fff-b0c4-4614-a122-b25ebb6ab4da"/>
+			</line>
+			<staticText>
+				<reportElement stretchType="RelativeToBandHeight" mode="Transparent" x="20" y="0" width="100" height="21" backcolor="#C2BABA" uuid="380bab8c-baed-49ae-ad49-fc7cc5fb17eb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e43f31c0-985a-456e-951e-45581749f0ef"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="0.0" lineStyle="Solid" lineColor="#020203"/>
+				</box>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="100" height="21" uuid="74343bcb-f0a1-4620-a7d5-c8f8900eac43">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39161817-5bb4-48d4-a06b-578777cde624"/>
+				</reportElement>
+				<text><![CDATA[No. Menu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="2" width="100" height="21" uuid="1bf8263c-2af8-443a-ad1a-ccace08fcb4b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ca481e6-5854-4999-a9cc-e553c646c9eb"/>
+				</reportElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="21" uuid="82333e6b-f36a-4577-8cf1-db3722b791f8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09856900-2c27-4d07-a747-c5767f0862d1"/>
+				</reportElement>
+				<text><![CDATA[Precio/U]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="29a389bb-6d9b-424f-acde-2359416e098a"/>
+			</line>
+			<textField>
+				<reportElement x="20" y="-1" width="100" height="20" uuid="f7a8a733-9f34-4eca-9c7c-df2c3d2f73cf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e43f31c0-985a-456e-951e-45581749f0ef"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{numeroPorciones}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="130" y="-1" width="100" height="20" uuid="0133e6cd-4039-4674-81ca-21e8b463d4b7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39161817-5bb4-48d4-a06b-578777cde624"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{menu}.getNumero()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="240" y="2" width="100" height="14" uuid="4d57aa10-9fc0-4f84-a9ea-51f6084e1cec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ca481e6-5854-4999-a9cc-e553c646c9eb"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{menu}.getNombre()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="15" uuid="026ffd42-6fc6-42fd-9b2d-e1d5a1037a77">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="09856900-2c27-4d07-a747-c5767f0862d1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{menu}.getPrecio()]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="49"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="b810bb6f-e098-4701-91d6-c68b3dc8d494"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="843f308c-4abd-4957-9fda-cca7428fa73b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="1a17ab60-c6e2-44c5-9cfb-e44ebb62649c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,166 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+// Declaramos un arreglo donde guardar las cadenas invalidas que no pertenecen a ningun token
+var lexemasInvalidos = []; 
+var lexemasValidos = []; 
+// para agregar los nuevos atributos del lexama a las cadenas de texto solo agregamos los demas atributos 
+// a la cadena principal
+// 
+class Lexema {
+  constructor(token, lexema, numeroDeFila, numeroDeColumna) {
+    this.token = token;
+    this.lexema = lexema;
+    this.numeroDeFila=numeroDeFila;
+    this.numeroDeColumna= numeroDeColumna;
+  }
+}
+class LexemaInvalido {
+  constructor(token, lexema, numeroDeFila, numeroDeColumna,numeroDeCaracter,caracter) {
+    this.token = token;
+    this.lexema = lexema;
+    this.numeroDeFila=numeroDeFila;
+    this.numeroDeColumna= numeroDeColumna;
+    this.numeroDeCaracter=numeroDeCaracter;
+    this.caracter=caracter;
+  }
+}
+
+//funcion que evalua El analisis de cada caracter perteneciente a cada cadena almacenada
+const alfabetoLetras=['a','b','c','d','e','f','g','h','i','j','k','l','m',
+                      'n','o','p','q','r','s','t','u','v','w','x','y','z',
+                      'A','B','C','D','E','F','G','H','I','J','K','L','M',
+                      'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+const alfabetoNumeros=['0','1','2','3','4','5','6','7','8','9'];
+const alfabetoSigPuntuacion=['.',',',';',':'];
+const alfabetoOperadores=['+','-','*','/','%'];
+const alfabetoSigAgrupacion=['(',')','[',']','{','}'];
+
+const tokenIdentificador="Identificador";
+const tokenNumero="Numero";
+const tokenDecimal="Decimal";
+const tokenPuntuacion="Puntuacion";
+const tokenOperador="Operador";
+const tokenAgrupacion="Agrupacion";
+const lexemaInvalido="Lexema No Permitido";
+
+
+
+//LEER al momento de contar los lexemas hacer una como pila para darle pull a cada cadena que aparesca mas de una vez
+// FALTA almacenar los lexemas ya sea validos o invalidos al momento que se estan creando los objetos lexema
+//pra los decimales buscar que contenga solo un punto y si si es decimal ya que ya no puede contener mas operadores ni signos  de 
+//agrup etc excepto letras y numero
+
+function analizarCadenas() {
+    //eliminamos el texto que tenemos
+    lexemasValidos.length=0;
+    var longitudCadena;
+    var primerCaracter;
+    var simbolo;
+    var ultimoCaracter;
+    //var lexema;
+    //se recorre cada cadena de texto almacenada
+    for (var i = 0; i < cadenasDeTexto.length; i++) {
+        longitudCadena=cadenasDeTexto[i].length;
+                
+        //si la cadena es de longitud 1 se evalua una cadena simple de un solo simbolo
+        if (longitudCadena==1) {
+            evaluarCadenaSimple(cadenasDeTexto[i]);
+        }else { //en caso que la longitud sea mayor que uno se evalua la cadena completa
+            
+            evaluarCadenaCompleta(cadenasDeTexto[i]);
+        }
+    }
+}
+function evaluarCadenaSimple(simbolo) {
+    var lexema;
+    //si la longitud de esta cadena es uno se evalua si es un signo de agupacion, puntuacion u operador
+            if (evaluarSimbolo(alfabetoSigAgrupacion,simbolo.contenido)) {
+                //si es un signo de agrupacion
+                lexema= new Lexema(tokenAgrupacion,simbolo.contenido,simbolo.numeroDeLinea,simbolo.numeroDeColumna);
+                lexemasValidos.push(lexema);
+                
+            }else if (evaluarSimbolo(alfabetoSigPuntuacion,simbolo.contenido)) {
+                    //si es un signo de puntuacion
+                    lexema= new Lexema(tokenPuntuacion,simbolo.contenido,simbolo.numeroDeLinea,simbolo.numeroDeColumna);
+                    lexemasValidos.push(lexema);
+                }else if (evaluarSimbolo(alfabetoOperadores,simbolo.contenido)){
+                        // si en dado caso es un operador
+                        lexema= new Lexema(tokenOperador,simbolo.contenido,simbolo.numeroDeLinea,simbolo.numeroDeColumna);
+                        lexemasValidos.push(lexema);
+                    }else if(evaluarSimbolo(alfabetoNumeros,simbolo.contenido)){
+                            // si en dado caso es un numero
+                            lexema= new Lexema(tokenNumero,simbolo.contenido,simbolo.numeroDeLinea,simbolo.numeroDeColumna);
+                            lexemasValidos.push(lexema);
+                        }
+                        else if (evaluarSimbolo(alfabetoLetras,simbolo.contenido)){
+                                //si en dado caso es una Letra
+                                lexema= new Lexema(tokenIdentificador,simbolo.contenido,simbolo.numeroDeLinea,simbolo.numeroDeColumna);
+                                lexemasValidos.push(lexema);
+                            }else{
+                                //si en dado caso no es un lexema Permitido
+                                lexema= new LexemaInvalido(lexemaInvalido,simbolo.contenido,simbolo.numeroDeLinea,simbolo.numeroDeColumna,1,simbolo.contenido);
+                                lexemasInvalidos.push(lexema);
+                            }
+}
+//funcion que permite evaluar una cadena completa
+function evaluarCadenaCompleta(cadena) {
+    var lexema;
+    var simbolo;
+    var esNumero= false;
+    var esIdentificador= false;
+    var esDecimal;
+    var long= cadena.length;
+    var punto=0;
+//        lexema= new Lexema(tokenNumero,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna);
+//        lexemasValidos.push(lexema);
+    //se recorre simbolo a simbolo la cadena segun su longitud
+    for (var j = 0; j < cadena.length; j++) { 
+        console.log(j);
+        lexema= new Lexema(tokenNumero,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna);
+        lexemasValidos.push(lexema);
+    }
+//        simbolo=cadena.charAt(j); //se captura cada simbolo de la cadena y se evalua en algunos alfabetos
+//        if (evaluarSimbolo(alfabetoOperadores,simbolo)||evaluarSimbolo(alfabetoSigAgrupacion,simbolo)){
+//            //el lexema no es valido por contener alguno de sus simbolos en alguno de los alfabetos a los que no deberia pert.
+//            lexema= new LexemaInvalido(lexemaInvalido,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna,(j+1),simbolo);
+//        }else if(evaluarSimbolo(alfabetoSigPuntuacion,simbolo) && simbolo!='.'){
+//            //es un signo de puntuacio diferente del punto
+//                lexema= new LexemaInvalido(lexemaInvalido,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna,(j+1),simbolo);   
+//            }else if(!evaluarSimbolo(alfabetoLetras,simbolo) || !evaluarSimbolo(alfabetoNumeros,simbolo)){
+//                //si no pertenece a ningun alfabeto
+//                    lexema= new LexemaInvalido(lexemaInvalido,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna,(j+1),simbolo);   
+//                }else if(evaluarSimbolo(alfabetoNumeros,simbolo) && esIdentificador==false){
+//                        //si es un numero
+//                        esNumero=true;
+//                    }else if (evaluarSimbolo(alfabetoLetras,simbolo)){
+//                        //si es letra entonces no puede ser numero y si identificador
+//                            esNumero=false;
+//                            esIdentificador=true;
+//                        }else if(simbolo=='.'){
+//                            //si es un punto podria llegar a ser decimal nos aseguramos de ello sumando el numero de puntos para luego comp.
+//                                punto++;
+//                            }else{//en dado caso no cumpla nada 
+//                                lexema= new LexemaInvalido(lexemaInvalido,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna,(j+1),simbolo);   
+//                            }
+//        
+//    }
+    if (esNumero) {
+        // si en dado caso es un numero
+        lexema= new Lexema(tokenNumero,cadena.contenido,cadena.numeroDeLinea,cadena.numeroDeColumna);
+        lexemasValidos.push(lexema);
+    }
+}
+//funcion para evaluar alfabetos
+function evaluarSimbolo(alfabeto,simbolo) {
+    var aprobar=false;
+    for (var i = 0; i < alfabeto.length; i++) {
+        if (alfabeto[i]===simbolo) {
+            aprobar=true;
+        }
+    } 
+    return aprobar;
+}
+

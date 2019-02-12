@@ -1,0 +1,163 @@
+Se ha creado el Usuario admin de tipo 3
+Se ha creado el Usuario jgranados de tipo 1
+Se ha creado el Usuario bmonzon de tipo 2
+Se ha creado el Usuario joscar de tipo 3
+Se ha creado el Usuario jpedro de tipo 1
+Se ha creado el Usuario jcarlos de tipo 2
+Se ha creado el Usuario jpato de tipo 3
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.14.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.16.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.16.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se proceso el mueble Mesa rustica con valor de Q.150.0
+Se proceso el mueble Mesa ovalada con valor de Q.160.0
+Se proceso el mueble Mesa rusa con valor de Q.180.0
+Se proceso el mueble Mesa inglesa con valor de Q.200.0
+se procesara las piezas para Mesa rustica
+se procesara las piezas para Mesa rustica
+se procesara las piezas para Mesa ovalada
+se procesara las piezas para Mesa ovalada
+Piezas de mueble no procesadas porque El mueble Alicate NO EXISTE
+Piezas de mueble no procesadas porque la pieza Llanta NO EXISTE
+Ensable Exitoso de Mueble Mesa rustica porjgranados 21/04/2018
+Ensable Exitoso de Mueble Mesa rustica porjcarlos 26/04/2018
+Ensamble No realizado de Mesa rustica por Falta de Piezas
+Ensable Exitoso de Mueble Mesa ovalada porjgranados 22/04/2018
+Ensable Exitoso de Mueble Mesa ovalada porjcarlos 22/04/2018
+Ensamble No realizado de Mesa ovalada por Falta de Piezas
+Ensamble No realizado de Mesa ovalada por Falta de Piezas
+Ensamble No realizado de Mesa ovalada por Falta de Piezas
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.16.5
+Ensable Exitoso de Mueble Mesa rustica porjgranados 24/05/2018
+Ensable Exitoso de Mueble Mesa rustica porjgranados 24/05/2018
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.16.75
+Ensable Exitoso de Mueble Mesa rustica porjgranados 24/05/2018
+Ensable Exitoso de Mueble Mesa rustica porjgranados 24/05/2018
+Ensable Exitoso de Mueble Mesa ovalada porjgranados 24/05/2018
+Ensable Exitoso de Mueble Mesa ovalada porjgranados 24/05/2018
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Se ha intruducido Materia Prima Pata redonda con valor de Q.19.0
+Ensable Exitoso de Mueble Mesa rustica porjgranados 24/05/2018
+Ensable Exitoso de Mueble Mesa rustica porjgranados 24/05/2018
+Ensable Exitoso de Mueble Mesa ovalada porjgranados 24/05/2018
+Usuario no procesado porque jgranados ya existe
+Usuario no procesado porque bmonzon ya existe
+Usuario no procesado porque joscar ya existe
+Usuario no procesado porque jpedro ya existe
+Usuario no procesado porque jcarlos ya existe
+Usuario no procesado porque jpato ya existe
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.14.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.16.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.16.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.15.5
+Se ha intruducido Materia Prima Pata cuadrada con valor de Q.16.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.17.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Pata redonda con valor de Q.18.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha rustica con valor de Q.35.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+Se ha intruducido Materia Prima Plancha ovalada con valor de Q.38.5
+se procesara las piezas para Mesa rustica
+se procesara las piezas para Mesa rustica
+se procesara las piezas para Mesa ovalada
+se procesara las piezas para Mesa ovalada
+Piezas de mueble no procesadas porque El mueble Alicate NO EXISTE
+Piezas de mueble no procesadas porque la pieza Llanta NO EXISTE
+Ensable Exitoso de Mueble Mesa rustica porjgranados 21/04/2018
+Ensable Exitoso de Mueble Mesa rustica porjcarlos 26/04/2018
+Ensamble No realizado de Mesa rustica por Falta de Piezas
+Ensable Exitoso de Mueble Mesa ovalada porjgranados 22/04/2018
+Ensable Exitoso de Mueble Mesa ovalada porjcarlos 22/04/2018
+Ensable Exitoso de Mueble Mesa ovalada porjcarlos 24/04/2018
+Ensamble No realizado de Mesa ovalada por Falta de Piezas
+Ensamble No realizado de Mesa ovalada por Falta de Piezas

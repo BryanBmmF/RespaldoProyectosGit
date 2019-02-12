@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+Aplicacion Analizador Lexico, etiquetas para la interfaz web
+-->
+<html>
+    <head>
+        <title>Analizador Lexico</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script type="text/javascript" src="js/cargaDeArchivo.js"></script>
+        <script type="text/javascript" src="js/procesamiento.js"></script>
+        <script type="text/javascript" src="js/analisis.js"></script>
+        <script type="text/javascript" src="js/reportes.js"></script>
+        <script type="text/javascript" src="js/exportar.js"></script>
+        <script type="text/javascript" src="js/buscador.js"></script>
+        
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    
+    <body background="img/fondo12345.jpg">
+        <header >
+            <h1>Analizador Lexico</h1>
+        </header>
+        <article id="selectFile">
+            <h2>Seleccione un archivo: </h2> 
+            <form id="form1">
+                <input id="fileInput" type="file" size="50">
+                <br/>
+                <br/>
+                <input type="text" id="txtPatron">
+                <button type="button" class="btn1" onclick="buscarPatrones();">Buscar Patron</button>
+                <br/>
+                <br/>
+                <center>
+                    <button type="button" class="btn1" onclick="processFiles('fileInput');">Cargar Contenido!</button>
+                    <input type="submit" class="btn1" value="Reset Area de Texto" onchange="resetTextArea();">
+                    <input type="button" id="boton-txt" value="Descargar TXT"/>
+                    <br/>
+                    <textarea id="areaDeTexto" name="areaTexto" rows="20" cols="120"></textarea>
+                    <br/>       
+                </center>
+                
+            </form>
+        <button onclick="procesarContenido();">Procesar Contenido</button>
+       
+        </article>
+        <article id="procesamiento">
+            <h3>Reportes de Analisis:</h3>
+            <br />
+            <h3>Analisis Finalizado Correctamente :</h3>
+            <table border="1" cellspacing="0" id="tabla">
+                <thead id="encabezadoTabla">
+                    <tr>
+                        <th>Token</th>
+                        <th>Lexema</th>
+                        <th>Numero De Linea</th>
+                        <th>Numero De Columna</th>     
+                    </tr> 
+                </thead>
+                <tbody id="tablaCadenas"></tbody>
+            </table>
+            <br/>   
+             <h3>Analisis finalizado con errores :</h3>
+            <table border="1" cellspacing="0" id="tabla2">
+                <thead id="encabezadoTabla2">
+                    <tr>
+                        <th>Token</th>
+                        <th>Lexema</th>
+                        <th>Numero De Linea</th>
+                        <th>Numero De Columna</th>  
+                        <th>Numero De Caracter</th>
+                        <th>Simbolo</th>  
+                    </tr> 
+                </thead>
+                <tbody id="tablaCadenas2"></tbody>
+            </table>
+        </article>
+    </body>
+</html>

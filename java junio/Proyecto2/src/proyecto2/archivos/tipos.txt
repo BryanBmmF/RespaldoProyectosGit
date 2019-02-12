@@ -1,0 +1,8 @@
+sedan
+pick-up
+camioneta
+camion
+trailer
+bus
+
+

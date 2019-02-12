@@ -1,0 +1,6 @@
+; como Notario,
+DOY FE: Que la presente hoja de papel especial de fotocopia tamaño carta, impresa
+ unicamente en su lado anverso, y que reproduce el DOCUMENTO PERSONAL DE IDENTIFICACIÓN
+-DPI- con CÓDIGO ÚNICO DE IDENTIFICACIÓN -CUI- numero 
+
+

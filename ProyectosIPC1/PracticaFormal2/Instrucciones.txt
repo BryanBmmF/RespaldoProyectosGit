@@ -1,0 +1,1194 @@
+Se Genero un listado de Solicitudes
+Solicitud 1 aprobada de SERGIO MANCHON MATEI salario: 2450
+Solicitud 2 aprobada de PEDRO CERDA PERAL salario: 2500
+Solicitud 3 aprobada de JUAN MANUEL GASCON ETXEBERRIA salario: 2550
+Solicitud 4 aprobada de XAVIER BREA AREVALO salario: 2600
+Solicitud 5 aprobada de JULIAN BORREGUERO AGUADO salario: 2650
+Solicitud 6 aprobada de JOSE ANTONIO OROZCO ELVIRA salario: 2700
+Solicitud 7 aprobada de GREGORIO ARTERO ROYO salario: 2750
+Solicitud 8 aprobada de JESUS MENDEZ SUAREZ salario: 2800
+Solicitud 9 aprobada de MIGUEL ANGEL ARENCIBIA LEMOS salario: 2850
+Solicitud 10 aprobada de ALBERTO AGUSTI BERNABE salario: 2900
+Solicitud 11 aprobada de ALEJANDRO SIERRA HUERTAS salario: 2950
+Solicitud 12 aprobada de IVAN CARABALLO QUINTERO salario: 3000
+Solicitud 13 aprobada de ROBERTO OROZCO MANZANARES salario: 3050
+Solicitud 14 aprobada de ESTEBAN VENDRELL ALIAGA salario: 3100
+Solicitud 15 aprobada de JORGE ESPIN POSTIGO salario: 3150
+Solicitud 16 aprobada de JOSE LUIS PACHON SANABRIA salario: 20800
+Solicitud 17 aprobada de JESUS AREVALO SACRISTAN salario: 20850
+Solicitud 18 aprobada de VICTOR MANUEL TEIXEIRA VIVES salario: 20900
+Solicitud 19 aprobada de ROBERTO DE LA TORRE MARQUEZ salario: 20950
+Solicitud 20 aprobada de AGUSTIN CRISTOBAL LABORDA salario: 21000
+Solicitud 21 aprobada de MARIA ROSA CUBILLO SOLSONA salario: 21050
+Solicitud 22 aprobada de EMILIA BARRAGAN OLLE salario: 21100
+Solicitud 23 aprobada de ANA PRIETO ESPARZA salario: 21150
+Solicitud 24 aprobada de GLORIA RICART LUQUE salario: 21200
+Solicitud 25 aprobada de GLORIA DE HARO CASTELLO salario: 21250
+Solicitud 26 aprobada de LIDIA LLINARES LOMAS salario: 21300
+Solicitud 27 aprobada de EMILIA CERON COLORADO salario: 21350
+Solicitud 28 aprobada de ANA BELEN RIBERA JARAMILLO salario: 21400
+Solicitud 29 aprobada de CRISTINA LLAMAS FERRERA salario: 21450
+Solicitud 30 aprobada de EVA MARIA SANZ NOVILLO salario: 21500
+Solicitud 31 aprobada de PAULA SOLE ARCOS salario: 9950
+Solicitud 32 aprobada de ALICIA MOYA CURTO salario: 10000
+Solicitud 33 aprobada de JOSEFINA ZARATE CASELLAS salario: 10050
+Solicitud 34 aprobada de ANA ISABEL CACERES TOVAR salario: 10100
+Solicitud 35 aprobada de ALBA ARCOS MENDIZABAL salario: 10150
+Solicitud 36 aprobada de ESTHER MONZON ZAFRA salario: 10200
+Solicitud 37 aprobada de CELIA CARDOSO CALVENTE salario: 10250
+Solicitud 38 aprobada de ANDREA CANCELA HERNANZ salario: 10300
+Solicitud 39 aprobada de LIDIA CONTRERAS BALAGUER salario: 10350
+Solicitud 40 aprobada de ALICIA AGUIAR LORENZO salario: 10400
+Solicitud 41 aprobada de MIGUEL ANGEL BUENO QUINTANA salario: 10450
+Solicitud 42 aprobada de EUGENIO SARMIENTO ASENJO salario: 10500
+Solicitud 43 aprobada de RICARDO GARMENDIA NOTARIO salario: 10550
+Solicitud 44 aprobada de JOSE CARLOS QUINTELA MOZO salario: 10600
+Solicitud 45 aprobada de JOSE MARIA BOUZA GONGORA salario: 10650
+Solicitud 46 aprobada de JUAN CARLOS ZAMORA BARBER salario: 4700
+Solicitud 47 aprobada de FRANCISCO ARRIBAS DURO salario: 4750
+Solicitud 48 aprobada de GONZALO SEVILLA BARRENA salario: 4800
+Solicitud 49 aprobada de PABLO AMENGUAL LUGO salario: 4850
+Solicitud 50 aprobada de AITOR PEDRERO TORRAS salario: 4900
+Solicitud 51 aprobada de MERCEDES MAZA LECHUGA salario: 4950
+Solicitud 52 aprobada de MARIA JOSE ALARCON PRADOS salario: 5000
+Solicitud 53 aprobada de INES REIG HARO salario: 5050
+Solicitud 54 aprobada de MARTA MARTIN CAMACHO salario: 5100
+Solicitud 55 aprobada de CARMEN MURCIA VEGAS salario: 5150
+Solicitud 56 aprobada de ROSA MARIA OLTRA POYATOS salario: 5200
+Solicitud 57 aprobada de MARIA ISABEL ANTON BUSQUETS salario: 5250
+Solicitud 58 aprobada de INMACULADA GAYA ARAQUE salario: 5300
+Solicitud 59 aprobada de MARIA ROSA INFANTES ANTELO salario: 5350
+Solicitud 60 aprobada de MARIA MOSQUERA JUSTO salario: 5400
+Solicitud 61 aprobada de CARMEN SAN EMETERIO MONREAL salario: 23050
+Solicitud 62 aprobada de CARLA PRADA ALMANSA salario: 23100
+Solicitud 63 aprobada de MARIA ANTONIA ALBEROLA LAVADO salario: 23150
+Solicitud 64 aprobada de ROSARIO VALCARCEL BOLAÑOS salario: 23200
+Solicitud 65 aprobada de MILAGROS SARABIA VIVO salario: 23250
+Solicitud 66 aprobada de SANDRA GOMEZ MARINA salario: 23300
+Solicitud 67 aprobada de JULIA AGUDO VALLE salario: 23350
+Solicitud 68 aprobada de ANTONIA BOZA TENA salario: 23400
+Solicitud 69 aprobada de PATRICIA BOUZAS MATEO salario: 23450
+Solicitud 70 aprobada de VICTORIA ADROVER VELASCO salario: 23500
+Solicitud 71 aprobada de ALFONSO ABELLAN GONZALES salario: 23550
+Solicitud 72 aprobada de FRANCISCO RIVAS GAMIZ salario: 23600
+Solicitud 73 aprobada de FRANCISCO JAVIER NOGUEIRA GANDIA salario: 23650
+Solicitud 74 aprobada de PEDRO CALERO AGUERA salario: 23700
+Solicitud 75 aprobada de JOSE FRANCISCO PALACIN CARRERA salario: 23750
+Solicitud 76 aprobada de GONZALO CHAPARRO VALDES salario: 12200
+Solicitud 77 aprobada de VICTOR MANUEL LANZA VENTURA salario: 12250
+Solicitud 78 aprobada de PABLO MOREIRA COBOS salario: 12300
+Solicitud 79 aprobada de PABLO BORRERO LASO salario: 12350
+Solicitud 80 aprobada de JOSE RAMON PUENTE MORILLO salario: 12400
+Solicitud 81 aprobada de JOSE CARLOS CABANILLAS VALDES salario: 12450
+Solicitud 82 aprobada de EMILIO TORRENT ESCALANTE salario: 12500
+Solicitud 83 aprobada de JOSE FRANCISCO MAYOL DOS SANTOS salario: 12550
+Solicitud 84 aprobada de JOSEP TRUEBA LOMAS salario: 12600
+Solicitud 85 aprobada de ANTONIO ARANA PELAEZ salario: 12650
+Solicitud 86 aprobada de SANTIAGO AZNAR MATEU salario: 12700
+Solicitud 87 aprobada de ALVARO MIQUEL PACHON salario: 12750
+Solicitud 88 aprobada de JUAN FRANCISCO INFANTE CABRAL salario: 12800
+Solicitud 89 aprobada de PEDRO LLOPIS ARGUELLO salario: 12850
+Solicitud 90 aprobada de VICTOR DOVAL GAMBOA salario: 12900
+Solicitud 91 aprobada de MARIA JESUS NOGUERA LUMBRERAS salario: 6950
+Solicitud 92 aprobada de SUSANA CAPO ORTIZ salario: 7000
+Solicitud 93 aprobada de NOELIA BENITEZ PRIEGO salario: 7050
+Solicitud 94 aprobada de MARGARITA AVALOS ROURA salario: 7100
+Solicitud 95 aprobada de CELIA HUSSAIN BOUZA salario: 13150
+Solicitud 96 aprobada de EVA MARIA CUEVAS ARANDA salario: 13200
+Solicitud 97 aprobada de SONIA PERAL RUZ salario: 13250
+Solicitud 98 aprobada de LUISA MINGUEZ ASTORGA salario: 24900
+Solicitud 99 aprobada de SARA JUSTICIA DURO salario: 24950
+Solicitud 100 aprobada de VICTORIA BARRAGAN FERRE salario: 25000
+Se Genero un listado de Solicitudes
+Se Autorizo la tarjeta con numero de solicitud: 16
+Se Autorizo la tarjeta con numero de solicitud: 17
+Se Autorizo la tarjeta con numero de solicitud: 18
+Se Autorizo la tarjeta con numero de solicitud: 19
+Se Autorizo la tarjeta con numero de solicitud: 20
+Se Autorizo la tarjeta con numero de solicitud: 21
+Se Autorizo la tarjeta con numero de solicitud: 22
+Se Autorizo la tarjeta con numero de solicitud: 23
+Se Autorizo la tarjeta con numero de solicitud: 24
+Se Autorizo la tarjeta con numero de solicitud: 25
+Se Autorizo la tarjeta con numero de solicitud: 26
+Se Autorizo la tarjeta con numero de solicitud: 27
+Se Autorizo la tarjeta con numero de solicitud: 28
+Se Autorizo la tarjeta con numero de solicitud: 29
+Se Autorizo la tarjeta con numero de solicitud: 30
+Se Autorizo la tarjeta con numero de solicitud: 31
+Se Autorizo la tarjeta con numero de solicitud: 32
+Se Autorizo la tarjeta con numero de solicitud: 33
+Se Autorizo la tarjeta con numero de solicitud: 34
+Se Autorizo la tarjeta con numero de solicitud: 35
+Se Autorizo la tarjeta con numero de solicitud: 36
+Se Autorizo la tarjeta con numero de solicitud: 37
+Se Autorizo la tarjeta con numero de solicitud: 38
+Se Autorizo la tarjeta con numero de solicitud: 39
+Se Autorizo la tarjeta con numero de solicitud: 40
+Se Autorizo la tarjeta con numero de solicitud: 41
+Se Autorizo la tarjeta con numero de solicitud: 42
+Se Autorizo la tarjeta con numero de solicitud: 43
+Se Autorizo la tarjeta con numero de solicitud: 44
+Se Autorizo la tarjeta con numero de solicitud: 45
+Se Autorizo la tarjeta con numero de solicitud: 46
+Se Autorizo la tarjeta con numero de solicitud: 47
+Se Autorizo la tarjeta con numero de solicitud: 48
+Se Autorizo la tarjeta con numero de solicitud: 49
+Se Autorizo la tarjeta con numero de solicitud: 50
+Se Autorizo la tarjeta con numero de solicitud: 100
+Se Autorizo la tarjeta con numero de solicitud: 99
+Se Autorizo la tarjeta con numero de solicitud: 98
+Se Autorizo la tarjeta con numero de solicitud: 97
+Se Autorizo la tarjeta con numero de solicitud: 96
+Se Autorizo la tarjeta con numero de solicitud: 95
+Se Autorizo la tarjeta con numero de solicitud: 94
+Se Autorizo la tarjeta con numero de solicitud: 93
+Se Autorizo la tarjeta con numero de solicitud: 92
+Se Autorizo la tarjeta con numero de solicitud: 91
+Se Autorizo la tarjeta con numero de solicitud: 90
+Se Autorizo la tarjeta con numero de solicitud: 89
+Se Autorizo la tarjeta con numero de solicitud: 88
+Se Autorizo la tarjeta con numero de solicitud: 87
+Se Autorizo la tarjeta con numero de solicitud: 86
+Se Autorizo la tarjeta con numero de solicitud: 85
+Se Autorizo la tarjeta con numero de solicitud: 84
+Se Autorizo la tarjeta con numero de solicitud: 83
+Se Autorizo la tarjeta con numero de solicitud: 82
+Se Autorizo la tarjeta con numero de solicitud: 81
+Se Autorizo la tarjeta con numero de solicitud: 80
+Se Autorizo la tarjeta con numero de solicitud: 79
+Se Autorizo la tarjeta con numero de solicitud: 78
+Se Autorizo la tarjeta con numero de solicitud: 77
+Se Autorizo la tarjeta con numero de solicitud: 76
+Se Autorizo la tarjeta con numero de solicitud: 75
+Se Autorizo la tarjeta con numero de solicitud: 74
+Se Autorizo la tarjeta con numero de solicitud: 73
+Se Autorizo la tarjeta con numero de solicitud: 72
+Se Autorizo la tarjeta con numero de solicitud: 71
+Se Autorizo la tarjeta con numero de solicitud: 70
+Se Autorizo la tarjeta con numero de solicitud: 69
+Se Autorizo la tarjeta con numero de solicitud: 68
+Se Autorizo la tarjeta con numero de solicitud: 67
+Se Autorizo la tarjeta con numero de solicitud: 66
+Se Autorizo la tarjeta con numero de solicitud: 65
+Se Autorizo la tarjeta con numero de solicitud: 64
+Se Autorizo la tarjeta con numero de solicitud: 63
+Se Autorizo la tarjeta con numero de solicitud: 62
+Se Autorizo la tarjeta con numero de solicitud: 61
+Se Autorizo la tarjeta con numero de solicitud: 60
+Se Autorizo la tarjeta con numero de solicitud: 59
+Se Autorizo la tarjeta con numero de solicitud: 58
+Se Autorizo la tarjeta con numero de solicitud: 57
+Se Autorizo la tarjeta con numero de solicitud: 56
+Se Autorizo la tarjeta con numero de solicitud: 55
+Se Autorizo la tarjeta con numero de solicitud: 54
+Se Autorizo la tarjeta con numero de solicitud: 53
+Se Autorizo la tarjeta con numero de solicitud: 52
+Se Autorizo la tarjeta con numero de solicitud: 51
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0033
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0032
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0031
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0030
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0029
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0028
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0027
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0026
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0025
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0024
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0023
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0022
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0021
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0020
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0019
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0018
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0017
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0016
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6590-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0009
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0008
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0007
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0006
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0005
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0004
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0003
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0002
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6595-0001
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0015
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0014
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0013
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0012
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0011
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo CARGO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0010
+Se Realizo Movimiento tipo ABONO en Tarjeta: 4256-3102-6585-0010
+Se Genero un listado de Solicitudes
+Se Genero un listado de tarjetas

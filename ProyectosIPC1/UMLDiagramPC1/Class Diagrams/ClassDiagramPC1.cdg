@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ClassDiagramPC1">
+  <ClassDiagramComponents>
+    <Class name="Juego" package="" visibility="public" xPosition="389.0" yPosition="21.0">
+      <Fields>
+        <Field name="jugador" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Combate" returnType="void" visibility="public"/>
+        <Method name="Salir" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Jugador" package="" visibility="public" xPosition="64.0" yPosition="-4.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="nnumeroDePokemons" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="IniciarBatalla" returnType="void" visibility="public"/>
+        <Method name="EsperarBatalla" returnType="void" visibility="public"/>
+        <Method name="crearPokemon" returnType="String" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Alimento" package="" visibility="public" isAbstract="true" xPosition="888.0" yPosition="38.0">
+      <Fields>
+        <Field name="tipoAlimento" type="Object" visibility="private"/>
+        <Field name="cantidadAlimento" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="alimentar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Pokemon" package="" visibility="public" xPosition="658.0" yPosition="147.0">
+      <Fields>
+        <Field name="puntosDeVida" type="int" visibility="public" isStatic="true"/>
+        <Field name="nivel" type="int" visibility="public" isStatic="true"/>
+        <Field name="imagenPokemon" type="Object" visibility="private"/>
+        <Field name="nombrePokemon" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Alimentar" returnType="void" visibility="public"/>
+        <Method name="Revivir" returnType="void" visibility="public"/>
+        <Method name="Eliminar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Reporte" package="" visibility="public" xPosition="437.0" yPosition="315.0">
+      <Fields>
+        <Field name="tipoDeReporte" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Combate" package="" visibility="public" xPosition="571.0" yPosition="-31.0">
+      <Fields>
+        <Field name="retador" type="String" visibility="private"/>
+        <Field name="adversario" type="String" visibility="private"/>
+        <Field name="untitledField" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="combatir" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Retador" package="" visibility="public" xPosition="-30.0" yPosition="235.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="numeroDePokemons" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="GenerarCodigoinicial" returnType="String" visibility="public"/>
+        <Method name="Atacar" returnType="String" visibility="public"/>
+        <Method name="Huir" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Adversario" package="" visibility="public" xPosition="203.0" yPosition="219.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="numeroDePokemons" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="EsperarCodigoInicial" returnType="String" visibility="public"/>
+        <Method name="Atacar" returnType="String" visibility="public"/>
+        <Method name="Huir" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Alimento2" package="" visibility="public" xPosition="131.0" yPosition="646.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Alimento1" package="" visibility="public" xPosition="84.0" yPosition="557.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Visual" package="" visibility="public" xPosition="303.0" yPosition="646.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Estado" package="" visibility="public" xPosition="31.0" yPosition="438.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Actividad" package="" visibility="public" xPosition="469.0" yPosition="646.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MejorAimento" package="" visibility="public" xPosition="641.0" yPosition="646.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Batalla" package="" visibility="public" xPosition="695.0" yPosition="534.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MejorPokemon" package="" visibility="public" xPosition="667.0" yPosition="399.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="mostrarReporte" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Saludable" package="" visibility="public" xPosition="1154.0" yPosition="-6.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="realizarActividad" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Dañino" package="" visibility="public" xPosition="1154.0" yPosition="90.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="realizarActividad" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Buena" package="" visibility="public" xPosition="1154.0" yPosition="219.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="realizarActividad" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mala" package="" visibility="public" xPosition="1171.0" yPosition="359.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="realizarActividad" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Actividad1" package="" visibility="public" xPosition="906.0" yPosition="267.0">
+      <Methods>
+        <Method name="realizarActividad" returnType="String" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Dañino" target="Alimento"/>
+    <HasRelation name="ag" source="Pokemon" target="Alimento" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Retador" target="Jugador"/>
+    <IsRelation name="is" source="Visual" target="Reporte"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Mala" target="Actividad1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Buena" target="Actividad1"/>
+    <IsRelation name="is" source="MejorPokemon" target="Reporte"/>
+    <IsRelation name="is" source="Actividad" target="Reporte"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="Pokemon" target="Actividad1"/>
+    <IsRelation name="is" source="Batalla" target="Reporte"/>
+    <IsRelation name="is" source="Estado" target="Reporte"/>
+    <HasRelation name="tiene" source="Juego" target="Jugador" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="ag" source="Juego" target="Reporte" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Adversario" target="Jugador"/>
+    <IsRelation name="is" source="Alimento1" target="Reporte"/>
+    <HasRelation name="comp" source="Juego" target="Pokemon" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Alimento2" target="Reporte"/>
+    <IsRelation name="is" source="Saludable" target="Alimento"/>
+    <IsRelation name="is" source="MejorAimento" target="Reporte"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
