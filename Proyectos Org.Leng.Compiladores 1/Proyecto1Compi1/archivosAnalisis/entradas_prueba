@@ -1,0 +1,1513 @@
+
+/*********************
+<acciones>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_historia3]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_HISTORIA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_historia4]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_HISTORIA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_historia5]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_HISTORIA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_novela1]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_NOVELA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_novela2]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_NOVELA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_novela3]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_NOVELA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_novela4]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_NOVELA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_novela5]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_NOVELA]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_billete1]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_BILLETES]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_billete2]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_BILLETES]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_billete3]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_BILLETES]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_billete4]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_BILLETES]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_billete5]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_BILLETES]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+</acciones>
+
+/******************
+
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="BORRAR_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="MODIFICAR_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos1]
+            </parametro>
+    </parametros>
+</accion>
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos2]
+            </parametro>
+    </parametros>
+</accion>
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos3]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Titulo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_pagina1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo1 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Parrafo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos2]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo2 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#4A4A4A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Imagen-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos3]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [IMAGEN]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [IZQUIERDA]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Video-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos4]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [VIDEO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.youtube.com/watch?v=uKT24KzqMQU]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [150]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Menu-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos5]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_padre1]
+            </atributo>
+            <atributo nombre= "ETIQUETAS" >
+                  [etiqueta1|otraEtiqueta|Una_mas]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Titulo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_pagina1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo1 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Parrafo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos2]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo2 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#4A4A4A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Imagen-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos3]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [IMAGEN]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [IZQUIERDA]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Video-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos4]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [VIDEO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.youtube.com/watch?v=uKT24KzqMQU]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [150]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Menu-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos5]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_padre1]
+            </atributo>
+            <atributo nombre= "ETIQUETAS" >
+                  [etiqueta1|otraEtiqueta|Una_mas]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre="BORRAR_COMPONENTE">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos1]
+              </parametro>
+              <parametro nombre="PAGINA">
+                  [_PadreProductos1]
+              </parametro>
+    </parametros>
+</accion>
+<accion nombre="BORRAR_COMPONENTE">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos2]
+              </parametro>
+              <parametro nombre="PAGINA">
+                  [_PadreProductos2]
+              </parametro>
+    </parametros>
+</accion>
+
+<acciones>
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+</acciones>
+
+<acciones>
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="BORRAR_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="MODIFICAR_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [IMAGEN]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [IZQUIERDA]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [VIDEO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.youtube.com/watch?v=uKT24KzqMQU]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_padre1]
+            </atributo>
+            <atributo nombre= "ETIQUETAS" >
+                  [etiqueta1|otraEtiqueta|Una_mas]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [IMAGEN]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [IZQUIERDA]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [VIDEO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.youtube.com/watch?v=uKT24KzqMQU]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_comp-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_padre1]
+            </atributo>
+            <atributo nombre= "ETIQUETAS" >
+                  [etiqueta1|otraEtiqueta|Una_mas]
+            </atributo>
+    </atributos>
+</accion>
+</acciones>
+
+
+////OTRAS ACCIONES
+<acciones>
+<accion nombre="MODIFICAR_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos1]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo1]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas1]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor1]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="MODIFICAR_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos2]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo2]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas2]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor2]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user2]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-04]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-04]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user2]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta3"/ >
+            <etiqueta valor= "etiqueta4"/ >
+    </etiquetas>
+</accion>
+
+</acciones>
+
+/////mas acciones
+
+<acciones>
+<accion nombre="NUEVO_SITIO_WEB">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="BORRAR_SITIO_WEB">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre="NUEVA_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="MODIFICAR_PAGINA">
+    <parametros>
+            <parametro nombre="ID">
+                  [_productos]
+            </parametro>
+            <parametro nombre="TITULO">
+                  [Primer Titulo]
+            </parametro>
+            <parametro nombre="SITIO">
+                  [_ventas]
+            </parametro>
+            <parametro nombre="PADRE">
+                  [_porMayor]
+            </parametro>
+            <parametro nombre="USUARIO_CREACION">
+                  [_user1]
+            </parametro>
+            <parametro nombre="FECHA_CREACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="FECHA_MODIFICACION">
+                  [2018-04-03]
+            </parametro>
+            <parametro nombre="USUARIO_MODIFICACION">
+                  [_user1]
+            </parametro>
+    </parametros>
+    <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos1]
+            </parametro>
+    </parametros>
+</accion>
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos2]
+            </parametro>
+    </parametros>
+</accion>
+<accion nombre="BORRAR_PAGINA">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos3]
+            </parametro>
+    </parametros>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Titulo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_pagina1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo1 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Parrafo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos2]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo2 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#4A4A4A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Imagen-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos3]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [IMAGEN]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [IZQUIERDA]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Video-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos4]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [VIDEO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.youtube.com/watch?v=uKT24KzqMQU]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [150]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Menu-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos5]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_padre1]
+            </atributo>
+            <atributo nombre= "ETIQUETAS" >
+                  [etiqueta1|otraEtiqueta|Una_mas]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Titulo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_pagina1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo1 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Parrafo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos2]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo2 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#4A4A4A]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Imagen-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos3]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [IMAGEN]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [75]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [IZQUIERDA]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Video-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos4]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [VIDEO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "ORIGEN" >
+                  [https://www.youtube.com/watch?v=uKT24KzqMQU]
+            </atributo>
+            <atributo nombre= "ALTURA" >
+                  [100]
+            </atributo>
+            <atributo nombre= "ANCHO" >
+                  [150]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Menu-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_productos5]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_padre1]
+            </atributo>
+            <atributo nombre= "ETIQUETAS" >
+                  [etiqueta1|otraEtiqueta|Una_mas]
+            </atributo>
+    </atributos>
+</accion>
+
+<accion nombre="BORRAR_COMPONENTE">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos1]
+              </parametro>
+              <parametro nombre="PAGINA">
+                  [_PadreProductos1]
+              </parametro>
+    </parametros>
+</accion>
+<accion nombre="BORRAR_COMPONENTE">
+    <parametros>
+              <parametro nombre="ID">
+                  [_productos2]
+              </parametro>
+              <parametro nombre="PAGINA">
+                  [_PadreProductos2]
+              </parametro>
+    </parametros>
+</accion>
+</acciones>

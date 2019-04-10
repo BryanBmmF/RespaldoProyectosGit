@@ -1,0 +1,1197 @@
+package proyecto1compi1;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java_cup.runtime.*;
+import proyecto1compi1.backend.acciones.*;
+import proyecto1compi1.backend.etiquetas.*;
+import proyecto1compi1.backend.Componentes.*;
+import proyecto1compi1.backend.usuarios.Log;
+import javax.swing.JTextArea;
+
+parser code {:
+	
+	private JTextArea textArea;
+	private AccionCrearSitio crearSitio;
+	private AccionEliminarSitio eliminarSitio;
+	private AccionCrearPagina crearPagina;
+	private AccionModificarPagina modificarPagina;
+	private AccionEliminarPagina eliminarPagina;
+	private AccionAgregarComponente agregarComponente;
+	private AccionModificarComponente modificarComponente;
+	private AccionEliminarComponente eliminarComponente;
+
+	private ComponenteTitulo compTitulo;
+	private ComponenteParrafo compParrafo;
+	private ComponenteImagen compImagen;
+	private ComponenteVideo compVideo;
+	private ComponenteMenu compMenu;
+	private Componentes componenteClase;
+	private Alineaciones alineacionTipo;
+
+	private Log logger;
+	//private Etiqueta nuevaEtiqueta;
+	private List<Etiqueta> listaEtiquetas;
+	private List<String> listaErrores;
+	private List<Accion> listaAcciones;
+
+	public parser(Lexer lexer, JTextArea textArea) {
+		super(lexer);
+		this.textArea = textArea;
+		this.listaErrores = new ArrayList();
+        this.listaErrores.clear();
+        this.listaAcciones = new ArrayList();
+        this.logger = Log.getInstance();
+		this.inicializarAcciones();
+		this.inicializarComponentes();
+	}
+	public void limpiarListas(){
+                listaErrores.clear();
+                listaAcciones.clear();
+    }
+
+	public void syntax_error(Symbol cur_token) {
+		String error = "Estructura invalida:   " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + "   Token: " + cur_token.value;
+		System.out.println(error);
+		listaErrores.add(error);
+		textArea.append("\nError Sintactico:\n" + error);
+	}
+
+	public void unrecovered_sintax_error(Symbol cur_token) throws java.lang.Exception{
+		String error = "Estructura invalida:   " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + "   Token: " + cur_token.value;
+		System.out.println(error);
+		listaErrores.add(error);
+		textArea.append("\nError Sintactico:\n" + error);
+	}
+
+	//metodo inicializador de acciones
+	public void inicializarAcciones(){
+			this.crearSitio = new AccionCrearSitio();//si no da poner cada null en el constructor
+			this.eliminarSitio = new AccionEliminarSitio();
+			this.crearPagina = new AccionCrearPagina();
+			this.modificarPagina = new AccionModificarPagina();
+			this.eliminarPagina = new AccionEliminarPagina();
+			this.agregarComponente = new AccionAgregarComponente();
+			this.modificarComponente = new AccionModificarComponente();
+			this.eliminarComponente = new AccionEliminarComponente();
+			//this.nuevaEtiqueta = new Etiqueta();
+			this.listaEtiquetas = new ArrayList();
+	}
+	public void inicializarComponentes(){
+			this.compTitulo = new ComponenteTitulo();
+			this.compParrafo = new ComponenteParrafo();
+			this.compImagen = new ComponenteImagen();
+			this.compVideo = new ComponenteVideo();
+			this.compMenu = new ComponenteMenu();
+			this.componenteClase = null;
+			this.alineacionTipo = null;
+	}
+	public void agregarparametrosFaltantesSitio(){
+			
+			if (crearSitio.getUsuarioCreacion()==null){
+				crearSitio.setUsuarioCreacion(logger.getUser());
+			} 
+			if (crearSitio.getUsuarioModificacion()==null){
+				crearSitio.setUsuarioModificacion(logger.getUser());
+			}
+			if (crearSitio.getFechaCreacion()==null){
+				crearSitio.setFechaCreacion(logger.getFecha());
+			}
+			if (crearSitio.getFechaModificacion()==null){
+				crearSitio.setFechaModificacion(logger.getFecha());
+			}
+	}
+	public void agregarparametrosFaltantesPagina(){
+			
+			if (crearPagina.getUsuarioCreacion()==null){
+				crearPagina.setUsuarioCreacion(logger.getUser());
+			} 
+			if (crearPagina.getUsuarioModificacion()==null){
+				crearPagina.setUsuarioModificacion(logger.getUser());
+			}
+			if (crearPagina.getFechaCreacion()==null){
+				crearPagina.setFechaCreacion(logger.getFecha());
+			}
+			if (crearPagina.getFechaModificacion()==null){
+				crearPagina.setFechaModificacion(logger.getFecha());
+			}
+
+	}
+
+	public void agregarparametrosFaltantesModifPagina(){
+			
+			if (modificarPagina.getUsuarioCreacion()==null){
+				modificarPagina.setUsuarioCreacion(logger.getUser());
+			} 
+			if (modificarPagina.getUsuarioModificacion()==null){
+				modificarPagina.setUsuarioModificacion(logger.getUser());
+			}
+			if (modificarPagina.getFechaCreacion()==null){
+				modificarPagina.setFechaCreacion(logger.getFecha());
+			}
+			if (modificarPagina.getFechaModificacion()==null){
+				modificarPagina.setFechaModificacion(logger.getFecha());
+			}
+
+	}
+
+	/*metodo  para agregar una nueva accion a la lista de acciones*/
+	public void agregarAccionCrearSitio(){
+			listaAcciones.add(crearSitio);
+	}
+	public void agregarAccionEliminarSitio(){
+			listaAcciones.add(eliminarSitio);
+	}
+	public void agregarAccionCrearPagina(){
+			listaAcciones.add(crearPagina);
+	}
+	public void agregarAccionModificarPagina(){
+			listaAcciones.add(modificarPagina);
+	}
+	public void agregarAccionEliminarPagina(){
+			listaAcciones.add(eliminarPagina);
+	}
+	public void agregarAccionAgregarComponente(){
+			listaAcciones.add(agregarComponente);
+	}
+	public void agregarAccionModificarComponente(){
+			listaAcciones.add(modificarComponente);
+	}
+	public void agregarAccionEliminarComponente(){
+			listaAcciones.add(eliminarComponente);
+	}
+
+	/*metodos para manejo de etiquetas*/
+	public void agregarEtiqueta(String valor){
+			boolean add=true;
+			for(Etiqueta eti: this.listaEtiquetas){
+				if (eti.getValor().equals(valor)){
+					/* code */
+					add=false;
+					break;
+				}
+			}
+			if (add){
+				listaEtiquetas.add(new Etiqueta(valor));
+			} else {
+				listaErrores.add("Error: Existen etiquetas con el mismo nombre en la accion NUEVA_PAGINA...");
+			}
+	}
+
+
+	public void setAtributoEtiqueas(String etiquetas){
+			String[] lista = etiquetas.split("\\|");
+			for(String s:lista){
+            		agregarEtiqueta(s);
+        	}
+	}
+
+
+	/*lista que devuelve las acciones generadas*/
+	public List<Accion> devolverAcciones(){
+			return listaAcciones;
+	}
+	/*lista que devuelve los errores encontrados*/
+	public List<String> devolverErrores(){
+			return listaErrores;
+	}
+
+	/* PARA CREAR SITIO*/
+	public void setIdSitio(String id){
+			if (crearSitio.getId()==null){
+				crearSitio.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accin NUEVO_SITIO_WEB...");
+			}
+
+	}
+
+	public void setUserCreacionSitio(String user){
+			if (crearSitio.getUsuarioCreacion()==null){
+				crearSitio.setUsuarioCreacion(user);
+			} else {
+				listaErrores.add("Error: el parametro Usuario Creacion se repite mas de una vez en la accin NUEVO_SITIO_WEB...");
+			}
+
+	}
+
+	public void setUserModificacionSitio(String user){
+			if (crearSitio.getUsuarioModificacion()==null){
+				crearSitio.setUsuarioModificacion(user);
+			} else {
+				listaErrores.add("Error: el parametro Usuario Modificacion se repite mas de una vez en la accin NUEVO_SITIO_WEB...");
+			}
+
+	}
+
+	public void setFechaCreacionSitio(String fecha){
+			LocalDate fecha2 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+			if (crearSitio.getFechaCreacion()==null){
+				crearSitio.setFechaCreacion(fecha2);
+			} else {
+				listaErrores.add("Error: el parametro Fecha Creacion se repite mas de una vez en la accin NUEVO_SITIO_WEB...");
+			}
+
+	}
+	public void setFechaModificacionSitio(String fecha){
+			LocalDate fecha2 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+			if (crearSitio.getUsuarioModificacion()==null){
+				crearSitio.setFechaModificacion(fecha2);
+			} else {
+				listaErrores.add("Error: el parametro Usuario modificacion se repite mas de una vez en la accin NUEVO_SITIO_WEB...");
+			}
+
+	}
+
+	/*PARA ELIMINAR SITIO*/
+	public void setIdEliminarSitio(String id){
+			if (eliminarSitio.getId()==null){
+				eliminarSitio.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion BORRAR_SITIO_WEB...");
+			}
+
+	}
+
+	/*PARA CREAR PAGINA*/
+	public void setIdPagina(String id){
+			if (crearPagina.getId()==null){
+				crearPagina.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+	public void setTituloPagina(String titulo){
+			if (crearPagina.getTitulo()==null){
+				crearPagina.setTitulo(titulo);
+			} else {
+				listaErrores.add("Error: el parametro TITULO se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+	public void setIdSitioPagina(String id){
+			if (crearPagina.getIdSitio()==null){
+				crearPagina.setIdSitio(id);
+			} else {
+				listaErrores.add("Error: el parametro Id SITIO se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+
+	public void setIdPaginaPadrePagina(String id){
+			if (crearPagina.getIdPaginaPadre()==null){
+				crearPagina.setIdPaginaPadre(id);
+			} else {
+				listaErrores.add("Error: el parametro Id PAGINA PADRE se repite mas de una vez en la accion NUEVA_PAGINA..");
+			}
+
+	}
+
+	public void setUserCreacionPagina(String user){
+			if (crearPagina.getUsuarioCreacion()==null){
+				crearPagina.setUsuarioCreacion(user);
+			} else {
+				listaErrores.add("Error: el parametro Usuario Creacion se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+
+	public void setUserModificacionPagina(String user){
+			if (crearPagina.getUsuarioModificacion()==null){
+				crearPagina.setUsuarioModificacion(user);
+			} else {
+				listaErrores.add("Error: el parametro Usuario Modificacion se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+
+	public void setFechaCreacionPagina(String fecha){
+			LocalDate fecha2 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+			if (crearPagina.getFechaCreacion()==null){
+				crearPagina.setFechaCreacion(fecha2);
+			} else {
+				listaErrores.add("Error: el parametro Fecha Creacion se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+	public void setFechaModificacionPagina(String fecha){
+			LocalDate fecha2 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+			if (crearPagina.getUsuarioModificacion()==null){
+				crearPagina.setFechaModificacion(fecha2);
+			} else {
+				listaErrores.add("Error: el parametro Usuario modificacion se repite mas de una vez en la accion NUEVA_PAGINA...");
+			}
+
+	}
+	public void setEtiquetasPagina(){
+				crearPagina.setListaEtiquetas(listaEtiquetas);
+	}
+
+	/*PARA MODIFICAR PAGINA*/
+	public void setIdModifPagina(String id){
+			if (modificarPagina.getId()==null){
+				modificarPagina.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+	public void setTituloModifPagina(String titulo){
+			if (modificarPagina.getTitulo()==null){
+				modificarPagina.setTitulo(titulo);
+			} else {
+				listaErrores.add("Error: el parametro TITULO se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+	public void setIdSitioModifPagina(String id){
+			if (modificarPagina.getIdSitio()==null){
+				modificarPagina.setIdSitio(id);
+			} else {
+				listaErrores.add("Error: el parametro Id SITIO se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+
+	public void setIdPaginaPadreModifPagina(String id){
+			if (modificarPagina.getIdPaginaPadre()==null){
+				modificarPagina.setIdPaginaPadre(id);
+			} else {
+				listaErrores.add("Error: el parametro Id PAGINA PADRE se repite mas de una vez en la accion MODIFICAR_PAGINA..");
+			}
+
+	}
+
+	public void setUserCreacionModifPagina(String user){
+			if (modificarPagina.getUsuarioCreacion()==null){
+				modificarPagina.setUsuarioCreacion(user);
+			} else {
+				listaErrores.add("Error: el parametro Usuario Creacion se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+
+	public void setUserModificacionModifPagina(String user){
+			if (modificarPagina.getUsuarioModificacion()==null){
+				modificarPagina.setUsuarioModificacion(user);
+			} else {
+				listaErrores.add("Error: el parametro Usuario Modificacion se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+
+	public void setFechaCreacionModifPagina(String fecha){
+			LocalDate fecha2 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+
+			if (modificarPagina.getFechaCreacion()==null){
+				modificarPagina.setFechaCreacion(fecha2);
+			} else {
+				listaErrores.add("Error: el parametro Fecha Creacion se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+	public void setFechaModificacionModifPagina(String fecha){
+			LocalDate fecha2 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+			if (modificarPagina.getUsuarioModificacion()==null){
+				modificarPagina.setFechaModificacion(fecha2);
+			} else {
+				listaErrores.add("Error: el parametro Usuario modificacion se repite mas de una vez en la accion MODIFICAR_PAGINA...");
+			}
+
+	}
+	public void setEtiquetasModifPagina(){
+				modificarPagina.setListaEtiquetas(listaEtiquetas);
+	}
+
+	/*PARA ELIMINAR PAGINA*/
+	public void setIdEliminarPagina(String id){
+			if (eliminarPagina.getId()==null){
+				eliminarPagina.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion BORRAR_PAGINA...");
+			}
+
+	}
+
+	/*PARA AGREGAR COMPONENTE */
+	public void setIdComponente(String id){
+			if (agregarComponente.getId()==null){
+				agregarComponente.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion AGREGAR_COMPONENTE...");
+			}
+
+	}
+	public void setIdPaginaComponente(String id){
+			if (agregarComponente.getIdPagina()==null){
+				agregarComponente.setIdPagina(id);
+			} else {
+				listaErrores.add("Error: el parametro id_Pagina se repite mas de una vez en la accion AGREGAR_COMPONENTE...");
+			}
+
+	}
+	public void setClaseComponente(Componente comp){
+			if (agregarComponente.getClaseComponente()==null){
+				agregarComponente.setClaseComponente(comp);
+			} else {
+				listaErrores.add("Error: el parametro clase se repite mas de una vez en la accion AGREGAR_COMPONENTE...");
+			}
+
+	}
+	/*PARA MODIFICAR COMPONENTE */
+	public void setIdModifComponente(String id){
+			if (modificarComponente.getId()==null){
+				modificarComponente.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion MODIFICAR_COMPONENTE...");
+			}
+
+	}
+	public void setIdPaginaModifComponente(String id){
+			if (modificarComponente.getIdPagina()==null){
+				modificarComponente.setIdPagina(id);
+			} else {
+				listaErrores.add("Error: el parametro id_Pagina se repite mas de una vez en la accion MODIFICAR_COMPONENTE...");
+			}
+
+	}
+	public void setClaseModifComponente(Componente comp){
+			if (modificarComponente.getClaseComponente()==null){
+				modificarComponente.setClaseComponente(comp);
+			} else {
+				listaErrores.add("Error: el parametro clase se repite mas de una vez en la accion MODIFICAR_COMPONENTE...");
+			}
+
+	}
+	/*PARA ELIMINAR COMPONENTE */
+	public void setIdEliminarComponente(String id){
+			if (eliminarComponente.getId()==null){
+				eliminarComponente.setId(id);
+			} else {
+				listaErrores.add("Error: el parametro id se repite mas de una vez en la accion BORRAR_COMPONENTE...");
+			}
+
+	}
+	public void setIdPaginaEliminarComponente(String id){
+			if (eliminarComponente.getIdPagina()==null){
+				eliminarComponente.setIdPagina(id);
+			} else {
+				listaErrores.add("Error: el parametro id_Pagina se repite mas de una vez en la accion BORRAR_COMPONENTE...");
+			}
+
+	}
+
+	/*RETORNOS DE CADA COMPONENTE*/
+	public Componente retornarCompTitulo(){
+		return this.compTitulo;
+	}
+	public Componente retornarCompParrafo(){
+		return this.compParrafo;
+	}
+	public Componente retornarCompImagen(){
+		return this.compImagen;
+	}
+	public Componente retornarCompVideo(){
+		return this.compVideo;
+	}
+	public Componente retornarCompMenu(){
+		return this.compMenu;
+	}
+
+	public Componentes retornarComponenteClase(){
+		return this.componenteClase;
+	}
+	public Alineaciones retornarAlineacionTipo(String tipo){
+		switch(tipo){
+			case "CENTRAR":
+				return this.alineacionTipo.CENTRAR;
+			case "DERECHA":
+				return this.alineacionTipo.DERECHA;
+			case "IZQUIERDA":
+				return this.alineacionTipo.IZQUIERDA;
+			case "JUSTIFICAR":
+				return this.alineacionTipo.JUSTIFICAR;
+
+		}
+		return null;
+	}
+
+	/********COMPONENTES***************/
+
+	/*PARA ATRIBUTOS COMPONENTE TITULO*/
+	public void setClaseCompTitulo(Componentes clase){
+			if (compTitulo.getClaseComponente()==null){
+				compTitulo.setClaseComponente(clase);
+			} else {
+				listaErrores.add("Error: se repite la clase de componente en el componente TITULO...");
+			}
+
+	}
+	public void setTextoCompTitulo(String texto){
+			if (compTitulo.getTexto()==null){
+				compTitulo.setTexto(texto);
+			} else {
+				listaErrores.add("Error: se repite el Atributo TEXTO en el componente TITULO...");
+			}
+
+	}
+	public void setColorCompTitulo(String color){
+			if (compTitulo.getColor()==null){
+				compTitulo.setColor(color);
+			} else {
+				listaErrores.add("Error: se repite el Atributo COLOR en el componente TITULO...");
+			}
+
+	}
+	public void setAlineacionCompTitulo(Alineaciones alineacion){
+			if (compTitulo.getAlineacion()==null){
+				compTitulo.setAlineacion(alineacion);
+			} else {
+				listaErrores.add("Error: se repite el Atributo ALINEACION en el componente TITULO...");
+			}
+
+	}
+
+	/*PARA ATRIBUTOS COMPONENTE PARRAFO*/
+	public void setClaseCompParrafo(Componentes clase){
+			if (compParrafo.getClaseComponente()==null){
+				compParrafo.setClaseComponente(clase);
+			} else {
+				listaErrores.add("Error: se repite la clase de componente en el componente PARRAFO...");
+			}
+
+	}
+	public void setTextoCompParrafo(String texto){
+			if (compParrafo.getTexto()==null){
+				compParrafo.setTexto(texto);
+			} else {
+				listaErrores.add("Error: se repite el Atributo TEXTO en el componente PARRAFO...");
+			}
+
+	}
+	public void setColorCompParrafo(String color){
+			if (compParrafo.getColor()==null){
+				compParrafo.setColor(color);
+			} else {
+				listaErrores.add("Error: se repite el Atributo COLOR en el componente PARRAFO...");
+			}
+
+	}
+	public void setAlineacionCompParrafo(Alineaciones alineacion){
+			if (compParrafo.getAlineacion()==null){
+				compParrafo.setAlineacion(alineacion);
+			} else {
+				listaErrores.add("Error: se repite el Atributo ALINEACION en el componente PARRAFO...");
+			}
+
+	}
+
+		/*PARA ATRIBUTOS COMPONENTE IMAGEN*/
+	public void setClaseCompImagen(Componentes clase){
+			if (compImagen.getClaseComponente()==null){
+				compImagen.setClaseComponente(clase);
+			} else {
+				listaErrores.add("Error: se repite la clase de componente en el componente IMAGEN...");
+			}
+
+	}
+	public void setOrigenCompImagen(String url){
+			if (compImagen.getOrigen()==null){
+				compImagen.setOrigen(url);
+			} else {
+				listaErrores.add("Error: se repite el Atributo ORIGEN en el componente IMAGEN...");
+			}
+
+	}
+	public void setAlturaCompImagen(String altura){
+			if (compImagen.getAltura()==null){
+				compImagen.setAltura(new Integer(altura));
+			} else {
+				listaErrores.add("Error: se repite el Atributo ALTURA en el componente IMAGEN...");
+			}
+
+	}
+	public void setAnchoCompImagen(String ancho){
+			if (compImagen.getAncho()==null){
+				compImagen.setAncho(new Integer(ancho));
+			} else {
+				listaErrores.add("Error: se repite el Atributo ANCHO en el componente IMAGEN...");
+			}
+
+	}
+	public void setAlineacionCompImagen(Alineaciones alineacion){
+			if (compImagen.getAlineacion()==null){
+				compImagen.setAlineacion(alineacion);
+			} else {
+				listaErrores.add("Error: se repite el Atributo ALINEACION en el componente IMAGEN...");
+			}
+
+	}
+
+			/*PARA ATRIBUTOS COMPONENTE VIDEO*/
+	public void setClaseCompVideo(Componentes clase){
+			if (compVideo.getClaseComponente()==null){
+				compVideo.setClaseComponente(clase);
+			} else {
+				listaErrores.add("Error: se repite la clase de componente en el componente VIDEO...");
+			}
+
+	}
+	public void setOrigenCompVideo(String url){
+			if (compVideo.getOrigen()==null){
+				compVideo.setOrigen(url);
+			} else {
+				listaErrores.add("Error: se repite el Atributo ORIGEN en el componente VIDEO...");
+			}
+
+	}
+	public void setAlturaCompVideo(String altura){
+			if (compVideo.getAltura()==null){
+				compVideo.setAltura(new Integer(altura));
+			} else {
+				listaErrores.add("Error: se repite el Atributo ALTURA en el componente VIDEO...");
+			}
+
+	}
+	public void setAnchoCompVideo(String ancho){
+			if (compVideo.getAncho()==null){
+				compVideo.setAncho(new Integer(ancho));
+			} else {
+				listaErrores.add("Error: se repite el Atributo ANCHO en el componente VIDEO...");
+			}
+
+	}
+
+	/*PARA ATRIBUTOS COMPONENTE MENU*/
+	public void setClaseCompMenu(Componentes clase){
+			if (compMenu.getClaseComponente()==null){
+				compMenu.setClaseComponente(clase);
+			} else {
+				listaErrores.add("Error: se repite la clase de componente en el componente MENU...");
+			}
+
+	}
+	public void setIdPadreCompMenu(String id){
+			if (compMenu.getIdPadre()==null){
+				compMenu.setIdPadre(id);
+			} else {
+				listaErrores.add("Error: se repite el Atributo ID_PADRE en el componente MENU...");
+			}
+
+	}
+	public void setEtiquetasCompMenu(){
+				compMenu.setListaEtiquetas(listaEtiquetas);
+	}
+
+
+	//public void ejecutarComandoLs(ComandoLs ls) {
+	//		Comando<ComandoLs> comandLs = new ImplementComandoLs();
+	//		comandLs.ejecutarComando(ls, this.controlArbol,this.textArea);
+	//}
+	
+
+:}
+
+/* Terminals (tokens returned by the scanner). */
+//simbolos terminales
+terminal String	DIAGONAL,ABRE,CIERRA,IGUAL;
+//palabras reservadas
+terminal String	ACCION;
+terminal String	ACCIONES;
+terminal String	NOMBRE;
+terminal String PARAMETRO;
+terminal String PARAMETROS;
+terminal String ETIQUETA;
+terminal String ETIQUETAS;
+terminal String VALOR;
+terminal String ATRIBUTO;
+terminal String ATRIBUTOS;
+
+terminal String NUEVO_SITIO_WEB;
+terminal String BORRAR_SITIO_WEB;
+terminal String NUEVA_PAGINA;
+terminal String BORRAR_PAGINA;
+terminal String MODIFICAR_PAGINA;
+terminal String AGREGAR_COMPONENTE;
+terminal String BORRAR_COMPONENTE;
+terminal String MODIFICAR_COMPONENTE;
+
+terminal String ID;
+terminal String USUARIO_CREACION;
+terminal String USUARIO_MODIFICACION;
+terminal String FECHA_CREACION;
+terminal String FECHA_MODIFICACION;
+//PARA PAGINAS
+terminal String TITULO;
+terminal String SITIO;
+terminal String PADRE;
+//PARA COMPONENTES
+terminal String PAGINA;
+terminal String CLASE;
+
+//PALABRAS RESERVADAS PARA LOS ATRIBUTOS DE CADA COMPONENTE
+terminal String TEXTO;
+terminal String ALINEACION;
+terminal String COLOR;
+terminal String ORIGEN;
+terminal String ALTURA;
+terminal String ANCHO;
+//PADRE YA SE DECLARO
+terminal String ATRIBUTO_ETIQUETAS;
+
+//PARAMETROS
+terminal String PARAMETRO_ID;
+terminal String PARAMETRO_URL;
+terminal String PARAMETRO_FECHA;
+terminal String PARAMETRO_COLOR;
+terminal String PARAMETRO_TITULO;
+terminal String PARAMETRO_PARRAFO;
+terminal String PARAMETRO_IMAGEN;
+terminal String PARAMETRO_VIDEO;
+terminal String PARAMETRO_MENU;
+terminal String PARAMETRO_ATRIBUTO_ETIQUETAS;
+terminal String PARAMETRO_TODO_TEXTO;
+terminal String PARAMETRO_ALINEACION;
+terminal String PARAMETRO_ENTERO;
+
+terminal String NOMBRE_ETIQUETA;
+
+/* Non-terminals */
+non terminal String	inicio_accion, fin_accion;
+non terminal String	inicio_acciones, fin_acciones;
+non terminal String	inicio_parametros, fin_parametros;
+non terminal String	inicio_parametro, fin_parametro;
+non terminal String	inicio_atributos, fin_atributos;
+non terminal String	inicio_atributo, fin_atributo;
+non terminal String	inicio_etiquetas, fin_etiquetas;
+non terminal String	param_id;
+non terminal String	param_user_creacion;
+non terminal String	param_f_creacion;
+non terminal String	param_f_modificacion;
+non terminal String	param_user_modificacion;
+non terminal String	param_titulo;
+non terminal String	param_sitio;
+non terminal String	param_padre;
+non terminal String	param_pagina;
+non terminal String	param_clase_titulo;
+non terminal String	param_clase_parrafo;
+non terminal String	param_clase_imagen;
+non terminal String	param_clase_video;
+non terminal String	param_clase_menu;
+non terminal String	param_n_etiquetas;
+non terminal String	param_etiqueta;
+
+non terminal String	atrib_texto;
+non terminal Alineaciones atrib_alineacion;
+non terminal String	atrib_color;
+non terminal String	atrib_origen;
+non terminal String	atrib_altura;
+non terminal String	atrib_ancho;
+non terminal String	atrib_padre;
+non terminal String	atrib_etiquetas;
+
+non terminal String	parametros_crear_sitio;
+non terminal String	param_crear_sitio;
+non terminal String	parametros_crear_pagina;
+non terminal String	param_crear_pagina;
+
+non terminal String	param_atrib_agregar_comp;
+non terminal String	parametros_agregar_titulo;
+non terminal String	parametros_agregar_parrafo;
+non terminal String	parametros_agregar_imagen;
+non terminal String	parametros_agregar_video;
+non terminal String	parametros_agregar_menu;
+non terminal String	param_comunes;
+
+non terminal String	atributos_titulo;
+non terminal String	atributos_imagen;
+non terminal String	atributos_video;
+non terminal String	atributos_menu;
+non terminal String	n_atributos_titulo;
+non terminal String	n_atributos_imagen;
+non terminal String	n_atributos_video;
+non terminal String	n_atributos_menu;
+
+non terminal acciones;
+non terminal acciones_iniciales;
+non terminal Accion accion;
+non terminal Accion ac_crear_sitio;
+non terminal Accion ac_eliminar_sitio;
+non terminal Accion ac1_crear_pagina;
+non terminal Accion ac2_crear_pagina;
+non terminal Accion acc_crear_pagina;
+non terminal Accion ac1_modificar_pagina;
+non terminal Accion ac2_modificar_pagina;
+non terminal Accion acc_modificar_pagina;
+non terminal Accion acc_eliminar_pagina;
+non terminal Accion acc_agregar_componente;
+non terminal Accion acc_modificar_componente;
+non terminal Accion acc_eliminar_componente;
+
+/* The grammar */
+start with acciones_iniciales;
+
+acciones_iniciales ::= accion:accion
+							{: System.out.println("Una sola Accion Ingresada: "); :}
+			 		   |inicio_acciones:e1 acciones:acciones fin_acciones:e2
+							{: System.out.println("Varias Acciones Ingresadas: "); :}
+					;
+
+acciones ::= accion:accion
+				{: System.out.println("Otra Accion Ingresada: "); :}
+			 |acciones:acciones accion:accion
+				{: System.out.println("Otra Accion Ingresada: "); :}
+			;
+accion ::=	ac_crear_sitio:ac_crear_sitio
+				{: System.out.println("Accion Ingresada crear_sitio: "); parser.agregarparametrosFaltantesSitio(); parser.agregarAccionCrearSitio(); parser.inicializarAcciones(); :}// antes de agregar la accion verificar si los campos no obligatorios estan vacios para darles por defecto del loguin y la fecha agregar la accion y reiniciar los atributos del objeto a null para una nueva accion
+			|ac_eliminar_sitio:ac_eliminar_sitio
+				{: System.out.println("Accion Ingresada eliminar_sitio:"); parser.agregarAccionEliminarSitio(); parser.inicializarAcciones(); :} 
+			|acc_crear_pagina:acc_crear_pagina
+				{: System.out.println("Accion Ingresada crear_pagina:"); parser.agregarparametrosFaltantesPagina(); parser.agregarAccionCrearPagina(); parser.inicializarAcciones(); :}
+			|acc_modificar_pagina:acc_modificar_pagina
+				{: System.out.println("Accion Ingresada MODIFICAR_PAGINA:"); parser.agregarparametrosFaltantesModifPagina(); parser.agregarAccionModificarPagina(); parser.inicializarAcciones(); :}
+			|acc_eliminar_pagina:acc_eliminar_pagina
+				{: System.out.println("Accion Ingresada eliminar_pagina:"); parser.agregarAccionEliminarPagina(); parser.inicializarAcciones(); :}
+			|acc_agregar_componente:acc_agregar_componente
+				{: System.out.println("Accion Ingresada AGREGAR_COMPONENTE:"); parser.agregarAccionAgregarComponente(); parser.inicializarAcciones(); parser.inicializarComponentes(); :}
+			|acc_modificar_componente:acc_modificar_componente
+				{: System.out.println("Accion Ingresada MODIFICAR_COMPONENTE:"); parser.agregarAccionModificarComponente(); parser.inicializarAcciones(); parser.inicializarComponentes(); :}
+			|acc_eliminar_componente:acc_eliminar_componente
+				{: System.out.println("Accion Ingresada BORRAR_COMPONENTE:"); parser.agregarAccionEliminarComponente(); parser.inicializarAcciones(); parser.inicializarComponentes(); :}
+			|error:e
+				{: System.out.println("ERROR ACCION NO EXISTE"); :}
+			;
+
+ac_crear_sitio ::= inicio_accion:e1 NUEVO_SITIO_WEB:e2 CIERRA:e3 inicio_parametros:e4 parametros_crear_sitio:e5 fin_parametros:e6 fin_accion:e7 
+						{:System.out.println("Accion crear SITIO: "); :}
+				;
+parametros_crear_sitio ::= param_crear_sitio:param_crear_sitio
+								{: RESULT = param_crear_sitio; System.out.println("Un Parametro: "); :}
+						|parametros_crear_sitio:parametros_crear_sitio param_crear_sitio:param_crear_sitio
+								{: RESULT = parametros_crear_sitio+param_crear_sitio; System.out.println("Varios Parametros: "); :}
+						;
+param_crear_sitio ::= param_id:e1
+							{: RESULT = e1; parser.setIdSitio(e1); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |param_user_creacion:e1
+					  		{: RESULT = e1; parser.setUserCreacionSitio(e1); :}
+					  |param_user_modificacion:e1
+					  		{: RESULT = e1; parser.setUserModificacionSitio(e1); :}
+					  |param_f_creacion:e1
+					  		{: RESULT = e1; parser.setFechaCreacionSitio(e1); :}
+					  |param_f_modificacion:e1
+					  		{: RESULT = e1; parser.setFechaModificacionSitio(e1); :}
+					  ;
+ac_eliminar_sitio ::= inicio_accion:e1 BORRAR_SITIO_WEB:e2 CIERRA:e3 inicio_parametros:e4 param_id:e5 fin_parametros:e6 fin_accion:e7 
+						{: parser.setIdEliminarSitio(e5); System.out.println("Accion eliminar SITIO: "); :}
+				;
+
+acc_crear_pagina ::= ac1_crear_pagina:e1
+							{: RESULT = e1; :}
+					 |ac2_crear_pagina:e1
+					 		{: RESULT = e1; parser.setEtiquetasPagina(); :}
+				;
+
+ac1_crear_pagina ::= inicio_accion:e1 NUEVA_PAGINA:e2 CIERRA:e3 inicio_parametros:e4 parametros_crear_pagina:e5 fin_parametros:e6 fin_accion:e7 
+						{: System.out.println("Accion nueva PAGINA: "); :}
+				;
+ac2_crear_pagina ::= inicio_accion:e1 NUEVA_PAGINA:e2 CIERRA:e3 inicio_parametros:e4 parametros_crear_pagina:e5 fin_parametros:e6 inicio_etiquetas:e7 param_n_etiquetas:e8 fin_etiquetas:e9 fin_accion:e10 
+						{: System.out.println("Accion nueva PAGINA con ETIQUETAS: "); :}
+				;
+parametros_crear_pagina ::= param_crear_pagina:param_crear_pagina
+								{: RESULT = param_crear_pagina; System.out.println("Un Parametro: "); :}
+						|parametros_crear_pagina:parametros_crear_pagina param_crear_pagina:param_crear_pagina
+								{: RESULT = parametros_crear_pagina+param_crear_pagina; System.out.println("Varios Parametros: "); :}
+						;
+param_crear_pagina ::= param_id:e1
+							{: RESULT = e1; parser.setIdPagina(e1); parser.setIdModifPagina(e1); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |param_titulo:e1
+					  		{: RESULT = e1; parser.setTituloPagina(e1); parser.setTituloModifPagina(e1); :}
+					  |param_sitio:e1
+					  		{: RESULT = e1; parser.setIdSitioPagina(e1); parser.setIdSitioModifPagina(e1); :}
+					  |param_padre:e1
+					  		{: RESULT = e1; parser.setIdPaginaPadrePagina(e1); parser.setIdPaginaPadreModifPagina(e1); :}
+					  |param_user_creacion:e1
+					  		{: RESULT = e1; parser.setUserCreacionPagina(e1); parser.setUserCreacionModifPagina(e1); :}
+					  |param_user_modificacion:e1
+					  		{: RESULT = e1; parser.setUserModificacionPagina(e1); parser.setUserModificacionModifPagina(e1); :}
+					  |param_f_creacion:e1
+					  		{: RESULT = e1; parser.setFechaCreacionPagina(e1); parser.setFechaCreacionModifPagina(e1); :}
+					  |param_f_modificacion:e1
+					  		{: RESULT = e1; parser.setFechaModificacionPagina(e1); parser.setFechaModificacionModifPagina(e1); :}
+					  ;
+
+acc_modificar_pagina ::=  ac1_modificar_pagina:e1
+							{: RESULT = e1; :}
+					 |ac2_modificar_pagina:e1
+					 		{: RESULT = e1; parser.setEtiquetasModifPagina(); :}
+			;
+ac1_modificar_pagina ::= inicio_accion:e1 MODIFICAR_PAGINA:e2 CIERRA:e3 inicio_parametros:e4 parametros_crear_pagina:e5 fin_parametros:e6 fin_accion:e7 
+						{: System.out.println("Accion MODIFICAR_PAGINA: "); :}
+					;
+ac2_modificar_pagina ::= inicio_accion:e1 MODIFICAR_PAGINA:e2 CIERRA:e3 inicio_parametros:e4 parametros_crear_pagina:e5 fin_parametros:e6 inicio_etiquetas:e7 param_n_etiquetas:e8 fin_etiquetas:e9 fin_accion:e10 
+						{: System.out.println("Accion MODIFICAR_PAGINA con ETIQUETAS: "); :}
+				;
+
+acc_eliminar_pagina ::=	inicio_accion:e1 BORRAR_PAGINA:e2 CIERRA:e3 inicio_parametros:e4 param_id:e5 fin_parametros:e6 fin_accion:e7 
+						{: parser.setIdEliminarPagina(e5); System.out.println("Accion eliminar PAGINA: "); :}
+					;
+
+acc_agregar_componente ::= inicio_accion:e1 AGREGAR_COMPONENTE:e2 CIERRA:e3 param_atrib_agregar_comp:e4 fin_accion:e5 
+						{: System.out.println("Accion AGREGAR_COMPONENTE: "); :}
+					;
+acc_modificar_componente ::= inicio_accion:e1 MODIFICAR_COMPONENTE:e2 CIERRA:e3 param_atrib_agregar_comp:e4 fin_accion:e5 
+						{: System.out.println("Accion MODIFICAR_COMPONENTE: "); :}
+					;
+acc_eliminar_componente ::= inicio_accion:e1 BORRAR_COMPONENTE:e2 CIERRA:e3 inicio_parametros:e4 param_id:e5 param_pagina:e6 fin_parametros:e7 fin_accion:e8 
+						{: parser.setIdEliminarComponente(e5); parser.setIdPaginaEliminarComponente(e6); System.out.println("Accion BORRAR_COMPONENTE: "); :}
+					;
+
+param_atrib_agregar_comp ::= inicio_parametros:e1 parametros_agregar_titulo:e2 fin_parametros:e3 inicio_atributos:e4 n_atributos_titulo:e5 fin_atributos:e6
+							{: RESULT = e1+e2+e3+e4+e5+e6; parser.setClaseCompTitulo(parser.retornarComponenteClase().TITULO); parser.setClaseComponente(parser.retornarCompTitulo()); parser.setClaseModifComponente(parser.retornarCompTitulo()); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |inicio_parametros:e1 parametros_agregar_parrafo:e2 fin_parametros:e3 inicio_atributos:e4 n_atributos_titulo:e5 fin_atributos:e6
+							{: RESULT = e1+e2+e3+e4+e5+e6; parser.setClaseCompParrafo(parser.retornarComponenteClase().PARRAFO); parser.setClaseComponente(parser.retornarCompParrafo()); parser.setClaseModifComponente(parser.retornarCompParrafo()); :}
+					  |inicio_parametros:e1 parametros_agregar_imagen:e2 fin_parametros:e3 inicio_atributos:e4 n_atributos_imagen:e5 fin_atributos:e6
+							{: RESULT = e1+e2+e3+e4+e5+e6; parser.setClaseCompImagen(parser.retornarComponenteClase().IMAGEN); parser.setClaseComponente(parser.retornarCompImagen()); parser.setClaseModifComponente(parser.retornarCompImagen()); :}
+					  |inicio_parametros:e1 parametros_agregar_video:e2 fin_parametros:e3 inicio_atributos:e4 n_atributos_video:e5 fin_atributos:e6
+							{: RESULT = e1+e2+e3+e4+e5+e6; parser.setClaseCompVideo(parser.retornarComponenteClase().VIDEO); parser.setClaseComponente(parser.retornarCompVideo()); parser.setClaseModifComponente(parser.retornarCompVideo()); :}
+					  |inicio_parametros:e1 parametros_agregar_menu:e2 fin_parametros:e3 inicio_atributos:e4 n_atributos_menu:e5 fin_atributos:e6
+							{: RESULT = e1+e2+e3+e4+e5+e6; parser.setClaseCompMenu(parser.retornarComponenteClase().MENU); parser.setClaseComponente(parser.retornarCompMenu()); parser.setClaseModifComponente(parser.retornarCompMenu());:}
+					  ;
+param_comunes ::= param_id:e1 param_pagina:e2
+							{: RESULT = e1+e2; parser.setIdComponente(e1); parser.setIdPaginaComponente(e2); parser.setIdModifComponente(e1); parser.setIdPaginaModifComponente(e2); :}
+					  |param_pagina:e2 param_id:e1
+					  		{: RESULT = e2+e1; parser.setIdComponente(e1); parser.setIdPaginaComponente(e2); parser.setIdModifComponente(e1); parser.setIdPaginaModifComponente(e2); :}
+				;
+
+parametros_agregar_titulo ::=  param_comunes:e1 param_clase_titulo:e2  
+									{: RESULT = e1+e2; System.out.println("Parametros agregar titulo: "); :}
+							   |param_clase_titulo:e1 param_comunes:e2 
+									{: RESULT = e1+e2; System.out.println("Parametros agregar titulo: "); :}
+							   |param_id:e1 param_clase_titulo:e2 param_pagina:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar titulo: "); :}
+							   |param_pagina:e1 param_clase_titulo:e2 param_id:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar titulo: "); :}
+						;
+
+n_atributos_titulo ::= atributos_titulo:atributos_titulo
+							{: RESULT = atributos_titulo; System.out.println("Un nuevo atributo TITULO: "); :}
+					   |n_atributos_titulo:n_atributos_titulo atributos_titulo:atributos_titulo
+								{: RESULT = n_atributos_titulo+atributos_titulo; System.out.println("Otro atributo titulo: "); :}
+						;
+atributos_titulo ::=  atrib_texto:e1
+							{: RESULT = e1; parser.setTextoCompTitulo(e1); parser.setTextoCompParrafo(e1); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_alineacion:e1
+					  		{: RESULT = e1.toString(); parser.setAlineacionCompTitulo(e1); parser.setAlineacionCompParrafo(e1); :}
+					  |atrib_color:e1
+					  		{: RESULT = e1; parser.setColorCompTitulo(e1); parser.setColorCompParrafo(e1); :}
+					  ;
+
+parametros_agregar_parrafo ::=  param_comunes:e1 param_clase_parrafo:e2  
+									{: RESULT = e1+e2; System.out.println("Parametros agregar parrafo: "); :}
+							   |param_clase_parrafo:e1 param_comunes:e2 
+									{: RESULT = e1+e2; System.out.println("Parametros agregar parrafo: "); :}
+							   |param_id:e1 param_clase_parrafo:e2 param_pagina:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar parrafo: "); :}
+							   |param_pagina:e1 param_clase_parrafo:e2 param_id:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar parrafo: "); :}
+						;
+
+parametros_agregar_imagen ::=  param_comunes:e1 param_clase_imagen:e2  
+									{: RESULT = e1+e2; System.out.println("Parametros agregar imagen: "); :}
+							   |param_clase_imagen:e1 param_comunes:e2 
+									{: RESULT = e1+e2; System.out.println("Parametros agregar imagen: "); :}
+							   |param_id:e1 param_clase_imagen:e2 param_pagina:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar imagen: "); :}
+							   |param_pagina:e1 param_clase_imagen:e2 param_id:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar imagen: "); :}
+						;
+n_atributos_imagen ::= atributos_imagen:atributos_imagen
+							{: RESULT = atributos_imagen; System.out.println("Un nuevo atributo imagen: "); :}
+					   |n_atributos_imagen:n_atributos_imagen atributos_imagen:atributos_imagen
+								{: RESULT = n_atributos_imagen+atributos_imagen; System.out.println("Otro atributo imagen: "); :}
+						;
+
+atributos_imagen ::=  atrib_origen:e1
+							{: RESULT = e1; parser.setOrigenCompImagen(e1); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_alineacion:e1
+					  		{: RESULT = e1.toString(); parser.setAlineacionCompImagen(e1); :}
+					  |atrib_ancho:e1
+					  		{: RESULT = e1; parser.setAnchoCompImagen(e1); :}
+					  |atrib_altura:e1
+					  		{: RESULT = e1; parser.setAlturaCompImagen(e1); :}
+					  ;
+
+parametros_agregar_video ::=  param_comunes:e1 param_clase_video:e2  
+									{: RESULT = e1+e2; System.out.println("Parametros agregar video: "); :}
+							   |param_clase_video:e1 param_comunes:e2 
+									{: RESULT = e1+e2; System.out.println("Parametros agregar video: "); :}
+							   |param_id:e1 param_clase_video:e2 param_pagina:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar video: "); :}
+							   |param_pagina:e1 param_clase_video:e2 param_id:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar video: "); :}
+						;
+
+n_atributos_video ::= atributos_video:atributos_video
+							{: RESULT = atributos_video; System.out.println("Un nuevo atributo video: "); :}
+					   |n_atributos_video:n_atributos_video atributos_video:atributos_video
+								{: RESULT = n_atributos_video+atributos_video; System.out.println("Otro atributo video: "); :}
+						;
+atributos_video ::=  atrib_origen:e1
+							{: RESULT = e1; parser.setOrigenCompVideo(e1); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_ancho:e1
+					  		{: RESULT = e1; parser.setAnchoCompVideo(e1); :}
+					  |atrib_altura:e1
+					  		{: RESULT = e1; parser.setAlturaCompVideo(e1); :}
+					  ;
+
+parametros_agregar_menu ::=  param_comunes:e1 param_clase_menu:e2  
+									{: RESULT = e1+e2; System.out.println("Parametros agregar menu: "); :}
+							   |param_clase_menu:e1 param_comunes:e2 
+									{: RESULT = e1+e2; System.out.println("Parametros agregar menu: "); :}
+							   |param_id:e1 param_clase_menu:e2 param_pagina:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar menu: "); :}
+							   |param_pagina:e1 param_clase_menu:e2 param_id:e3 
+									{: RESULT = e1+e2+e3; System.out.println("Parametros agregar menu: "); :}
+						;
+
+n_atributos_menu ::= atributos_menu:atributos_menu
+							{: RESULT = atributos_menu; System.out.println("Un nuevo atributo menu: "); :}
+					   |n_atributos_menu:n_atributos_menu atributos_menu:atributos_menu
+								{: RESULT = n_atributos_menu+atributos_menu; System.out.println("Otro atributo menu: "); :}
+						;
+atributos_menu ::=  atrib_padre:e1
+							{: RESULT = e1; parser.setIdPadreCompMenu(e1); :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_etiquetas:e1
+					  		{: RESULT = e1; parser.setEtiquetasCompMenu(); :}
+					  ;
+
+inicio_acciones ::=	ABRE:e1 ACCIONES:e2 CIERRA:e3
+						{: RESULT = e1+e2+e3; System.out.println("inicio ACCIONES: "+RESULT);:}
+					;
+fin_acciones ::=	ABRE:e1 DIAGONAL:e2 ACCIONES:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin ACCIONES: "+RESULT);:}
+					;
+inicio_accion ::=	ABRE:e1 ACCION:e2 NOMBRE:e3 IGUAL:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("inicio ACCION: "+RESULT);:}
+					;
+fin_accion ::=	ABRE:e1 DIAGONAL:e2 ACCION:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin ACCION: "+RESULT);:}
+					;
+inicio_parametros ::=	ABRE:e1 PARAMETROS:e2 CIERRA:e3
+						{: RESULT = e1+e2+e3; System.out.println("inicio PARAMETROS: "+RESULT);:}
+					;
+fin_parametros ::=	ABRE:e1 DIAGONAL:e2 PARAMETROS:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin PARAMETROS: "+RESULT);:}
+					;
+inicio_parametro ::= 	ABRE:e1 PARAMETRO:e2 NOMBRE:e3 IGUAL:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("inicio PARAMETRO: "+RESULT);:}
+					;
+fin_parametro ::=	ABRE:e1 DIAGONAL:e2 PARAMETRO:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin PARAMETRO: "+RESULT);:}
+					;
+inicio_atributos ::=	ABRE:e1 ATRIBUTOS:e2 CIERRA:e3
+						{: RESULT = e1+e2+e3; System.out.println("inicio ATRIBUTOS: "+RESULT);:}
+					;
+fin_atributos ::=	ABRE:e1 DIAGONAL:e2 ATRIBUTOS:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin ATRIBUTOS: "+RESULT);:}
+					;
+inicio_atributo ::= ABRE:e1 ATRIBUTO:e2 NOMBRE:e3 IGUAL:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("inicio ATRIBUTO: "+RESULT);:}
+					;
+fin_atributo ::=	ABRE:e1 DIAGONAL:e2 ATRIBUTO:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin ATRIBUTO: "+RESULT);:}
+					;
+inicio_etiquetas ::=	ABRE:e1 ETIQUETAS:e2 CIERRA:e3
+						{: RESULT = e1+e2+e3; System.out.println("inicio ETIQUETAS: "+RESULT);:}
+					;
+fin_etiquetas ::=	ABRE:e1 DIAGONAL:e2 ETIQUETAS:e3 CIERRA:e4
+						{: RESULT = e1+e2+e3+e4; System.out.println("fin ETIQUETAS: "+RESULT);:}
+					;
+
+param_n_etiquetas ::= param_etiqueta:param_etiqueta
+								{: RESULT = param_etiqueta; System.out.println("Una ETIQUETA: "); :}
+						|param_n_etiquetas:param_n_etiquetas param_etiqueta:param_etiqueta
+								{: RESULT = param_n_etiquetas+param_etiqueta; System.out.println("Varias ETIQUETAS: "); :}
+						;
+param_etiqueta ::=	ABRE:e1 ETIQUETA:e2 VALOR:e3 IGUAL:e4 NOMBRE_ETIQUETA:e5 DIAGONAL:e6 CIERRA:e7
+						{: RESULT = e5.substring(1, e5.length()-1).trim(); parser.agregarEtiqueta(RESULT); System.out.println("Valor de Etiqueta:: "+RESULT);:}
+					;
+
+param_id ::=	inicio_parametro:e1 ID:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro ID: "+RESULT);:}
+					;
+param_user_creacion::=	inicio_parametro:e1 USUARIO_CREACION:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro param_f_creacion: "+RESULT);:}
+					;
+param_f_creacion ::=	inicio_parametro:e1 FECHA_CREACION:e2 CIERRA:e3 PARAMETRO_FECHA:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro param_f_creacion: "+RESULT);:}
+					;
+param_f_modificacion ::=	inicio_parametro:e1 FECHA_MODIFICACION:e2 CIERRA:e3 PARAMETRO_FECHA:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro param_f_modificacion: "+RESULT);:}
+					;
+param_user_modificacion ::=	inicio_parametro:e1 USUARIO_MODIFICACION:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro param_user_modificacion: "+RESULT);:}
+					;
+param_titulo ::=	inicio_parametro:e1 TITULO:e2 CIERRA:e3 PARAMETRO_TODO_TEXTO:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro titulo: "+RESULT);:}
+					;
+param_sitio ::=	inicio_parametro:e1 SITIO:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro SITIO: "+RESULT);:}
+					;
+param_padre ::=	inicio_parametro:e1 PADRE:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro padre: "+RESULT);:}
+					;
+param_pagina ::=	inicio_parametro:e1 PAGINA:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro pagina: "+RESULT);:}
+					;
+param_clase_titulo ::=	inicio_parametro:e1 CLASE:e2 CIERRA:e3 PARAMETRO_TITULO:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro componente titulo: "+RESULT);:}
+					;
+param_clase_parrafo::=	inicio_parametro:e1 CLASE:e2 CIERRA:e3 PARAMETRO_PARRAFO:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro componente parrafo: "+RESULT);:}
+					;
+param_clase_imagen ::=	inicio_parametro:e1 CLASE:e2 CIERRA:e3 PARAMETRO_IMAGEN:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro componente imagen: "+RESULT);:}
+					;
+param_clase_video ::=	inicio_parametro:e1 CLASE:e2 CIERRA:e3 PARAMETRO_VIDEO:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro componente video: "+RESULT);:}
+					;
+param_clase_menu ::=	inicio_parametro:e1 CLASE:e2 CIERRA:e3 PARAMETRO_MENU:e4 fin_parametro:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("parametro componente menu: "+RESULT);:}
+					;
+atrib_texto ::=		inicio_atributo:e1 TEXTO:e2 CIERRA:e3 PARAMETRO_TODO_TEXTO:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("atributo TEXTO: "+RESULT);:}
+					;
+atrib_alineacion ::= 	inicio_atributo:e1 ALINEACION:e2 CIERRA:e3 PARAMETRO_ALINEACION:e4 fin_atributo:e5
+						{: RESULT = parser.retornarAlineacionTipo(e4.substring(1, e4.length()-1).trim()); System.out.println("atributo ALINEACION: "+RESULT.toString());:}
+					;
+atrib_color ::= 	inicio_atributo:e1 COLOR:e2 CIERRA:e3 PARAMETRO_COLOR:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("atributo COLOR: "+RESULT);:}
+					;
+atrib_origen ::= 	inicio_atributo:e1 ORIGEN:e2 CIERRA:e3 PARAMETRO_URL:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("atributo ORIGEN: "+RESULT);:}
+					;
+atrib_ancho ::= 	inicio_atributo:e1 ANCHO:e2 CIERRA:e3 PARAMETRO_ENTERO:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("atributo ANCHO: "+RESULT);:}
+					;
+atrib_altura ::= 	inicio_atributo:e1 ALTURA:e2 CIERRA:e3 PARAMETRO_ENTERO:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("atributo ALTURA: "+RESULT);:}
+					;
+atrib_padre ::= 	inicio_atributo:e1 PADRE:e2 CIERRA:e3 PARAMETRO_ID:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("atributo PADRE: "+RESULT);:}
+					;
+atrib_etiquetas ::= 	inicio_atributo:e1 ATRIBUTO_ETIQUETAS:e2 CIERRA:e3 PARAMETRO_ATRIBUTO_ETIQUETAS:e4 fin_atributo:e5
+						{: RESULT = e4.substring(1, e4.length()-1).trim(); parser.setAtributoEtiqueas(RESULT); System.out.println("atributo ETIQUETAS: "+RESULT);:}
+					;
+
+
+
+
+

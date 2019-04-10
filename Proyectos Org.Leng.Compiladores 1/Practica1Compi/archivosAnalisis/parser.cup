@@ -1,0 +1,228 @@
+package consolaLinux;
+
+import java_cup.runtime.*;
+import consolaLinux.backend.comandos.*;
+import consolaLinux.backend.comandos.interfaces.*;
+import consolaLinux.backend.comandos.implementaciones.*;
+import consolaLinux.backend.controladores.*;
+import javax.swing.JTextArea;
+
+parser code {:
+	// Connect this parser to a scanner!
+	private ControladorArbol controlArbol;
+	private JTextArea textArea;
+
+	public parser(Lexer lexer, ControladorArbol controlArbol, JTextArea textArea) {
+		super(lexer);
+		this.controlArbol = controlArbol;
+		this.textArea = textArea;
+	}
+
+	public void mostrarErrorSintaxis(Symbol cur_token) {
+		String error = "Estructura invalida en posición " + cur_token.right
+			 + ", token: " + cur_token.value;
+		System.out.println(error);
+		textArea.append("\n" + error);
+	}
+
+	public void ejecutarComandoLs(ComandoLs ls) {
+			Comando<ComandoLs> comandLs = new ImplementComandoLs();
+			comandLs.ejecutarComando(ls, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoCd(ComandoCd cd) {
+			Comando<ComandoCd> comandCd = new ImplementComandoCd(); 	
+			comandCd.ejecutarComando(cd, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoPwd(ComandoPwd pwd) {	
+			Comando<ComandoPwd> comandPwd = new ImplementComandoPwd(); 
+			comandPwd.ejecutarComando(pwd, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoTouch(ComandoTouch touch) {	
+			Comando<ComandoTouch> comandTouch = new ImplementComandoTouch(); 
+			comandTouch.ejecutarComando(touch, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoMkdir(ComandoMkdir mkdir) {	
+			Comando<ComandoMkdir> comandMkdir = new ImplementComandoMkdir(); 
+			comandMkdir.ejecutarComando(mkdir, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoMv(ComandoMv mv) {	
+			Comando<ComandoMv> comandoMv = new ImplementComandoMv(); 
+			comandoMv.ejecutarComando(mv, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoCp(ComandoCp cp) {	
+			Comando<ComandoCp> comandoCp = new ImplementComandoCp(); 
+			comandoCp.ejecutarComando(cp, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoRm(ComandoRm rm) {	
+			Comando<ComandoRm> comandoRm = new ImplementComandoRm(); 
+			comandoRm.ejecutarComando(rm, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoRmdir(ComandoRmdir rmdir) {	
+			Comando<ComandoRmdir> comandoRmdir = new ImplementComandoRmdir(); 
+			comandoRmdir.ejecutarComando(rmdir, this.controlArbol,this.textArea);
+	}
+	public void ejecutarComandoChmod(ComandoChmod chmod) {	
+			Comando<ComandoChmod> comandChmod = new ImplementComandoChmod(); 
+			comandChmod.ejecutarComando(chmod, this.controlArbol,this.textArea);
+	}
+
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal String	PATH, PATH_PADRE, ESPACIO, SALTO, COMPLET_LS, GUION_R_MINUS;
+terminal String	GUION_R_MAYUS, REMOVER_PERMISOS_CHMOD, AGREGAR_PERMISOS_CHMOD;
+terminal String	PWD;
+terminal String	LS;
+terminal String	CD;
+terminal String	TOUCH;
+terminal String	MKDIR;
+terminal String	MV;
+terminal String	CP;
+terminal String	RM;
+terminal String	RMDIR;
+terminal String	CHMOD;
+terminal String ENCADENACION;
+terminal String EXIT;
+
+/* Non-terminals */
+non terminal String	path, paths, permisos_chmod,salir;
+non terminal comandos;
+non terminal comando;
+non terminal ComandoLs ls;
+non terminal ComandoCd cd;
+non terminal ComandoPwd pwd;
+non terminal ComandoTouch touch;
+non terminal ComandoMkdir mkdir;
+non terminal ComandoMv mv;
+non terminal ComandoCp cp;
+non terminal ComandoRm rm;
+non terminal ComandoRmdir rmdir;
+non terminal ComandoChmod chmod;
+/* The grammar */
+start with comandos;
+
+comandos ::= comando:comando ENCADENACION comandos:comandos
+				| comando:comando
+				;
+comando ::=	ls:ls
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoLs(ls); :}
+			|cd:cd
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoCd(cd); :}
+			|pwd:pwd
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoPwd(pwd); :}
+			|touch:touch
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoTouch(touch); :}
+			|mkdir:mkdir
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoMkdir(mkdir); :}
+			|mv:mv
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoMv(mv); :}
+			|cp:cp
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoCp(cp); :}
+			|rm:rm
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoRm(rm); :}
+			|rmdir:rmdir
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoRmdir(rmdir); :}
+			|chmod:chmod
+				{: System.out.println("comando ingresado: "); parser.ejecutarComandoChmod(chmod);:}
+			|error:e
+				{: System.out.println("ERROR COMANDO NO EXISTE"); :}
+			;
+
+ls ::=		LS:e1 path:e2 
+				{: RESULT = new ComandoLs(e1, e2); :}
+			|LS:e1 ESPACIO:e2 COMPLET_LS:e3 path:e4 
+				{: RESULT = new ComandoLs(e1, e3, e4); :}
+			;
+
+cd ::=		CD:e1 path:e2 
+				{: RESULT = new ComandoCd(e1, e2); :}
+			|CD:e1 error:e
+				 {: System.out.println("ERROR EN cd"); :}
+			;
+
+pwd ::=		PWD:e1 
+				{: RESULT = new ComandoPwd(e1); :}
+			|PWD:e1 error:e
+			;
+
+touch ::=	TOUCH:e1 ESPACIO paths:e2 
+				{: RESULT = new ComandoTouch(e1, e2); :}
+			|TOUCH:e1 error:e
+			;
+
+mkdir ::=	MKDIR:e1 ESPACIO paths:e2 
+				{: RESULT = new ComandoMkdir(e1, e2); :}
+			|MKDIR:e1 error:e
+			;
+
+mv ::=		MV:e1 ESPACIO paths:e2 ESPACIO paths:e3
+				{: RESULT = new ComandoMv(e1, e2, e3); :}
+			|MV:e1 error:e
+			;
+
+cp ::=		CP:e1 ESPACIO paths:e2 ESPACIO paths:e3
+				{: RESULT = new ComandoCp(e1, e2, e3); :}
+			|CP:e1 error:e
+			;
+
+rm ::=		RM:e1 ESPACIO GUION_R_MINUS:e2 ESPACIO paths:e3
+				{: RESULT = new ComandoRm(e1, e2, e3); :}
+			|RM:e1 ESPACIO paths:e2
+				{: RESULT = new ComandoRm(e1, e2); :}
+			|RM:e1 error:e
+			;
+
+rmdir ::=	RMDIR:e1 ESPACIO paths:e2 
+				{: RESULT = new ComandoRmdir(e1, e2); :}
+			|RMDIR:e1 error:e
+			;
+
+chmod ::=	CHMOD:e1 ESPACIO GUION_R_MAYUS:e2 ESPACIO permisos_chmod:e3 ESPACIO paths:e4
+				{: RESULT = new ComandoChmod(e1, e2, e3, e4); :}
+			|CHMOD:e1 ESPACIO permisos_chmod:e2 ESPACIO paths:e3
+				{: RESULT = new ComandoChmod(e1, null, e2, e3); :}
+			|CHMOD:e1 error:e
+			;
+
+path ::=	ESPACIO paths:e1
+					{: RESULT = e1; :}
+			|ESPACIO
+				{: RESULT = null; :}
+			|/*NADA*/
+				{: RESULT = null; :}
+			;
+//para crear mover copiar etc, archivos con esos nombres o con un path
+paths ::=	PATH:e1
+				{: RESULT = e1; :}
+			|LS:e1
+				{: RESULT = e1; :}
+			|CD:e1
+				{: RESULT = e1; :}
+			|PWD:e1
+				{: RESULT = e1; :}
+			|TOUCH:e1
+				{: RESULT = e1; :}
+			|MKDIR:e1
+				{: RESULT = e1; :}
+			|MV:e1
+				{: RESULT = e1; :}
+			|CP:e1
+				{: RESULT = e1; :}
+			|RM:e1
+				{: RESULT = e1; :}
+			|RMDIR:e1
+				{: RESULT = e1; :}
+			|CHMOD:e1
+				{: RESULT = e1; :}
+			;
+
+permisos_chmod ::=	REMOVER_PERMISOS_CHMOD:e1
+						{: RESULT = e1; :}
+					|AGREGAR_PERMISOS_CHMOD:e1
+						{: RESULT = e1; :}
+					|GUION_R_MINUS:e1 /*coincide con eliminar permisos de lectura (-r)*/
+						{: RESULT = e1; :}
+					;
+salir ::=	EXIT
+				{: System.exit(0); :}
+			;

@@ -1,0 +1,115 @@
+package proyecto1compi1;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java_cup.runtime.*;
+import proyecto1compi1.backend.usuarios.*;
+import javax.swing.JTextArea;
+
+parser code {:
+	
+	private JTextArea textArea;
+	private List<Usuario> listaUsuarios;
+	public parser(Lexer lexer) {
+		super(lexer);
+		this.listaUsuarios = new ArrayList();
+	}
+
+	public List<Usuario> devolverUsuarios(){
+			return this.listaUsuarios;
+	}
+
+	public void agregarUsuario(Usuario user){
+		this.listaUsuarios.add(user);
+	}
+
+	public void syntax_error(Symbol cur_token) {
+		String error = "Estructura invalida:   " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + "   Token: " + cur_token.value;
+		System.out.println(error);
+		
+	}
+
+	public void unrecovered_sintax_error(Symbol cur_token) throws java.lang.Exception{
+		String error = "Estructura invalida:   " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + "   Token: " + cur_token.value;
+		System.out.println(error);
+		
+	}
+
+:}
+
+/* Terminals (tokens returned by the scanner). */
+//simbolos terminales
+terminal String	DIAGONAL,ABRE,CIERRA;
+//palabras reservadas
+terminal String	USUARIO;
+terminal String	PASS;
+terminal String	NOMBRE;
+terminal String PARAMETRO_ID;
+terminal String PARAMETRO_PASS;
+/* Non-terminals */
+
+non terminal String	parametros_usuario;
+non terminal String	crear_usuario;
+non terminal String	param_nombre;
+non terminal String	param_pass;
+non terminal String	inicio_usuario, fin_usuario;
+non terminal String	inicio_pass, fin_pass;
+non terminal String	inicio_nombre, fin_nombre;
+non terminal usuarios;
+non terminal Usuario usuario;
+
+
+/* The grammar */
+start with usuarios;
+
+usuarios ::= usuario:usuario
+					{: System.out.println("Un solo usuario: "); :}
+			 |usuarios:usuarios usuario:usuario
+					{: System.out.println("Otro Usuario: "); :}
+			;
+
+usuario ::=	crear_usuario:crear_usuario
+				{: System.out.println("Se creo un nuevo usuario: "); :}
+			|error:e
+				{: System.out.println("ERROR ACCION NO EXISTE"); :}
+			;
+
+crear_usuario ::= inicio_usuario:e1  parametros_usuario:e2 fin_usuario:e3 
+						{:System.out.println("Accion crear USUARIO: "); :}
+				;
+parametros_usuario ::= param_nombre:e1 param_pass:e2
+								{: RESULT = e1+e2; System.out.println("Un Parametro: "); parser.agregarUsuario(new Usuario(e1,e2)); :}
+						;
+inicio_usuario ::=	ABRE:e1 USUARIO:e2 CIERRA:e3
+						{: RESULT = "\n"+e1+e2+e3+"\n"; System.out.println("inicio USUARIO: "+RESULT);:}
+					;
+fin_usuario ::=	ABRE:e1 DIAGONAL:e2 USUARIO:e3 CIERRA:e4
+						{: RESULT = "\n"+e1+e2+e3+e4+"\n"; System.out.println("fin USUARIO: "+RESULT);:}
+					;
+inicio_pass ::=	ABRE:e1 PASS:e2 CIERRA:e3
+						{: RESULT = "\n"+e1+e2+e3+"\n"; System.out.println("inicio PASS: "+RESULT);:}
+					;
+fin_pass ::=	ABRE:e1 DIAGONAL:e2 PASS:e3 CIERRA:e4
+						{: RESULT = "\n"+e1+e2+e3+e4+"\n"; System.out.println("fin PASS: "+RESULT);:}
+					;
+inicio_nombre ::=	ABRE:e1 NOMBRE:e2 CIERRA:e3
+						{: RESULT = "\n"+e1+e2+e3+"\n"; System.out.println("inicio PASS: "+RESULT);:}
+					;
+fin_nombre ::=	ABRE:e1 DIAGONAL:e2 NOMBRE:e3 CIERRA:e4
+						{: RESULT = "\n"+e1+e2+e3+e4+"\n"; System.out.println("fin PASS: "+RESULT);:}
+					;
+param_nombre ::=	inicio_nombre:e1 PARAMETRO_ID:e2 fin_nombre:e3
+						{: RESULT = e2.substring(1, e2.length()-1).trim(); System.out.println("parametro NOMBRE: "+RESULT);:}
+					;
+param_pass ::=	inicio_pass:e1 PARAMETRO_PASS:e2 fin_pass:e3
+						{: RESULT = e2.substring(1, e2.length()-1).trim(); System.out.println("parametro NOMBRE: "+RESULT);:}
+					;
+
+
+
+
+

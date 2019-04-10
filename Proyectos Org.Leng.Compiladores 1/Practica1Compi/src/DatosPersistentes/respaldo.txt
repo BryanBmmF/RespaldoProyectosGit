@@ -1,0 +1,42 @@
+pw~
+pdw
+asdas
+asdas
+~
+mkdir 1
+mkdir 2
+mkdir 3
+cd 1
+cd /
+mkdir 1
+mkdir1 /algo
+mkdir 1/algo
+cd 1
+mkdir ../otro
+mkdir algo
+cd cd
+mkdir mkdir
+touch arc1
+touch .x.txt
+touch touch
+mv mv
+mv arc1 ../
+mv arc1 algo
+mv touch algo/x
+rm arc1
+mkdir carp1
+cd carp1
+touch arc2
+cd ..
+rm -r carp1
+rm rm
+rmdir mkdir
+cd ..
+rmdir mkdir
+rmdir algo
+chmod +rwx touch
+chmod -xw touch
+cd ..
+chmod -R -x 1
+cd 1
+ mkdir a && cd a && mkdir b && touch c

@@ -1,0 +1,45 @@
+<usuario>
+	<nombre>
+		[_user1]
+	</nombre>
+	<pass>
+		[pass1]
+	</pass>
+</usuario>
+<usuario>
+	<nombre>
+		[_user2]
+	</nombre>
+	<pass>
+		[pass2]
+	</pass>
+</usuario>
+<usuario>
+	<nombre>
+		[_user3]
+	</nombre>
+	<pass>
+		[pass3]
+	</pass>
+</usuario>
+<usuario>
+	<nombre>
+		[_user4]
+	</nombre>
+	<pass>
+		[pass4]
+	</pass>
+
+</usuario>
+
+
+<usuario>
+	<nombre>
+		[_user5]
+	</nombre>
+	<pass>
+		[pass5]
+	</pass>
+
+</usuario>
+
