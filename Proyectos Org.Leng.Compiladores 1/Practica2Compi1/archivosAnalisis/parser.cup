@@ -1,0 +1,438 @@
+package practica2compi1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java_cup.runtime.*;
+import practica2compi1.backend.instrucciones.*;
+import javax.swing.JTextArea;
+import practica2compi1.frontend.PanelGrafico;
+
+parser code {:
+	
+	private JTextArea textArea;
+	private List<String> listaErrores;
+	private List<Instruccion> listaInstrucciones;
+	private PanelGrafico panel;
+	private String ejecucion;
+
+	public parser(Lexer lexer, PanelGrafico panel, String ejecucion) {
+		super(lexer);
+		this.panel = panel;
+		this.textArea = panel.getTxtMensajes();
+		this.ejecucion = ejecucion;
+		this.listaErrores = new ArrayList();
+		this.listaInstrucciones = new ArrayList();
+	}
+
+	public void reiniciarListaInstruciiones(){
+			this.listaInstrucciones = new ArrayList();
+
+	}
+
+	public List<Instruccion> devolverListaInstrucciones(){
+			return this.listaInstrucciones;
+
+	}
+
+	public void agregarInstruccion(Instruccion instruccion){
+			this.listaInstrucciones.add(instruccion);
+
+	}
+
+	public void limpiarListas(){
+            listaErrores.clear();
+    }
+	public void syntax_error(Symbol cur_token) {
+		String error = "Estructura invalida:   " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + "   Token: " + cur_token.value;
+		System.out.println(error);
+		listaErrores.add(error);
+		textArea.append("\nError Sintactico:\n" + error);
+	}
+
+	public void unrecovered_sintax_error(Symbol cur_token) throws java.lang.Exception{
+		String error = "Estructura invalida:   " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + "   Token: " + cur_token.value;
+		System.out.println(error);
+		listaErrores.add(error);
+		textArea.append("\nError Sintactico:\n" + error);
+	}
+
+	public void ejecutarInstruccion(Instruccion instruccion) {
+		if (instruccion != null) {
+				instruccion.ejecutar(this.panel);
+		}
+	}
+
+	public void ingresarVariable(String nombre, Integer valor){
+			if (this.ejecucion.equals("instrucciones")){
+				/* code */
+				if (this.panel.verificarVariableInstruc(nombre)){
+					/* existe la variable a ingresar */
+					String error = "La variable : "+nombre+" ya esta declarada...";
+					listaErrores.add(error);
+					textArea.append("\nError Semantico:\n" + error);
+
+				} else {
+						this.panel.agregarVariableInstruc(nombre, valor);
+
+				}
+
+			} else {
+				/* code */
+				if (this.panel.verificarVariableArchiv(nombre)){
+					/* existe la variable a ingresar */
+					String error = "La variable : "+nombre+" ya esta declarada...";
+					listaErrores.add(error);
+					textArea.append("\nError Semantico:\n" + error);
+
+				} else {
+						this.panel.agregarVariableArchiv(nombre, valor);
+
+				}
+
+			}
+
+	}
+
+	public void asignarVariable(String nombre, Integer valor){
+			if (this.ejecucion.equals("instrucciones")){
+				/* code */
+				if (this.panel.verificarVariableInstruc(nombre)){
+					/* existe la variable a asignar el valor */
+					this.panel.asignarVariableInstruc(nombre, valor);
+
+				} else {
+						//se crea y se asigna de una vez
+						this.panel.agregarVariableInstruc(nombre, valor);
+
+				}
+
+			} else {
+				/* code */
+				if (this.panel.verificarVariableArchiv(nombre)){
+					/* existe la variable a asignar el valor */
+					this.panel.asignarVariableArchiv(nombre, valor);
+
+				} else {
+						//se crea y se asigna de una vez
+						this.panel.agregarVariableArchiv(nombre, valor);
+
+				}
+
+			}
+
+	}
+
+	public Integer retornarVariable(String nombre){
+			Integer var = null;
+			if (this.ejecucion.equals("instrucciones")){
+				/* code */
+				if (this.panel.verificarVariableInstruc(nombre)){
+					/* existe la variable a usar */
+					if (this.panel.retornarVariableInstruc(nombre)!=null){
+						/* code */
+						var = this.panel.retornarVariableInstruc(nombre);
+					} else {
+							String error = "La variable : "+nombre+" no tiene valor asignado...";
+							listaErrores.add(error);
+							textArea.append("\nError Semantico:\n" + error);
+							var = 0;
+					}
+					
+
+				} else {
+						String error = "La variable : "+nombre+" no existe y no se puede usar...";
+						listaErrores.add(error);
+						textArea.append("\nError Semantico:\n" + error);
+
+				}
+
+			} else {
+				/* code */
+				if (this.panel.verificarVariableArchiv(nombre)){
+					/* existe la variable a usar */
+					if (this.panel.retornarVariableArchiv(nombre)!=null){
+						/* code */
+						var = this.panel.retornarVariableArchiv(nombre);
+					} else {
+							String error = "La variable : "+nombre+" no tiene valor asignado...";
+							listaErrores.add(error);
+							textArea.append("\nError Semantico:\n" + error);
+							var = 0;
+					}
+					
+
+				} else {
+						String error = "La variable : "+nombre+" no existe y no se puede usar...";
+						listaErrores.add(error);
+						textArea.append("\nError Semantico:\n" + error);
+
+				}
+			}
+
+			return var;
+
+	}
+
+
+
+	/*lista que devuelve los errores encontrados*/
+	public List<String> devolverErrores(){
+			return listaErrores;
+	}
+	
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal String	IGUAL;
+terminal String CORCHETE_A;
+terminal String CORCHETE_C;
+terminal String PARENT_A;
+terminal String PARENT_C;
+terminal String SUMA;
+terminal String RESTA;
+terminal String MULT;
+terminal String DIV;
+terminal String COMA;
+terminal String SALTO;
+terminal String COMENTARIO_LINEA;
+
+//palabras reservadas
+terminal String FORWARD;
+terminal String BACKWARD;
+terminal String RIGHT;
+terminal String LEFT;
+terminal String CLEARS;
+terminal String PEN_UP;
+terminal String PEN_DOWN;
+terminal String TO_CENTER;
+terminal String COLOR;
+terminal String POSITION_XY;
+terminal String POSITION_X;
+terminal String POSITION_Y;
+terminal String HIDE_TURTLE;
+terminal String SHOW_TURTLE;
+terminal String TO_ERASE;
+terminal String TO_DRAW;
+terminal String REPEAT;
+
+terminal String VARIABLE;
+terminal String CODIGO_COLOR;
+terminal Integer NUMERO_ENTERO;
+//terminal String COMENTARIO_LINEA;
+
+/* Non-terminals */
+non terminal instrucciones;
+non terminal instrucciones_iniciales;
+non terminal repeticion;
+non terminal repeticiones;
+//non terminal declaracion;
+non terminal asignacion;
+non terminal expresion;
+non terminal instruccion;
+non terminal Instruccion forward;
+non terminal Instruccion backward;
+non terminal Instruccion in_right;
+non terminal Instruccion in_left;
+non terminal Instruccion clears;
+non terminal Instruccion pen_up;
+non terminal Instruccion pen_down;
+non terminal Instruccion to_center;
+non terminal Instruccion color;
+non terminal Instruccion position_xy;
+non terminal Instruccion position_x;
+non terminal Instruccion position_y;
+non terminal Instruccion hide_turtle;
+non terminal Instruccion show_turtle;
+non terminal Instruccion to_erase;
+non terminal Instruccion to_draw;
+//non terminal Instruccion repeat;
+
+//non terminal expr_lista, expr_parte;
+non terminal Integer expr, expr2, expr3;//puede ser deunavez tipo integer
+
+/* Precedences */
+precedence left SUMA, RESTA;
+precedence left MULT, DIV;
+
+/* The grammar */
+start with instrucciones_iniciales;
+instrucciones_iniciales ::= instrucciones:instrucciones 
+									{: System.out.println("Instrucciones Ingresadas: "); parser.reiniciarListaInstruciiones(); :}
+			 		   		|repeticiones:repeticiones
+									{: System.out.println("Varias repeticiones de instrucciones Ingresadas: "); parser.reiniciarListaInstruciiones(); :}
+							|instrucciones:instrucciones COMENTARIO_LINEA:e1
+									{: System.out.println("Instrucciones Ingresadas con Comentarios: "); parser.reiniciarListaInstruciiones(); :}
+							|repeticiones:repeticiones COMENTARIO_LINEA:e1
+									{: System.out.println("Varias repeticiones de instrucciones Ingresadas: con Comentarios "); parser.reiniciarListaInstruciiones(); :}
+							|COMENTARIO_LINEA:e1
+									{: System.out.println("Comentarios "); :}	
+						;
+repeticiones ::= repeticion:repeticion
+						{: System.out.println("Otra Accion Ingresada: "); :}
+			    |repeticiones:repeticiones repeticion:repeticion
+						{: System.out.println("Otra Accion Ingresada: "); :}
+			;
+
+repeticion ::= REPEAT:e1 expr:e2 CORCHETE_A:e3 instrucciones:instrucciones CORCHETE_C:e4
+						{: System.out.println("Varias instrucciones Ingresadas: "); parser.ejecutarInstruccion(new InstruccionRepeat(e2,parser.devolverListaInstrucciones(),e1)); :}
+				//|REPEAT:e1 NUMERO_ENTERO:e2 CORCHETE_A:e3 instrucciones:instrucciones CORCHETE_C:e4
+				//		{: System.out.println("Varias instrucciones Ingresadas: "); :}
+			;
+
+instrucciones ::= instruccion:instruccion
+						{: System.out.println("Otra Accion Ingresada: "); :}
+			 	|instrucciones:instrucciones instruccion:instruccion
+						{: System.out.println("Otra Accion Ingresada: "); :}
+			;
+
+instruccion ::=	forward:forward
+				{: System.out.println("Instruccion Ingresada FORWARD: "); parser.ejecutarInstruccion(forward); parser.agregarInstruccion(forward); :}// antes de agregar la accion verificar si los campos no obligatorios estan vacios para darles por defecto del loguin y la fecha agregar la accion y reiniciar los atributos del objeto a null para una nueva accion
+			|backward:backward
+				{: System.out.println("Instruccion Ingresada BACKWARD: "); parser.ejecutarInstruccion(backward); parser.agregarInstruccion(backward); :} 
+			|in_right:in_right
+				{: System.out.println("Instruccion Ingresada RIGHT: "); parser.ejecutarInstruccion(in_right); parser.agregarInstruccion(in_right); :}
+			|in_left:in_left
+				{: System.out.println("Instruccion Ingresada LEFT: "); parser.ejecutarInstruccion(in_left); parser.agregarInstruccion(in_left); :}  
+			|clears:clears
+				{: System.out.println("Instruccion Ingresada CLEARS: "); parser.ejecutarInstruccion(clears); parser.agregarInstruccion(clears); :} 
+			|pen_up:pen_up
+				{: System.out.println("Instruccion Ingresada PEN_UP: "); parser.ejecutarInstruccion(pen_up); parser.agregarInstruccion(pen_up); :} 
+			|pen_down:pen_down
+				{: System.out.println("Instruccion Ingresada PEN_DOWN: "); parser.ejecutarInstruccion(pen_down); parser.agregarInstruccion(pen_down); :}
+			|to_center:to_center
+				{: System.out.println("Instruccion Ingresada TO_CENTER: "); parser.ejecutarInstruccion(to_center); parser.agregarInstruccion(to_center); :}  
+			|color:color
+				{: System.out.println("Instruccion Ingresada COLOR: "); parser.ejecutarInstruccion(color); parser.agregarInstruccion(color); :} 
+			|position_xy:position_xy
+				{: System.out.println("Instruccion Ingresada POSITION_XY: "); parser.ejecutarInstruccion(position_xy); parser.agregarInstruccion(position_xy); :} 
+			|position_x:position_x
+				{: System.out.println("Instruccion Ingresada POSITION_X: "); parser.ejecutarInstruccion(position_x); parser.agregarInstruccion(position_x); :}
+			|position_y:position_y
+				{: System.out.println("Instruccion Ingresada POSITION_Y: "); parser.ejecutarInstruccion(position_y); parser.agregarInstruccion(position_y); :}
+			|hide_turtle:hide_turtle
+				{: System.out.println("Instruccion Ingresada HIDE_TURTLE: "); parser.ejecutarInstruccion(hide_turtle); parser.agregarInstruccion(hide_turtle); :}
+			|show_turtle:show_turtle
+				{: System.out.println("Instruccion Ingresada SHOW_TURTLE: "); parser.ejecutarInstruccion(show_turtle); parser.agregarInstruccion(show_turtle); :}    
+			|to_erase:to_erase
+				{: System.out.println("Instruccion Ingresada TO_ERASE: "); parser.ejecutarInstruccion(to_erase); parser.agregarInstruccion(to_erase); :}
+			|to_draw:to_draw
+				{: System.out.println("Instruccion Ingresada TO_DRAW: "); parser.ejecutarInstruccion(to_draw); parser.agregarInstruccion(to_draw); :}  
+			//|repeat:repeat
+			//	{: System.out.println("Instruccion Ingresada REPEAT: "); :}
+			//|expr:expr
+			//	{: System.out.println("Instruccion Ingresada EXPRESION: "); :}
+			|VARIABLE:e1
+				{: System.out.println("Instruccion Ingresada Declaracion de variable: "); parser.ingresarVariable(e1, null); :}  
+			|asignacion:asignacion
+				{: System.out.println("Instruccion Ingresada Asignacion: "); :}  
+			|error:e
+				{: System.out.println("ERROR ACCION NO EXISTE"); :}
+			;
+
+/* Las producciones de la gramática para expresiones aritmeticas */
+//expr_lista ::= expr:e1 | 
+//              expr_lista:e1 expr:e2
+//           ;
+//expr_parte ::= expr:e1
+//			;
+expr      ::= expr:e1 SUMA:e2 expr2:e3 
+					{: RESULT = new Integer(e1.intValue() + e3.intValue()); System.out.printf(" Multiplicacion = %d\n", RESULT); :}
+            | expr:e1 RESTA:e2 expr2:e3
+            		{: RESULT = new Integer(e1.intValue() - e3.intValue()); System.out.printf(" Multiplicacion = %d\n", RESULT); :}
+            | expr2:e1
+            	{: RESULT = e1; :}
+        ;
+expr2 ::=  expr2:e1 MULT:e2 expr3:e3  
+				{: RESULT = new Integer(e1.intValue() * e3.intValue()); System.out.printf(" Multiplicacion = %d\n", RESULT); :}
+		   | expr2:e1 DIV:e2 expr3:e3
+		   		{: RESULT = new Integer(e1.intValue() / e3.intValue()); System.out.printf(" Division = %d\n", RESULT); :}
+		   | expr3:e1
+		   		{: RESULT = e1; :} 
+		;
+expr3 ::= 	NUMERO_ENTERO:e1
+				{: RESULT = e1; :} 
+        	| VARIABLE:e1
+        		{: RESULT = parser.retornarVariable(e1); :}//elResult debe devolver el valor de la variable en el hash map
+        	| PARENT_A:e1 expr:e2 PARENT_C:e3
+        		{: RESULT = e2; :} 
+        	
+        ;
+asignacion ::= VARIABLE:e1 IGUAL:e2 expr:e3
+					{: System.out.println("Instruccion Asignacion Ingresada: "); parser.asignarVariable(e1,e3); :}
+			;
+
+forward ::= FORWARD:e1 expr:e2 
+				{: RESULT = new InstruccionForward(e2, e1); System.out.println("Instruccion FORWARD Ingresada: "); :}
+			|FORWARD:e1 error:e
+		;
+backward ::= BACKWARD:e1 expr:e2 
+				{: RESULT = new InstruccionBackward(e2, e1); System.out.println("Instruccion BACKWARD Ingresada: "); :}
+			|BACKWARD:e1 error:e
+		;
+in_right ::= RIGHT:e1 expr:e2 
+				{: RESULT = new InstruccionRight(e2, e1); System.out.println("Instruccion RIGHT Ingresada: "); :}
+			|RIGHT:e1 error:e
+		;
+in_left ::= LEFT:e1 expr:e2 
+				{: RESULT = new InstruccionLeft(e2, e1); System.out.println("Instruccion LEFT Ingresada: "); :}
+			|LEFT:e1 error:e
+		;
+clears ::= CLEARS:e1 
+				{: RESULT = new InstruccionClears(e1); System.out.println("Instruccion CLEARS Ingresada: "); :}
+			//|CLEARS:e1 error:e
+		;
+pen_up ::= PEN_UP:e1 
+				{: RESULT = new InstruccionPenUp(e1); System.out.println("Instruccion PEN_UP Ingresada: "); :}
+			//|PEN_UP:e1 error:e
+		;
+pen_down ::= PEN_DOWN:e1 
+				{: RESULT = new InstruccionPenDown(e1); System.out.println("Instruccion PEN_DOWN Ingresada: "); :}
+			//|PEN_DOWN:e1 error:e
+		;
+to_center ::= TO_CENTER:e1 
+				{: RESULT = new InstruccionToCenter(e1); System.out.println("Instruccion TO_CENTER Ingresada: "); :}
+			//|TO_CENTER:e1 error:e
+		;
+color ::= COLOR:e1 expr:e2 
+				{: RESULT = new InstruccionColor(e2, e1); System.out.println("Instruccion COLOR Ingresada: "); :}
+			|COLOR:e1 CODIGO_COLOR:e2 
+				{: RESULT = new InstruccionColor(e2, e1); System.out.println("Instruccion COLOR HEXADECIMAL Ingresada: "); :}
+			|COLOR:e1 error:e
+		;
+position_xy ::= POSITION_XY:e1 expr:e2 COMA:e3 expr:e4 
+				{: RESULT = new InstruccionPositionXY(e2, e4, e1); System.out.println("Instruccion POSITION_XY Ingresada: "); :}
+			|POSITION_XY:e1 error:e
+		;
+position_x ::= POSITION_X:e1 expr:e2 
+					{: RESULT = new InstruccionPositionX(e2, e1); System.out.println("Instruccion POSITION_X Ingresada: "); :}
+				|POSITION_X:e1 error:e
+			;
+position_y ::= POSITION_Y:e1 expr:e2 
+					{: RESULT = new InstruccionPositionY(e2, e1); System.out.println("Instruccion POSITION_Y Ingresada: "); :}
+				|POSITION_Y:e1 error:e
+			;
+hide_turtle ::= HIDE_TURTLE:e1 
+					{: RESULT = new InstruccionHideTurtle(e1); System.out.println("Instruccion HIDE_TURTLE Ingresada: "); :}
+				//|HIDE_TURTLE:e1 error:e
+			;
+show_turtle ::= SHOW_TURTLE:e1 
+					{: RESULT = new InstruccionShowTurtle(e1); System.out.println("Instruccion SHOW_TURTLE Ingresada: "); :}
+				//|SHOW_TURTLE:e1 error:e
+			;
+to_erase ::= TO_ERASE:e1 
+					{: RESULT = new InstruccionToErase(e1); System.out.println("Instruccion TO_ERASE Ingresada: "); :}
+			//|TO_ERASE:e1 error:e
+		;
+to_draw ::= TO_DRAW:e1 
+					{: RESULT = new InstruccionToDraw(e1); System.out.println("Instruccion TO_DRAW Ingresada: "); :}
+			//|TO_DRAW:e1 error:e
+		;
+
+
+
+
+
+
+
