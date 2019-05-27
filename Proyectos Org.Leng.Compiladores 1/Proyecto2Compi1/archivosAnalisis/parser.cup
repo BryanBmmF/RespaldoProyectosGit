@@ -1,0 +1,1269 @@
+package proyecto2compi1;
+
+import java.util.ArrayList;
+import java.util.List;
+import java_cup.runtime.*;
+import proyecto2compi1.backend.instrucciones.*;
+import javax.swing.JTextArea;
+//import proyecto2compi1.frontend.PanelGrafico;
+import proyecto2compi1.frontend.JFramePrincipal;
+
+parser code {:
+	
+	private JTextArea textArea;
+	private List<String> listaErrores;
+	private List<Instruccion> listaInstrucciones;
+	private List<Instruccion> listaInstruccionesBloques;
+	private List<String> codigoHtml;
+	private boolean bloqueActivo; 
+
+	private String codigoHtmlFinal;
+	private JFramePrincipal panel;
+	private String ejecucion;
+	private int indexTab;
+
+	public parser(Lexer lexer, JFramePrincipal panel, int indexTab) {
+		super(lexer);
+		this.panel = panel;
+		this.textArea = panel.getTxtErroresSintac();
+		this.ejecucion = "enteros";
+		this.listaErrores = new ArrayList();
+		this.listaInstrucciones = new ArrayList();
+		this.listaInstruccionesBloques = new ArrayList();
+		this.codigoHtml = new ArrayList();
+		this.codigoHtmlFinal = "";
+		this.panel.inicializarTablasVariables();
+		this.bloqueActivo = false;
+		this.indexTab = indexTab;
+
+
+	}
+	public int retornarIndexTab(){
+			return this.indexTab;
+	}
+	public void activarBloque(){
+			bloqueActivo=true;
+	}
+	public void desactivarBloque(){
+			bloqueActivo=false;
+	}
+
+	public boolean devolverBloqueActivo(){
+			return this.bloqueActivo;
+
+	}
+
+	public JFramePrincipal devolverPanel(){
+			return this.panel;
+	}
+
+	public void reiniciarListaInstruciiones(){
+			this.listaInstrucciones = new ArrayList();
+
+	}
+	public void reiniciarListaInstruciionesBloques(){
+			this.listaInstruccionesBloques = new ArrayList();
+
+	}
+	public void reiniciarCodigoHtml(){
+			this.codigoHtml = new ArrayList();
+
+	}
+
+	public void reiniciarCodigoHtmlFinal(){
+			this.codigoHtmlFinal = "";
+
+	}
+
+	public List<Instruccion> devolverListaInstrucciones(){
+			return this.listaInstrucciones;
+
+	}
+
+	public List<Instruccion> devolverListaInstruccionesBloques(){
+			return this.listaInstruccionesBloques;
+
+	}
+
+	public List<String> devolverCodigoHtml(){
+			return this.codigoHtml;
+
+	}
+	public String devolverCodigoHtmlFinal(){
+			return this.codigoHtmlFinal;
+
+	}
+
+	public void agregarInstruccion(Instruccion instruccion){
+			this.listaInstrucciones.add(instruccion);
+
+	}
+	public void agregarInstruccionBloques(Instruccion instruccion){
+			this.listaInstruccionesBloques.add(instruccion);
+
+	}
+	public void agregarCodigoHtml(String instruccion){
+			this.codigoHtml.add(instruccion);
+	}
+	public void agregarCodigoHtmlFinal(String instruccion){
+			this.codigoHtmlFinal += instruccion;
+	}
+
+	public void limpiarListas(){
+            listaErrores.clear();
+    }
+	public void syntax_error(Symbol cur_token) {
+		String error = "Error Sintactico en " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + " con el  Token: " + cur_token.value;
+		System.out.println(error);
+		listaErrores.add(error);
+		textArea.append("\nEstructura invalida:\n" + error);
+		this.panel.agregarErrorSintactico(cur_token.left,cur_token.right,error, indexTab);
+		this.panel.agregarError(cur_token.left,cur_token.right,error, indexTab);
+	}
+
+	public void unrecovered_sintax_error(Symbol cur_token) throws java.lang.Exception{
+		String error = "Error Sintactico en " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + " con el  Token: " + cur_token.value;
+		System.out.println(error);
+		listaErrores.add(error);
+		textArea.append("\nEstructura invalida:\n" + error);
+		this.panel.agregarErrorSintactico(cur_token.left,cur_token.right,error, indexTab);
+		this.panel.agregarError(cur_token.left,cur_token.right,error, indexTab);
+
+	}
+
+	public void ejecutarInstruccion(Instruccion instruccion) {
+		if (instruccion != null) {
+				instruccion.ejecutar();
+		}
+	}
+
+	public String ejecutarInstrucciones(List<Instruccion> lista) {
+		String codigoHtml = "";
+
+		if (!lista.isEmpty()) {
+				for(Instruccion instruccion:lista){
+						instruccion.ejecutar();
+						codigoHtml += instruccion.recuperarTexto();
+				}
+				
+		}
+
+		return codigoHtml;
+	}
+
+	public Integer retornarVariable(String nombre){
+			Integer var = null;
+			/* code */
+				if (this.panel.verificarVariableInteger(nombre)){
+					/* existe la variable a usar */
+					if (this.panel.retornarVariableInteger(nombre)!=null){
+						/* code */
+						var = this.panel.retornarVariableInteger(nombre);
+					} else {
+							String error = "\nError Semantico:\n La variable "+nombre+" no tiene valor asignado...";
+							listaErrores.add(error);
+							textArea.append( error);
+							var = 0;
+							this.panel.agregarErrorSemantico(1,1,error, indexTab);
+					}
+					
+
+				} else {
+						String error = "\nError Semantico:\n La variable "+nombre+" no existe y no se puede usar...";
+						listaErrores.add(error);
+						textArea.append( error);
+						this.panel.agregarErrorSemantico(1,1,error, indexTab);
+
+				}
+
+			return var;
+
+	}
+
+
+
+	/*lista que devuelve los errores encontrados*/
+	public List<String> devolverErrores(){
+			return listaErrores;
+	}
+	///NUEVOS METODOS
+
+	public Boolean evaluarCondicionRelacional(Integer v1, Integer v2, String op){
+			switch (op){
+				case "<" : {
+					if (v1.intValue()<v2.intValue()){
+							return new Boolean(Boolean.TRUE);
+					} else {
+							return new Boolean(Boolean.FALSE);
+					}	
+					
+				}
+				case ">" : {
+					if (v1.intValue()>v2.intValue()){
+							return new Boolean(Boolean.TRUE);
+					} else {
+							return new Boolean(Boolean.FALSE);
+					}	
+
+					
+				}
+				case "<=" : {
+					if (v1.intValue()<=v2.intValue()){
+							return new Boolean(Boolean.TRUE);
+					} else {
+							return new Boolean(Boolean.FALSE);
+					}	
+					
+				}
+				case ">=" : {
+					if (v1.intValue()>=v2.intValue()){
+							return new Boolean(Boolean.TRUE);
+					} else {
+							return new Boolean(Boolean.FALSE);
+					}	
+					
+				}
+				case "<>" : {
+					if (v1.intValue()!=v2.intValue()){
+							return new Boolean(Boolean.TRUE);
+					} else {
+							return new Boolean(Boolean.FALSE);
+					}	
+					
+				}
+
+			}
+			return null;
+
+	}
+	
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal String	IGUAL;
+terminal String CORCHETE_A;
+terminal String CORCHETE_C;
+terminal String PARENT_A;
+terminal String PARENT_C;
+terminal String SUMA;
+terminal String RESTA;
+terminal String MULT;
+//terminal String DIV;
+terminal String FIN;
+terminal String COMA;
+terminal String ABRE;
+terminal String CIERRA;
+//terminal String COMENTARIO_LINEA;
+terminal String COM;
+//terminal String APOSTROFE;
+terminal String DOS_PT;
+terminal String DOS_PT_IGUAL;
+terminal String PT_COMA ;
+//terminal String MAYOR_QUE;
+//terminal String MENOR_QUE;
+terminal String MENOR_IGUAL;
+terminal String MAYOR_IGUAL;
+terminal String DIFERENTE;
+
+terminal String AMP_LT;
+terminal String AMP_GT;
+terminal String AMP;
+terminal String AMP_AACUTE;
+terminal String AMP_EACUTE;
+terminal String AMP_IACUTE;
+terminal String AMP_OACUTE;
+terminal String AMP_UACUTE;
+terminal String AMP_NTILDE_MAYUS;
+terminal String AMP_NTILDE_MINUS;
+
+//palabras reservadas
+
+//ETIQUETAS
+terminal String HTML;
+//terminal String END_HTML;
+terminal String HEAD;
+//terminal String END_HEAD;
+terminal String TITLE;
+//terminal String END_TITLE;
+terminal String BODY;
+//terminal String END_BODY;
+terminal String CENTER;
+//terminal String END_CENTER;
+terminal String P;//PARRAFO CON SALTO
+//terminal String END_P;
+terminal String B;//NEGRILLA
+//terminal String END_B;
+terminal String U;//SUBRAYADO
+//terminal String END_U;
+terminal String I; //ITALICA
+//terminal String END_I;
+terminal String STRIKE;//TACHADO
+//terminal String END_STRIKE;
+terminal String BLINK; //PARPADEANTE
+//terminal String END_BLINK;
+terminal String SUB;//SUBINDICE
+//terminal String END_SUB;
+terminal String SUP; //SUPERINDICE
+//terminal String END_SUP;
+terminal String FONT;
+//terminal String END_FONT;
+terminal String UL; //LISTA DESORDENADA
+//terminal String END_UL;
+terminal String OL;//LISTA ORDENADA
+//terminal String END_OL;
+terminal String LI; //ITEM
+//terminal String END_LI;
+terminal String BR; //SALTO LINEA
+terminal String NOBR; //NO SALTO DE LINEA AUNQUE SEA NECESARIO
+//terminal String END_NOBR;
+terminal String HR; //LINEA HORIZONTAL
+//terminal String END_HR;
+terminal String BLOCKQUOTE; //SANGRIA
+//terminal String END_BLOCKQUOTE;
+terminal String A;//LINK
+//terminal String END_A;
+
+//ATRIBUTOS
+terminal String BGCOLOR;
+terminal String TEXT;
+terminal String LINK;
+terminal String ALIGN;
+terminal String SIZE;
+terminal String FACE;//PARA TIPO DE LETRA SE DEBEN DEFINIR ALGUNOS TIPOS O TMARLO COMO CUALQUIER TEXTO
+terminal String COLOR;
+terminal String TYPE;
+terminal String START;
+terminal String WIDTH;
+terminal String NAME;
+terminal String HREF;
+
+//parametros
+//terminal String CODIGO_COLOR;
+terminal String CONST_COLOR;
+terminal String ALINEACION;
+terminal String TIPO_LETRA;
+terminal String TIPO_LISTA;
+//terminal String TIPO_CARACTER;
+terminal String PORCENTAJE;
+terminal String ANCLA_ETIQUETA;
+//terminal String ETIQUETA;
+terminal String TEXTO;
+terminal String PARAMETRO_TEXTO;
+terminal Integer NUMERO_ENTERO;
+
+terminal String IDENTIFICADOR;
+
+//VARIABLE = {DOS_PT}{IDENTIFICADOR}
+terminal String VAR;
+terminal String INTEGER;
+terminal String BOOLEAN;
+terminal String STRING;
+//terminal String tipo_variable;
+//OP LOGICOS
+terminal String TRUE;
+terminal String FALSE;
+terminal String AND;
+terminal String OR;
+
+//RESERVADAS
+terminal String IF;
+terminal String ELSE;
+terminal String THEN;
+terminal String WHILE;
+terminal String FOR;
+terminal String TO;
+terminal String PRINT;
+terminal String BEGIN;
+terminal String END;
+
+terminal String ABRE_EMBE;
+terminal String CIERRA_EMBE;
+
+
+/* Non-terminals */
+//non terminal String archivo_html;
+//non terminal String n_etiquetas;
+//non terminal String etiqueta;
+non terminal String texto;
+//non terminal String palabra;
+non terminal String simbolos_esp;
+//non terminal String n_simbolos_esp;
+
+non terminal String et_html;
+non terminal String end_et_html;
+non terminal String et_head;
+non terminal String end_et_head;
+non terminal String et_title;
+non terminal String end_et_title;
+non terminal String et_body;
+non terminal String end_et_body;
+non terminal String et_center;
+non terminal String end_et_center;
+non terminal String et_p;//PARRAFO CON SALTO
+non terminal String end_et_p;
+non terminal String et_b;//NEGRILLA
+non terminal String end_et_b;
+non terminal String et_u;//SUBRAYADO
+non terminal String end_et_u;
+non terminal String et_i; //ITALICA
+non terminal String end_et_i;
+non terminal String et_strike;//TACHADO
+non terminal String end_et_strike;
+non terminal String et_blink; //PARPADEANTE
+non terminal String end_et_blink;
+non terminal String et_sub;//SUBINDICE
+non terminal String end_et_sub;
+non terminal String et_sup; //SUPERINDICE
+non terminal String end_et_sup;
+non terminal String et_font;
+non terminal String end_et_font;
+non terminal String et_ul; //LISTA DESORDENADA
+non terminal String end_et_ul;
+non terminal String et_ol;//LISTA ORDENADA
+non terminal String end_et_ol;
+non terminal String et_li; //ITEM
+//non terminal String end_et_li;
+non terminal String et_br; //SALTO LINEA
+non terminal String et_nobr; //NO SALTO DE LINEA AUNQUE SEA NECESARIO
+non terminal String end_et_nobr;
+non terminal String et_hr; //LINEA HORIZONTAL
+//non terminal String end_et_hr;
+non terminal String et_blockquote; //SANGRIA
+non terminal String end_et_blockquote;
+non terminal String et_a;//LINK
+non terminal String end_et_a;
+
+//declarar instrucciones como una List<Instruccion> y probar>
+non terminal instrucciones;
+non terminal instrucciones_iniciales;
+non terminal instrucciones_html;
+non terminal String instruccion_html;
+non terminal List<Instruccion> codigo_embebido;
+non terminal List<Instruccion> bloques;
+//non terminal bloques_codigo_embebido;
+//non terminal repeticion;
+//non terminal repeticiones;
+//non terminal declaracion;
+non terminal Instruccion asignacion;
+non terminal Instruccion asignacion2;
+//non terminal Instruccion asignacion3;
+non terminal Instruccion declaracion;
+//non terminal expresion;
+non terminal Instruccion instruccion;
+non terminal Instruccion escritura;
+non terminal Instruccion condicional;
+non terminal Instruccion ciclo_while;
+non terminal Instruccion ciclo_for;
+non terminal Boolean condicion_relacional;//es una operacion relacional devuelve un valor booleano
+//non terminal Boolean condicion_logica;
+non terminal Boolean condicion;
+non terminal Boolean exprLogic, exprLogic2, exprLogic3;
+non terminal String prints;
+non terminal String print;
+non terminal String operador_relacional;
+
+non terminal String tipo_variable;
+
+//atributos
+non terminal String atrib_bgcolor;
+non terminal String atrib_text;
+non terminal String atrib_link;
+non terminal String atrib_align;
+non terminal String atrib_size;
+non terminal String atrib_face;
+non terminal String atrib_color;
+non terminal String atrib_type;
+non terminal String atrib_tipo_caracter;
+non terminal String atrib_start;
+non terminal String atrib_width;
+non terminal String atrib_name;
+non terminal String atrib_href;
+
+non terminal String n_atributos_body;
+non terminal String atributos_body;
+//non terminal String atributos_p;
+non terminal String n_atributos_font;
+non terminal String atributos_font;
+non terminal String atributos_ul;
+non terminal String n_atributos_ol;
+non terminal String atributos_ol;
+non terminal String n_et_li;
+non terminal String n_atributos_hr;
+non terminal String atributos_hr;
+non terminal String atributos_a;
+
+
+//non terminal expr_lista, expr_parte;
+non terminal Integer expr, expr2, expr3;//puede ser deunavez tipo integer
+
+/* Precedences */
+precedence left SUMA, RESTA;
+precedence left MULT, FIN;
+
+/* The grammar : el inicio podria ser o concatenacion de etiqutas html o bien codigo embebido que contiene instrucciones dentro de <% %>*/
+
+
+
+start with instrucciones_iniciales;
+
+instrucciones_iniciales ::= instrucciones_html:instrucciones_html
+								{: System.out.println("un archivo de etiquetas HTML"); :}
+							// bloques_codigo_embebido:bloques_codigo_embebido
+							//	{: System.out.println("un archivo de etiquetas HTML"); :}
+					;
+
+
+instrucciones_html ::= instruccion_html:instruccion_html
+							{: parser.agregarCodigoHtmlFinal(instruccion_html); System.out.println(" UNA SOLA INSTRUCCION HTML"); :}
+					   |instrucciones_html:instrucciones_html instruccion_html:instruccion_html
+					   		{: parser.agregarCodigoHtmlFinal(instruccion_html); System.out.println(" VARIAS INSTRUCCIONES HTML"); :}
+					;
+
+instruccion_html ::= et_html:e1 
+						{: RESULT=e1; :}
+				   |et_head:e1
+						{: RESULT=e1; :}
+				   |et_title:e1
+						{: RESULT=e1; :}
+				   |end_et_head:e1
+						{: RESULT=e1; :}
+				   //|et_body:e1 n_etiquetas:e2 //body con etiquetas exclusivas del cuerpo
+					//	{: RESULT=e1+e2; :}
+				   |et_center:e1
+						{: RESULT=e1; :}	
+				   |et_p:e1
+						{: RESULT=e1; :}
+					|et_b:e1
+						{: RESULT=e1; :}	
+					|et_u:e1
+						{: RESULT=e1; :}	
+					|et_i:e1
+						{: RESULT=e1; :}	
+					|et_strike:e1
+						{: RESULT=e1; :}
+					|et_blink:e1
+						{: RESULT=e1; :}	
+					|et_sub:e1
+						{: RESULT=e1; :}	
+					|et_sup:e1
+						{: RESULT=e1; :}
+					|et_font:e1
+						{: RESULT=e1; :}	
+					|et_ol:e1
+						{: RESULT=e1; :}	
+					|et_ul:e1
+						{: RESULT=e1; :}
+		    		|et_br:e1
+						{: RESULT=e1; :}
+					|et_nobr:e1
+						{: RESULT=e1; :}	
+					|et_hr:e1
+						{: RESULT=e1; :}
+					|et_blockquote:e1
+						{: RESULT=e1; :}
+					|et_a:e1
+						{: RESULT=e1; :}
+				   |et_body:e1
+				   		{: RESULT=e1; :}
+				   |end_et_body:e1
+						{: RESULT=e1; :}
+				   |end_et_html:e1
+						{: RESULT=e1; :}
+				   |codigo_embebido:e1
+				   		{: RESULT= parser.ejecutarInstrucciones(e1); System.out.println("SE EJECUTO EL CODIGO EMBEBIDO"); :}
+				   |error:e1
+				   		{: System.out.println("ERROR ACCION NO EXISTE"); :}
+				   //|texto:e1
+				   	//	{: RESULT=e1; :}
+
+				;
+//bloques_codigo_embebido ::= codigo_embebido:codigo_embebido
+//							{: System.out.println(" UNA SOLA INSTRUCCION HTML"); :}
+//					   |bloques_codigo_embebido:bloques_codigo_embebido codigo_embebido:codigo_embebido
+//					   		{: System.out.println(" VARIAS INSTRUCCIONES HTML"); :}
+//					;
+//retornar lo que produjeron las instrucciones
+codigo_embebido ::= ABRE_EMBE:e1 instrucciones:instrucciones CIERRA_EMBE:e2
+						{: RESULT= parser.devolverListaInstrucciones(); parser.reiniciarListaInstruciiones(); System.out.println(" UN BLOQUE CON instrucciones en codigo embebido"); :}
+					//| instruccion_html:instruccion_html
+					//		{: System.out.println(" UNA SOLA INSTRUCCION HTML"); :}
+				;
+
+bloques ::= BEGIN:e1 CORCHETE_A:e2 instrucciones:instrucciones CORCHETE_C:e3 END:e4 PT_COMA:e5
+				{: RESULT= parser.devolverListaInstrucciones(); parser.reiniciarListaInstruciiones(); System.out.println(" UN BLOQUE CON VARIAS instrucciones ");  :}
+			| instruccion:instruccion
+				{: parser.agregarInstruccion(instruccion); RESULT= parser.devolverListaInstrucciones(); parser.reiniciarListaInstruciiones(); System.out.println(" UN BLOQUE CON una sola instruccion ");  :}
+			;
+
+instrucciones ::= instruccion:instruccion
+						{: parser.agregarInstruccion(instruccion); System.out.println("Otra Accion Ingresada: "); :}
+			 	|instrucciones:instrucciones instruccion:instruccion
+						{: parser.agregarInstruccion(instruccion); System.out.println("Otra Accion Ingresada: "); :}
+			;
+//al momento de reconocer la etiqueta body concatenar lo que generaron las intrucciones del cod.Embe
+instruccion ::=	condicional:condicional
+				{: RESULT=condicional; System.out.println("Instruccion Ingresada condicional: "); :}// antes de agregar la accion verificar si los campos no obligatorios estan vacios para darles por defecto del loguin y la fecha agregar la accion y reiniciar los atributos del objeto a null para una nueva accion
+			|ciclo_while:ciclo_while
+				{: RESULT=ciclo_while; System.out.println("Instruccion Ingresada ciclo_while: "); :} 
+			|ciclo_for:ciclo_for
+				{: RESULT= ciclo_for; System.out.println("Instruccion Ingresada ciclo_for: "); :}
+			|declaracion:declaracion
+				{: RESULT= declaracion; System.out.println("Instruccion Ingresada Declaracion de variable: "); :}  
+			|asignacion:asignacion
+				{: RESULT= asignacion; System.out.println("Instruccion Ingresada Asignacion: "); :}
+			|asignacion2:asignacion2
+				{: RESULT= asignacion2; System.out.println("Instruccion Ingresada Asignacion: "); :}
+			//|asignacion3:asignacion3
+			//	{: RESULT= asignacion3; System.out.println("Instruccion Ingresada Asignacion: "); :}  
+			|escritura:escritura
+				{: RESULT= escritura; System.out.println("Instruccion Ingresada Print: "); :}  
+			//|error:e
+			//	{: System.out.println("ERROR ACCION NO EXISTE"); :}
+			;
+
+/* Las producciones de la gramática para expresiones aritmeticas */
+expr      ::= expr:e1 SUMA:e2 expr2:e3 
+					{: RESULT = new Integer(e1.intValue() + e3.intValue()); System.out.printf(" Multiplicacion = %d\n", RESULT); :}
+            | expr:e1 RESTA:e2 expr2:e3
+            		{: RESULT = new Integer(e1.intValue() - e3.intValue()); System.out.printf(" Multiplicacion = %d\n", RESULT); :}
+            | expr2:e1
+            	{: RESULT = e1; :}
+        ;
+expr2 ::=  expr2:e1 MULT:e2 expr3:e3  
+				{: RESULT = new Integer(e1.intValue() * e3.intValue()); System.out.printf(" Multiplicacion = %d\n", RESULT); :}
+		   | expr2:e1 FIN:e2 expr3:e3
+		   		{: RESULT = new Integer(e1.intValue() / e3.intValue()); System.out.printf(" Division = %d\n", RESULT); :}
+		   | expr3:e1
+		   		{: RESULT = e1; :} 
+		;
+expr3 ::= 	NUMERO_ENTERO:e1
+				{: RESULT = e1; :} 
+        	| IDENTIFICADOR:e1
+        		{: RESULT = parser.retornarVariable(e1); :}//elResult debe devolver el valor de la variable en el hash map
+        	| PARENT_A:e1 expr:e2 PARENT_C:e3
+        		{: RESULT = e2; :} 
+        	
+        ;
+
+//cambiar identificador por texto ya que se confundenn,..
+asignacion ::= texto:e1 DOS_PT_IGUAL:e2 expr:e3 //sin punto y coma para utilizalo en un for
+					{: RESULT = new InstruccionAsignacion(e1,e3,"INTEGER",parser.devolverPanel(),e2,parser.retornarIndexTab()); System.out.println("Instruccion Asignacion Ingresada: "); :}//asignar las variables hasta en la instruccion no aqui
+				|texto:e1 DOS_PT_IGUAL:e2 expr:e3 PT_COMA:e4 //con punto y coma
+					{: RESULT = new InstruccionAsignacion(e1,e3,"INTEGER",parser.devolverPanel(),e2,parser.retornarIndexTab()); System.out.println("Instruccion Asignacion Ingresada: "); :}
+			;
+asignacion2 ::= texto:e1 DOS_PT_IGUAL:e2 exprLogic:e3 //sin punto y coma para utilizalo en un for
+					{: RESULT = new InstruccionAsignacion(e1,e3,"BOOLEAN",parser.devolverPanel(),e2,parser.retornarIndexTab()); System.out.println("Instruccion Asignacion Ingresada: "); :}//asignar las variables hasta en la instruccion no aqui
+				|texto:e1 DOS_PT_IGUAL:e2 exprLogic:e3 PT_COMA:e4 //con punto y coma
+					{: RESULT = new InstruccionAsignacion(e1,e3,"BOOLEAN",parser.devolverPanel(),e2,parser.retornarIndexTab()); System.out.println("Instruccion Asignacion Ingresada: "); :}
+			;
+//asignacion3 ::= texto:e1 DOS_PT_IGUAL:e2 IDENTIFICADOR:e3 //sin punto y coma para utilizalo en un for
+//					{: RESULT = new InstruccionAsignacion(e1,e3,"STRING",parser.devolverPanel()); System.out.println("Instruccion Asignacion Ingresada: "); :}//asignar las variables hasta en la instruccion no aqui
+//				|texto:e1 DOS_PT_IGUAL:e2 IDENTIFICADOR:e3 PT_COMA:e4 //con punto y coma
+//					{: RESULT = new InstruccionAsignacion(e1,e3,"STRING",parser.devolverPanel()); System.out.println("Instruccion Asignacion Ingresada: "); :}
+//			;
+declaracion ::= VAR:e1 texto:e2 DOS_PT:e3 tipo_variable:e4 PT_COMA:e5
+					{: RESULT = new InstruccionDeclaracion(e2,e4,parser.devolverPanel(),e1,parser.retornarIndexTab()); System.out.println("Instruccion Declaracion Ingresada: "); :}//en una declaracion evaluar que tipo es para agregarlo a la tabla segun su tipo con su nombre y valor
+				
+			;
+//las instrucciones deben devolver texto html para concatenarlo
+//los bloques pueden devolver una lista de instrucciones donde si la lista contiene solo un elemento quiere decir que es una sola intruc.
+condicional ::= IF:e1 condicion:e2 THEN:e3 bloques:e4 ELSE:e5 bloques:e6 
+				{: RESULT = new InstruccionIF(e2,e4,e6,e1); System.out.println("Instruccion IF Ingresada: "); :}
+			|IF:e1 error:e
+		;
+ciclo_while ::= WHILE:e1 condicion:e2 bloques:e3 
+				{: RESULT = new InstruccionWhile(e2,e3,e1); System.out.println("Instruccion WHILE Ingresada: "); :}
+			|WHILE:e1 error:e
+		;
+ciclo_for ::= FOR:e1 asignacion:e2 TO:e5 expr:e6 bloques:e7 
+				{: RESULT = new InstruccionFor((InstruccionAsignacion)e2,e6,e7,e1); System.out.println("Instruccion FOR Ingresada: "); :}
+			|FOR:e1 error:e
+		;
+escritura ::= PRINT:e1 PARENT_A:e2 prints:e3 PARENT_C:e4 PT_COMA:e5 
+				{: RESULT = new InstruccionPrint(parser.devolverCodigoHtml(),parser.devolverPanel(),e1); parser.reiniciarCodigoHtml(); System.out.println("Instruccion PRINT Ingresada: "); :}
+			|PRINT:e1 error:e
+		;
+prints ::= print:print
+				{: parser.agregarCodigoHtml(print); System.out.println("Un PRINT: "); :}
+		  |prints:prints COMA:e1 print:print
+		  		{: parser.agregarCodigoHtml(print); System.out.println("Otro PRINT"); :}
+		;
+print ::= PARAMETRO_TEXTO:e4
+				{: RESULT = e4.substring(1, e4.length()-1).trim(); System.out.println("PRINT de texto"); :}
+		//| NUMERO_ENTERO:e2 APOSTROFE:e3
+		//		{: System.out.println("PRINT de  NUMERO_ENTERO "); :}	
+		| texto:e1
+				{: RESULT = e1;  System.out.println("PRINT de variable: ");  :}	
+		;	
+condicion ::= condicion_relacional:condicion_relacional
+					{: RESULT=condicion_relacional.booleanValue(); System.out.println("Condicion relacional: ");  :}
+			|exprLogic:exprLogic
+					{: RESULT=exprLogic.booleanValue(); System.out.println("Condicion logica: ");  :}
+			;
+condicion_relacional ::= expr:e1 operador_relacional:e2 expr:e3
+							{: RESULT = parser.evaluarCondicionRelacional(e1,e3,e2); System.out.println("Condicion relacional: ");  :}//para el resul true o false se debe evaluar la condicion
+					;
+
+/*... Gramatica para expresiones logicas basado en la gramatica de experesiones aritmeticas, FALTA AGREGARLE PRESEDENCIA DE AND Y OR*/
+exprLogic   ::= exprLogic:e1 AND:e2 exprLogic2:e3 
+					{: RESULT= new Boolean(e1.booleanValue() && e3.booleanValue()); System.out.printf(" operacion AND "); :}//devolver resultado de evaluar exprLogic AND exprLogic2
+            | exprLogic:e1 OR:e2 exprLogic2:e3
+            		{: RESULT= new Boolean(e1.booleanValue() || e3.booleanValue()); System.out.printf(" operacion OR"); :}//devolver resultado de evaluar exprLogic OR exprLogic2
+            | exprLogic2:e1
+            	{: 	System.out.printf(" otra peracion logica"); :}
+        ;
+exprLogic2 ::=  condicion_relacional:e1 AND:e2 condicion_relacional:e3  
+				{: RESULT= new Boolean(e1.booleanValue() && e3.booleanValue()); System.out.printf(" operacion AND con dos condiciones relacionales"); :} //devolver resultado de evaluar CondRel AND CondRel
+		   | condicion_relacional:e1 OR:e2 condicion_relacional:e3
+		   		{: RESULT= new Boolean(e1.booleanValue() || e3.booleanValue()); System.out.printf(" operacion OR con dos condiciones relacionales"); :} //devolver resultado de evaluar CondRel OR CondRel
+		   | exprLogic3:e1
+		   		{: RESULT = e1; :} 
+		;
+exprLogic3 ::= 	TRUE:e1 
+						{: RESULT= new Boolean(Boolean.TRUE); System.out.println("Devolver true: "); :}//retornar valor logico true
+			   |FALSE:e1 
+						{: RESULT= new Boolean(Boolean.FALSE); System.out.println("Devolver false: "); :}//retornar valor logico false
+        	   | PARENT_A:e1 exprLogic:e2 PARENT_C:e3
+        				{: RESULT=e2.booleanValue(); System.out.println("operacion logica con parentesis: "); :} 
+        	
+        ;
+
+						
+operador_relacional ::= IGUAL:e1
+							{: RESULT= e1; :}
+					  |ABRE:e1 
+					  		{: RESULT= e1; :}
+					  |CIERRA:e1 
+					  		{: RESULT= e1; :}
+					  |MENOR_IGUAL:e1 
+					  		{: RESULT= e1; :} 
+					  |MAYOR_IGUAL:e1 
+					  		{: RESULT= e1; :}
+					  |DIFERENTE:e1 
+					  		{: RESULT= e1; :}
+					;
+
+// tener metodos que devuelven true o false segun la operacion relacional o logica que se realice hacerlo arriba..
+
+/*Generacion del archivo HTML a interpretar luego con otro parser de acuerdo a las etiquetas que vengan en la entrada */
+
+//archivo_html ::= et_html:e1
+//					et_head:e2
+//						et_title:e3
+//					end_et_head:e4
+//				 et_body:e5
+//				 	n_etiquetas:e6
+//				 end_et_body:e7
+//				 end_et_html:e8
+//				 {:RESULT=e1+e2+e3+e4+e5+e6+e7; :}
+//			;
+
+			
+//n_etiquetas ::= etiqueta:etiqueta
+//						{: RESULT=etiqueta; :} 
+//				|n_etiquetas:n_etiquetas etiqueta:etiqueta
+//						{: RESULT=n_etiquetas+etiqueta;  :}
+//			;
+//etiqueta ::= et_center:e1
+//				{: RESULT=e1; :}	
+//			|et_p:e1
+//				{: RESULT=e1; :}
+//			|et_b:e1
+//				{: RESULT=e1; :}	
+//			|et_u:e1
+//				{: RESULT=e1; :}	
+//			|et_i:e1
+//				{: RESULT=e1; :}	
+//			|et_strike:e1
+//				{: RESULT=e1; :}
+//			|et_blink:e1
+//				{: RESULT=e1; :}	
+//			|et_sub:e1
+//				{: RESULT=e1; :}	
+//			|et_sup:e1
+//				{: RESULT=e1; :}
+//			|et_font:e1
+//				{: RESULT=e1; :}	
+//			|et_ol:e1
+//				{: RESULT=e1; :}	
+//			|et_ul:e1
+//				{: RESULT=e1; :}
+//		    |et_br:e1
+//				{: RESULT=e1; :}
+//			|et_nobr:e1
+//				{: RESULT=e1; :}	
+//			|et_hr:e1
+//				{: RESULT=e1; :}
+//			|et_blockquote:e1
+//				{: RESULT=e1; :}
+//			|et_a:e1
+//				{: RESULT=e1; :}	
+//			//|/*NADA*/ 
+			//	{: RESULT= ""; :}						
+//		;//COLOCAR LAS DEMAS ETIQUETAS
+et_html ::= ABRE:e0 HTML:e1 CIERRA:e2 
+				{: RESULT= "<html>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 HTML:e1 //sin cierre de etiqueta
+			//	{: RESULT= "<html>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|/*NADA*/ 
+			//	{: RESULT= "<html>"+"\n"; System.out.println(" etiqueta: %s ",RESULT); :}
+		;
+end_et_html ::= ABRE:e0 FIN:e HTML:e1 CIERRA:e2 
+				{: RESULT= "</html>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e HTML:e1 //sin cierre de etiqueta
+			//	{: RESULT= "<html>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|/*NADA*/ 
+			//	{: RESULT= "<html>"+"\n"; System.out.println(" etiqueta: %s ",RESULT); :}
+		;
+et_head ::= ABRE:e0 HEAD:e1 CIERRA:e2 
+				{: RESULT= "<head>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 HEAD:e1 //sin cierre de etiqueta
+			//	{: RESULT= "<head>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|/*NADA*/ 
+			//	{: RESULT= "<head>"+"\n"; System.out.println(" etiqueta: %s ",RESULT); :}
+		;
+end_et_head ::= ABRE:e0 FIN:e HEAD:e1 CIERRA:e2 
+				{: RESULT= "</head>"+"\n"; System.out.println(" etiqueta:  "+RESULT); :}
+		   //|ABRE:e0 FIN:e HEAD:e1 //sin cierre de etiqueta
+			//	{: RESULT= "<head>"+"\n"; System.out.println(" etiqueta:  "+RESULT); :}
+		   //|/*NADA*/ 
+			//	{: RESULT= "<head>"+"\n"; System.out.println(" etiqueta: %s ",RESULT); :}
+		;
+et_title ::=  ABRE:e0 TITLE:e1 CIERRA:e2 texto:e3 end_et_title:e4
+					{: RESULT= "<title>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   		//|ABRE:e0 TITLE:e1 texto:e3 end_et_title:e4 //sin cierre de etiqueta
+				//	{: RESULT= "<title>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+				//|/*NADA*/ 
+				//{: RESULT= ""; :}
+			;
+end_et_title ::= ABRE:e0 FIN:e TITLE:e1 CIERRA:e2 
+					{: RESULT= "</title>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e TITLE:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</title>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_body ::= ABRE:e0 BODY:e1 CIERRA:e2 //agregar una produccion mas con atributos dentro de la etiqueta body
+				{: RESULT= "<body>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   |ABRE:e0 BODY:e1 n_atributos_body:e2 CIERRA:e3 //sin cierre de etiqueta
+				{: RESULT= "<body "+e2+" >"+"\n"; System.out.println(" etiqueta :  "+RESULT); :}
+		   //|ABRE:e0 BODY:e1 texto:e3 //sin cierre de etiqueta
+			//	{: RESULT= "<body>"+e3+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|/*NADA*/ 
+			//	{: RESULT= "<body>"+"\n"; System.out.println(" etiqueta: %s ",RESULT); :}
+		;
+end_et_body ::= ABRE:e0 FIN:e BODY:e1 CIERRA:e2 
+				{: RESULT= "</body>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e BODY:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</body>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|/*NADA*/ 
+			//	{: RESULT= "</body>"+"\n"; System.out.println(" etiqueta: %s ",RESULT); :}
+		;
+et_center ::= 	ABRE:e0 CENTER:e1 CIERRA:e2 texto:e3 end_et_center:e4
+					{: RESULT= "<center>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 CENTER:e1 texto:e3 end_et_center:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<center>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_center ::=  ABRE:e0 FIN:e CENTER:e1 CIERRA:e2 
+					{: RESULT= "</center>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e CENTER:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</center>"+"\n"; System.out.println(" etiqueta:  "+RESULT); :}
+			;
+et_p ::= ABRE:e0 P:e1 CIERRA:e2 texto:e3 end_et_p:e4
+				{: RESULT= "<p>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			|ABRE:e0 P:e1 atrib_align:e2 CIERRA:e3 texto:e4 end_et_p:e5 //con atributos
+				{: RESULT= "<p "+e2+" >"+e4+e5+"\n"; System.out.println(" etiqueta : "+RESULT); :}
+		    //|ABRE:e0 P:e1 texto:e3 end_et_p:e4//sin cierre de etiqueta
+			//	{: RESULT= "<p>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+end_et_p ::= ABRE:e0 FIN:e P:e1 CIERRA:e2 
+				{: RESULT= "</p>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e P:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</p>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+et_b ::= ABRE:e0 B:e1 CIERRA:e2 texto:e3 end_et_b:e4
+					{: RESULT= "<b>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 B:e1 texto:e3 end_et_b:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<b>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_b ::= ABRE:e0 FIN:e B:e1 CIERRA:e2 
+					{: RESULT= "</b>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e B:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</b>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_u ::= ABRE:e0 U:e1 CIERRA:e2 texto:e3 end_et_u:e4
+					{: RESULT= "<u>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 U:e1 texto:e3 end_et_u:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<u>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_u ::= ABRE:e0 FIN:e U:e1 CIERRA:e2 
+					{: RESULT= "</u>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e U:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</u>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_i ::= ABRE:e0 I:e1 CIERRA:e2 texto:e3 end_et_i:e4
+					{: RESULT= "<i>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 I:e1 texto:e3 end_et_i:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<i>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_i ::= ABRE:e0 FIN:e I:e1 CIERRA:e2 
+					{: RESULT= "</i>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e I:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</i>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_strike ::= ABRE:e0 STRIKE:e1 CIERRA:e2 texto:e3 end_et_strike:e4
+					{: RESULT= "<strike>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 STRIKE:e1 texto:e3 end_et_strike:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<strike>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_strike ::= ABRE:e0 FIN:e STRIKE:e1 CIERRA:e2 
+					{: RESULT= "</strike>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e STRIKE:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</strike>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_blink ::= ABRE:e0 BLINK:e1 CIERRA:e2 texto:e3 end_et_blink:e4
+					{: RESULT= "<blink>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 BLINK:e1 texto:e3 end_et_blink:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<blink>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_blink ::= ABRE:e0 FIN:e BLINK:e1 CIERRA:e2 
+					{: RESULT= "</blink>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e BLINK:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</blink>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_sub ::= 	ABRE:e0 SUB:e1 CIERRA:e2 texto:e3 end_et_sub:e4
+					{: RESULT= "<sub>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 SUB:e1 texto:e3 end_et_sub:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<sub>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_sub ::= ABRE:e0 FIN:e SUB:e1 CIERRA:e2 
+					{: RESULT= "</sub>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e SUB:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</sub>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_sup ::= 	ABRE:e0 SUP:e1 CIERRA:e2 texto:e3 end_et_sup:e4
+					{: RESULT= "<sup>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 SUP:e1 texto:e3 end_et_sup:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<sup>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_sup ::= ABRE:e0 FIN:e SUP:e1 CIERRA:e2 
+					{: RESULT= "</sup>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e SUP:e1 //sin cierre de etiqueta PUEDE SERVIR COMO DETECCION DE ERRORES YA QUE ARREGLA LA ETIQUETA PERO DEBE REPORTAR
+			//		{: RESULT= "</sup>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_font ::= ABRE:e0 FONT:e1 CIERRA:e2 texto:e3 end_et_font:e4//agregar una produccion mas con atributos dentro de la etiqueta body
+				{: RESULT= "<font>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   |ABRE:e0 FONT:e1 n_atributos_font:e2 CIERRA:e3 texto:e4 end_et_font:e5 //sin cierre de etiqueta
+				{: RESULT= "<font "+e2+" >"+e4+e5+"\n"; System.out.println(" etiqueta : "+RESULT); :}
+		   //|ABRE:e0 FONT:e1 texto:e3 end_et_font:e4//sin cierre de etiqueta
+			//	{: RESULT= "<font>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+end_et_font ::= ABRE:e0 FIN:e FONT:e1 CIERRA:e2 
+				{: RESULT= "</font>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e FONT:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</font>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+et_ul ::= ABRE:e0 UL:e1 CIERRA:e2 n_et_li:e3 end_et_ul:e4//agregar una produccion mas con atributos dentro de la etiqueta body
+				{: RESULT= "<ul>"+"\n"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   |ABRE:e0 UL:e1 atributos_ul:e2 CIERRA:e3 n_et_li:e4 end_et_ul:e5 //sin cierre de etiqueta
+				{: RESULT= "<ul "+e2+" >"+e4+e5+"\n"; System.out.println(" etiqueta : "+RESULT); :}
+		   //|ABRE:e0 UL:e1 n_et_li:e3 end_et_ul:e4//sin cierre de etiqueta
+			//	{: RESULT= "<ul>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+end_et_ul ::= ABRE:e0 FIN:e UL:e1 CIERRA:e2 
+				{: RESULT= "</ul>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e UL:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</ul>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+et_ol ::= ABRE:e0 OL:e1 CIERRA:e2 n_et_li:e3 end_et_ol:e4//agregar una produccion mas con atributos dentro de la etiqueta body
+				{: RESULT= "<ol>"+"\n"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   |ABRE:e0 OL:e1 n_atributos_ol:e2 CIERRA:e3 n_et_li:e4 end_et_ol:e5 //sin cierre de etiqueta
+				{: RESULT= "<ol "+e2+" >"+e4+e5+"\n"; System.out.println(" etiqueta : "+RESULT); :}
+		   //|ABRE:e0 OL:e1 n_et_li:e3 end_et_ol:e4//sin cierre de etiqueta
+			//	{: RESULT= "<ol>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+end_et_ol ::= ABRE:e0 FIN:e OL:e1 CIERRA:e2 
+				{: RESULT= "</ol>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e OL:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</ol>"+"\n"; System.out.println(" etiqueta:"+RESULT); :}
+		;
+et_br ::= 	ABRE:e0 BR:e1 CIERRA:e2
+					{: RESULT= "\n"+"<br>"+"\n"; System.out.println(" etiqueta:  "+RESULT); :}
+		   	//	|ABRE:e0 BR:e1 //sin cierre de etiqueta
+			//		{: RESULT= "\n"+"<br>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_nobr ::= 	ABRE:e0 NOBR:e1 CIERRA:e2 texto:e3 end_et_nobr:e4
+					{: RESULT= "\n"+"<nobr>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 NOBR:e1 texto:e3 end_et_nobr:e4 //sin cierre de etiqueta
+			//		{: RESULT= "\n"+"<nobr>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_nobr ::= ABRE:e0 FIN:e NOBR:e1 CIERRA:e2 
+				{: RESULT= "</nobr>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e NOBR:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</nobr>"+"\n"; System.out.println(" etiqueta:"+RESULT); :}
+		;
+et_hr ::= ABRE:e0 HR:e1 CIERRA:e2//agregar una produccion mas con atributos dentro de la etiqueta body
+				{: RESULT= "<hr>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   |ABRE:e0 HR:e1 n_atributos_hr:e2 CIERRA:e3 //con atributos
+				{: RESULT= "<hr "+e2+" >"+"\n"; System.out.println(" etiqueta : "+RESULT); :}
+		   //|ABRE:e0 HR:e1 n_atributos_hr:e2//sin cierre de etiqueta
+			//	{: RESULT= "<hr "+e2+" >"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+et_blockquote ::= ABRE:e0 BLOCKQUOTE:e1 CIERRA:e2 texto:e3 end_et_blockquote:e4
+					{: RESULT= "<blockquote>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 BLOCKQUOTE:e1 texto:e3 end_et_blockquote:e4 //sin cierre de etiqueta
+			//		{: RESULT= "<blockquote>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+end_et_blockquote ::= ABRE:e0 FIN:e BLOCKQUOTE:e1 CIERRA:e2 
+					{: RESULT= "</blockquote>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   	//	|ABRE:e0 FIN:e BLOCKQUOTE:e1 //sin cierre de etiqueta
+			//		{: RESULT= "</blockquote>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+			;
+et_a ::= ABRE:e0 A:e1 CIERRA:e2 texto:e3 end_et_a:e4//agregar una produccion mas con atributos dentro de la etiqueta body
+				{: RESULT= "<a>"+"\n"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   |ABRE:e0 A:e1 atributos_a:e2 CIERRA:e3 texto:e4 end_et_a:e5 //sin cierre de etiqueta
+				{: RESULT= "<a "+e2+" >"+e4+e5+"\n"; System.out.println(" etiqueta : "+RESULT); :}
+		   //|ABRE:e0 A:e1 texto:e3 end_et_a:e4//sin cierre de etiqueta
+			//	{: RESULT= "<a>"+e3+e4+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+end_et_a ::= ABRE:e0 FIN:e A:e1 CIERRA:e2 
+				{: RESULT= "</a>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		   //|ABRE:e0 FIN:e A:e1 //sin cierre de etiqueta
+			//	{: RESULT= "</a>"+"\n"; System.out.println(" etiqueta: "+RESULT); :}
+		;
+
+
+//atributos para cada etiqueta
+n_atributos_body ::= atributos_body:atributos_body //los atributos pueden devolver una lista de atributos a aplicar. considerar
+							{: RESULT =atributos_body; System.out.println("Un nuevo atributo: "); :}
+					   |n_atributos_body:n_atributos_body atributos_body:atributos_body
+								{: RESULT = n_atributos_body+atributos_body; System.out.println("Otro atributo: "); :}
+						;
+
+atributos_body ::=    atrib_bgcolor:e1
+							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_text:e1
+					  		{: RESULT = " "+e1; :}
+					  |atrib_link:e1
+					  		{: RESULT = " "+e1; :}
+					  ;
+
+//atributos_p ::=  atrib_align:e1
+//							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+//					  ;
+n_atributos_font ::= atributos_font:atributos_font //puede devolver una lista de atributos a aplicar. considerar
+							{: RESULT = atributos_font; System.out.println("Un nuevo atributo: "); :}
+					   |n_atributos_font:n_atributos_font atributos_font:atributos_font
+								{: RESULT = n_atributos_font+atributos_font; System.out.println("Otro atributo: "); :}
+						;
+
+atributos_font ::=  atrib_size:e1
+							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_align:e1
+					  		{: RESULT = " "+e1; :}
+					  |atrib_face:e1
+					  		{: RESULT = " "+e1; :}
+					  |atrib_color:e1
+					  		{: RESULT = " "+e1; :}
+					  ;
+atributos_ul ::=  atrib_type:e1
+							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  ;	
+n_atributos_ol ::= atributos_ol:atributos_ol //puede devolver una lista de atributos a aplicar. considerar
+							{: RESULT = atributos_ol; System.out.println("Un nuevo atributo: "); :}
+					   |n_atributos_ol:n_atributos_ol atributos_ol:atributos_ol
+								{: RESULT = n_atributos_ol+atributos_ol; System.out.println("Otro atributo: "); :}
+						;
+
+atributos_ol ::=  atrib_tipo_caracter:e1
+							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_start:e1
+					  		{: RESULT = " "+e1; :}
+					  ;
+n_et_li ::= et_li:et_li 
+				{: RESULT=et_li; :}
+		   |n_et_li:n_et_li et_li:et_li
+		   		{: RESULT=n_et_li+et_li; :}
+		;
+et_li ::= ABRE:e LI:e1 CIERRA:e2 texto:e3
+				{: RESULT= "<li>"+e3+"\n"; :}
+		 //|ABRE:e LI:e1 texto:e2 //autocompletando etiqueta
+		 //		{: RESULT= "<li>"+e2+"\n"; :}
+		;
+
+n_atributos_hr ::= atributos_hr:atributos_hr //puede devolver una lista de atributos a aplicar. considerar
+							{: RESULT = atributos_hr; System.out.println("Un nuevo atributo: "); :}
+					   |n_atributos_hr:n_atributos_hr atributos_hr:atributos_hr
+								{: RESULT = n_atributos_hr+atributos_hr; System.out.println("Otro atributo: "); :}
+						;
+
+atributos_hr ::=  atrib_align:e1
+							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_width:e1
+					  		{: RESULT = " "+e1; :}
+					  |atrib_size:e1
+					  		{: RESULT = " "+e1; :}
+					  ;
+atributos_a ::=  atrib_name:e1
+							{: RESULT = " "+e1; :}//evaluarn si no es nulo y hacer un set el atributo id de la clase accion cfrear siitio
+					  |atrib_href:e1
+					  		{: RESULT = " "+e1; :}
+					  ;
+
+//atributos  //producia error la prod bgcolor ya que la tenia repetida...
+//atrib_bgcolor ::=	BGCOLOR:e1 IGUAL:e2 COM:e3 CONST_COLOR:e4 COM:e5 
+//						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+//				   |BGCOLOR:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+//						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+//					;
+atrib_text ::=	TEXT:e1 IGUAL:e2 COM:e3 CONST_COLOR:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+				   |TEXT:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_link ::=	LINK:e1 IGUAL:e2 COM:e3 CONST_COLOR:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+				   |LINK:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_align ::=	ALIGN:e1 IGUAL:e2 COM:e3 ALINEACION:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_size ::=	SIZE:e1 IGUAL:e2 COM:e3 NUMERO_ENTERO:e4 COM:e5 
+						{: RESULT=e1+e2+e3+String.valueOf(e4)+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_face ::=	FACE:e1 IGUAL:e2 COM:e3 TIPO_LETRA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_bgcolor ::=	BGCOLOR:e1 IGUAL:e2 COM:e3 CONST_COLOR:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+				   |BGCOLOR:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_color ::=	COLOR:e1 IGUAL:e2 COM:e3 CONST_COLOR:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+				   |COLOR:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_type ::=	TYPE:e1 IGUAL:e2 COM:e3 TIPO_LISTA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_tipo_caracter ::=	TYPE:e1 IGUAL:e2 COM:e3 NUMERO_ENTERO:e4 COM:e5 
+							{: RESULT=e1+e2+e3+String.valueOf(e4)+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+						|TYPE:e1 IGUAL:e2 COM:e3 texto:e4 COM:e5 
+							{: RESULT=e1+e2+e3+String.valueOf(e4)+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_start ::=	START:e1 IGUAL:e2 COM:e3 NUMERO_ENTERO:e4 COM:e5 
+						{: RESULT=e1+e2+e3+String.valueOf(e4)+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_width ::=	WIDTH:e1 IGUAL:e2 COM:e3 NUMERO_ENTERO:e4 COM:e5 
+						{: RESULT=e1+e2+e3+String.valueOf(e4)+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+				   |WIDTH:e1 IGUAL:e2 COM:e3 PORCENTAJE :e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_name ::=	NAME:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+atrib_href ::=	HREF:e1 IGUAL:e2 COM:e3 ANCLA_ETIQUETA:e4 COM:e5 
+						{: RESULT=e1+e2+e3+e4+e5; System.out.println("ATRIBUTO: "+RESULT); :}
+					;
+
+
+texto ::= simbolos_esp:simbolos_esp
+				{: RESULT=simbolos_esp; :}
+		  |texto:texto simbolos_esp:simbolos_esp
+		  		{: RESULT=texto+simbolos_esp; :}
+
+		  //|TEXTO:e1 n_simbolos_esp:e2
+		  //		{: RESULT=e1+e2; :}
+		  //|n_simbolos_esp:e1 TEXTO:e2 n_simbolos_esp:e3
+		  //		{: RESULT=e1+e2+e3; :}
+		;
+//palabra ::= TEXTO:e1
+//				{: RESULT=e1; :}
+//		  |simbolos_esp:e1 
+//		  		{: RESULT=e1; :}
+//		;
+
+//n_simbolos_esp ::= simbolos_esp:simbolos_esp
+//						{: RESULT=simbolos_esp; :}
+//				  |n_simbolos_esp:n_simbolos_esp simbolos_esp:simbolos_esp
+//				  		{: RESULT=n_simbolos_esp+simbolos_esp; :}
+//				;
+
+simbolos_esp ::= AMP_LT:e1
+					{: RESULT=e1; :}
+				|AMP_GT:e1
+					{: RESULT=e1; :}
+				|AMP:e1
+					{: RESULT=e1; :}
+				|AMP_AACUTE:e1
+					{: RESULT=e1; :}
+				|AMP_EACUTE:e1
+					{: RESULT=e1; :}
+				|AMP_IACUTE:e1
+					{: RESULT=e1; :}
+				|AMP_OACUTE:e1
+					{: RESULT=e1; :}
+				|AMP_UACUTE:e1
+					{: RESULT=e1; :}
+				|AMP_NTILDE_MAYUS:e1
+					{: RESULT=e1; :}
+				|AMP_NTILDE_MINUS:e1
+					{: RESULT=e1; :}
+				|TEXTO:e1
+					{: RESULT=e1+" "; :}//mas un separador
+				|IDENTIFICADOR:e1
+					{: RESULT=e1+" "; :}//identificador
+				|NUMERO_ENTERO:e1
+					{: RESULT=String.valueOf(e1); :}//identificador
+				|HTML:e1
+					{: RESULT=e1+" "; :}
+				|HEAD:e1
+					{: RESULT=e1+" "; :}
+				|TITLE:e1
+					{: RESULT=e1+" "; :}
+				|BODY:e1
+					{: RESULT=e1+" "; :}
+				|CENTER:e1
+					{: RESULT=e1+" "; :}
+				|P:e1
+					{: RESULT=e1+" "; :}
+				|B:e1
+					{: RESULT=e1+" "; :}
+				|U:e1
+					{: RESULT=e1+" "; :}
+				|I:e1
+					{: RESULT=e1+" "; :}
+				|STRIKE:e1
+					{: RESULT=e1+" "; :}
+				|BLINK:e1
+					{: RESULT=e1+" "; :}
+				|SUB:e1
+					{: RESULT=e1+" "; :}
+				|SUP:e1
+					{: RESULT=e1+" "; :}
+				|FONT:e1
+					{: RESULT=e1+" "; :}
+				|UL:e1
+					{: RESULT=e1+" "; :}
+				|OL:e1
+					{: RESULT=e1+" "; :}
+				|LI:e1
+					{: RESULT=e1+" "; :}
+				|HR:e1
+					{: RESULT=e1+" "; :}
+				|BLOCKQUOTE:e1
+					{: RESULT=e1+" "; :}
+				|A:e1
+					{: RESULT=e1+" "; :}
+				|HREF:e1
+					{: RESULT=e1+" "; :}//AGREGAR TODAS LAS RESERVADAS TAMBIEN
+			;
+tipo_variable ::= INTEGER:e1
+					{: RESULT=e1; :}
+				|BOOLEAN:e1
+					{: RESULT=e1; :}
+				|STRING:e1
+					{: RESULT=e1; :}
+			;
