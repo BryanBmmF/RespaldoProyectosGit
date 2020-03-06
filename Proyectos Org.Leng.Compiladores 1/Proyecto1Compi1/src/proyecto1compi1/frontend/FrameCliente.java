@@ -73,7 +73,6 @@ public class FrameCliente extends javax.swing.JFrame implements Observer{
         jLabel1 = new javax.swing.JLabel();
         status = new javax.swing.JTextField();
         btnAnalizar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -126,14 +125,12 @@ public class FrameCliente extends javax.swing.JFrame implements Observer{
 
         status.setEditable(false);
 
-        btnAnalizar.setText("Analizar Contenido");
+        btnAnalizar.setText("Analizar Contenido y Enviar al Servidor");
         btnAnalizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnalizarActionPerformed(evt);
             }
         });
-
-        jButton1.setText("Enviar al Servidor");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -148,8 +145,6 @@ public class FrameCliente extends javax.swing.JFrame implements Observer{
                         .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAnalizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -161,8 +156,7 @@ public class FrameCliente extends javax.swing.JFrame implements Observer{
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(status, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAnalizar)
-                    .addComponent(jButton1))
+                    .addComponent(btnAnalizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                 .addContainerGap())
@@ -482,7 +476,6 @@ public class FrameCliente extends javax.swing.JFrame implements Observer{
     private javax.swing.JButton btnRehacer;
     private javax.swing.JMenuItem itemAbrirArchivo;
     private javax.swing.JMenu itemGuardar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu2;

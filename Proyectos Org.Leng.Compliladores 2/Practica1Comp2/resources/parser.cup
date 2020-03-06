@@ -1,0 +1,626 @@
+package practica1comp2.backend.analizadores;
+
+import java.util.ArrayList;
+import java.util.List;
+import java_cup.runtime.*;
+import javax.swing.JTextArea;
+import practica1comp2.backend.expresiones.Expresion;
+import practica1comp2.backend.instrucciones.*;
+import practica1comp2.backend.analizadores.simbolos.*;
+import practica1comp2.backend.generadores.GeneradorCod;
+import practica1comp2.backend.generadores.EtiqCondicion;
+
+
+parser code {:
+
+	private Lexer myLexer;
+    private List<String> errorsList;
+    private GeneradorCod generador;
+    private TablaSimbolos symTable;
+
+	public Parser(Lexer lex, GeneradorCod generador, TablaSimbolos symTable) { //falta recibir algunas tabals sim/tip
+		super(lex);
+		this.myLexer = lex;
+		this.errorsList = myLexer.getErrorsList();
+		this.generador = generador;
+        this.symTable = symTable;
+	}
+	@Override
+        public void syntax_error(Symbol st) {
+        	Token token = (Token) st.value;
+            report_error("Error Sintactico con el  Token:"+ token.getLexeme()+" este no pertenece a la estructura- linea: "+token.getLine()+" - columna: "+token.getColumn() + "\n",null);
+            
+            System.out.println("Error Sintactico con el Token: " + token.getLexeme() + " este no pertenece a la estructura linea: " + token.getLine() + ", columna: " + token.getColumn());
+                    errorsList.add(String.format("Error Sintactico con el Token: '%s' este no pertenece a la estructura linea: %d  columna: %d. Corrige e intenta de nuevo.", token.getLexeme(), token.getLine(), token.getColumn()));
+        }
+
+        public void addSemanticError(String msg) {
+            this.errorsList.add(msg);
+        }
+
+	
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal Token BOOLEAN;
+terminal Token	CHAR;
+terminal Token	BYTE;
+terminal Token	INT;
+terminal Token	LONG;
+terminal Token	FLOAT;
+terminal Token	DOUBLE;
+terminal Token	STRING;
+
+terminal Token	MAS;
+terminal Token	MENOS;
+terminal Token  POR;
+terminal Token DIV;
+terminal Token	MOD;
+
+terminal Token	NOT;
+terminal Token	AND;
+terminal Token	OR;
+terminal Token	TRUE;
+terminal Token	FALSE;
+
+terminal Token	MAYOR;
+terminal Token	MENOR;
+terminal Token	MAYOR_I;
+terminal Token	MENOR_I;
+terminal Token IGUAL;
+terminal Token	DISTINTO;
+
+terminal Token	PARENT_A;
+terminal Token	PARENT_C;
+terminal Token	CORCH_A;
+terminal Token	CORCH_C;
+
+terminal Token	COMA;
+terminal Token	PT_COMA;
+terminal Token	DOS_PT;
+terminal Token	ASIGN;
+
+terminal Token NUMERO_ENTERO;
+terminal Token	NUMERO_FLOTANTE;
+terminal Token	IDENTIFICADOR;
+
+terminal Token	ARRAY;
+terminal Token	IF;
+//terminal String	END_IF;
+terminal Token	ELSE;
+terminal Token	ELSIF;
+terminal Token	WHILE;
+terminal Token	DO;
+terminal Token	FOR;
+terminal Token	PRINT;
+terminal Token	PRINTLN;
+
+terminal Token	CADENA;
+
+/* Non-Terminals (created scanner). */
+non terminal List<Instruccion> instrucciones;
+non terminal List<Instruccion> instrucciones_bloque;
+non terminal Instruccion instruccion;
+non terminal Instruccion declaracion;
+non terminal Instruccion arreglo;
+non terminal Instruccion sentencia;
+non terminal Instruccion escritura;
+
+//non terminal Instruccion sent_if;
+//non terminal Instruccion sent_if_else;
+non terminal List<InstruccionIf> elsifs;
+non terminal InstruccionIf elsif;
+non terminal Instruccion sent_while;
+non terminal Instruccion sent_do_while;
+non terminal Instruccion sent_for;
+
+non terminal List<Id> vars, vars1;
+non terminal Id var;
+non terminal Tipo tipo;
+//non terminal op_rel;
+non terminal Instruccion asig;
+
+non terminal  Expresion expr_dec, termin, factor, f_unar;
+non terminal  Expresion expr_log, expr_log2, expr_log3;
+non terminal  Expresion cond_rel;
+
+//non terminal String vars1;
+//non terminal dims;
+non terminal Incremento incremento;
+non terminal List<Expresion> impres;
+
+non terminal List<Instruccion> program;
+non terminal Expresion loc; 
+non terminal TipoDim tipo_dim;
+
+//non terminal ins_bloque, in_bloque, p;
+//non terminal if_completo, if_incompleto;
+
+/* Precedences */
+precedence left MAS, MENOS;
+precedence left POR, DIV, MOD;
+//precedence left MENOSUNARIO;
+precedence left OR, AND, NOT;
+precedence left ELSE, ELSIF;
+
+
+/* The grammar : */
+
+start with program;
+
+program ::= instrucciones:list
+		{:
+			RESULT = list;
+		:}
+;
+
+instrucciones ::= instrucciones:list instruccion:ins {:  
+					list.add(ins);
+                    RESULT = list;
+
+				:}
+
+				| instruccion:ins {:
+					List<Instruccion> instructions = new ArrayList<>();
+                    instructions.add(ins);
+                    RESULT = instructions;
+
+				:}
+;
+
+instruccion ::= declaracion:dec PT_COMA:e1 {:
+					RESULT = dec;
+				:}
+				|arreglo:arr PT_COMA:e1 {:
+					RESULT = arr;
+				:}
+				|asig:as PT_COMA:e1 {:
+					/*Validacion semantica de asignacion*/
+					InstruccionAsig temp = (InstruccionAsig)as;
+					if (temp.getExp().isIsPosArray() || temp.getLoc().getEx().isIsPosArray()) {
+						//para asignacion de pos de array son distintas validaciones
+						if (symTable.asignarArray(temp.getLoc(), temp.getExp())) {
+							RESULT = as;
+						} else {
+							RESULT = null;
+						}
+						
+					} else {
+						//para asignacion de variables
+						if (symTable.consultarVar(temp.getLoc().getId(), temp.getExp())) {
+							if (symTable.verificarTipoAsig(temp.getLoc().getId(), temp.getExp())) {
+								//consultar tipo de asignacion
+								RESULT = as;
+							} else {
+								RESULT = null;
+							}
+							
+						} else {
+							RESULT = null;
+						}
+					}				
+					
+				:}
+				|sentencia:s {:
+					RESULT = s;
+				:}
+				|escritura:esc PT_COMA:e1 {:
+					RESULT = esc;
+				:}
+			  	|sent_while:sent_while {:
+					RESULT = sent_while;
+				:}
+			  	|sent_do_while:do_while {:
+					RESULT = do_while;
+				:}
+			  	|sent_for:sent_for {:
+					RESULT = sent_for;
+				:}
+
+			;
+
+declaracion ::= tipo:t vars:vs {:
+				/*validar que alguna de las variables que se estan declarando/asignando no hallan sido declaradas anteriormente*/
+				if (symTable.addVariables(vs, t)) {
+					RESULT = new InstruccionDeclaracion(t,vs,generador);
+				} else {
+					RESULT = null;
+				}	
+
+			:}
+				
+				
+;
+vars ::= vars:vs COMA:e1 var:var {:
+			vs.add(var);
+             RESULT = vs;
+		:}
+			| var:v {:
+				List<Id> vars = new ArrayList<>();
+              	vars.add(v);
+              	RESULT = vars;
+			:}
+		;
+var ::= asig:as {:
+			InstruccionAsig temp = (InstruccionAsig)as;
+			RESULT = new Id(temp.getLoc().getId(),true, (InstruccionAsig)as,null);
+		:}
+		| IDENTIFICADOR:id {:
+		  	RESULT = new Id(id,false);
+		:}
+;
+asig ::= loc:l ASIGN:e2 expr_log:ex {:
+			//en este punto no puedo hacer la validacion semantica porque puede se este declarando y asignando la variable de una vez
+			if (l.getIdent()!=null) {
+				RESULT = new InstruccionAsig(new Id(new Token(l.getLugarTemp(),l.getIdent().getId().getLine(),l.getIdent().getId().getColumn()),true, l),ex, generador);
+			} else {
+				//para identificador de arreglos
+				RESULT = new InstruccionAsig(new Id(l.getIdArray().getId(),true, l),ex, generador);
+			}
+			
+
+		:}
+			
+;
+tipo ::= BOOLEAN:e1 {:
+			RESULT = symTable.getTipo(e1);
+		:}
+			|CHAR:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+			|BYTE:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+			|INT:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+			|LONG:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+			|FLOAT:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+			|DOUBLE:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+			|STRING:e1 {:
+			RESULT = symTable.getTipo(e1);
+			:}
+		;
+
+/* Las producciones de la gramática para expresiones aritmeticas */
+expr_dec ::= expr_dec:e1 MAS:e2 termin:t1 {:
+				//Expresion ex = new Expresion();
+				//ex.setLugarTemp(generador.getLugarTemp());
+				//*ANTES COMPROBAR TIPOS Y EVALUACIONES SEMANTICAS*
+				//generador.addCuarteto(new Cuarteto(op.MAS,ex.getLugarTemp(), e1.getLugarTemp(), e3.getLugarTemp()));
+				RESULT = new Expresion(generador.getOp().MAS,generador.getLugarTemp(), e1, t1,
+						generador.unirQuad(e1.getList(),t1.getList()), null,
+						 null, symTable.getComprob().evalOpMasConcat(e1,t1), generador);		
+				//RESULT = ex;
+			:}
+			|expr_dec:e1 MENOS:e2 termin:t1 {:
+				RESULT = new Expresion(generador.getOp().MENOS,generador.getLugarTemp(), e1, t1,
+						generador.unirQuad(e1.getList(),t1.getList()), null,
+						 null, symTable.getComprob().evalOpAritmetica(e1,t1), generador);
+			:}	
+            |termin:t1 {:
+            	RESULT = t1;
+            :}
+;
+
+termin ::=  termin:t1 POR:e2 f_unar:f1 {:
+				//RETORNA EL DE MAYOR JERARQUIA
+				RESULT = new Expresion(generador.getOp().POR,generador.getLugarTemp(), t1, f1,
+						generador.unirQuad(t1.getList(),f1.getList()), null,
+						 null, symTable.getComprob().evalOpAritmetica(t1,f1), generador);
+			:}
+		   |termin:t1 DIV:e2 f_unar:f1 {:
+		   		//RETORNA MAYOR JERARQUIA
+				RESULT = new Expresion(generador.getOp().DIV,generador.getLugarTemp(), t1, f1,
+						generador.unirQuad(t1.getList(),f1.getList()), null,
+						 null, symTable.getComprob().evalOpAritmetica(t1,f1), generador);
+			:}
+		   |termin:t1 MOD:e2 f_unar:f1 {:
+		   		//RETORNA RESIDUO MAYOR JERARQUIA
+				RESULT = new Expresion(generador.getOp().MOD,generador.getLugarTemp(), t1, f1,
+						generador.unirQuad(t1.getList(),f1.getList()), null,
+						 null, symTable.getComprob().evalOpAritmetica(t1,f1), generador);
+			:}    
+				
+		   | f_unar:f1 {:
+				RESULT = f1;
+			:} 
+		;
+f_unar ::=  NOT:no f_unar:f1 {:
+				//comprobar que sea una expresion booleana la que se va negar
+				RESULT = new Expresion(generador.getOp().NOT,null, f1, null,f1.getList(), f1.getEtiq1(),
+				 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+			:}
+			| MENOS:m f_unar:f1 {:
+				//comprobar que sea una exp aritmetica la que se va convertir en negativa
+				RESULT = new Expresion(generador.getOp().MINUS,null, f1,null,f1.getList(), f1.getEtiq1(),
+				 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+			:} 
+			| factor:f1 {:
+				RESULT = f1;
+			:}
+        ;
+factor ::= PARENT_A:e1 expr_log:e2 PARENT_C:e3 {:
+				//RESULT = new Expresion(null,e2.getLugarTemp(), null, null,e2.getList(), null, null,generador);
+				RESULT = e2;
+			:}
+//			| IDENTIFICADOR:e1
+			| NUMERO_ENTERO:e1 {:
+				//COMPROBAR RANGO PARA ASIGNAR SU TIPO DE ENTERO EN TEORIA TODOS SON LONG SI ESTAN DENTR DEL RANGO
+				RESULT = new Expresion(null,""+e1.getLexeme(), null, null,null, null,
+				 null, symTable.getComprob().tipoEntero(e1), generador);
+			:}
+			| NUMERO_FLOTANTE:e1 {:
+				//COMPROBAR QUE TRAIGA LA F PARA SER FLOAT SINO ES DOUBLE 
+				RESULT = new Expresion(null,""+e1.getLexeme(), null, null,null, null,
+				 null, symTable.getComprob().tipoDecimal(e1), generador);
+			:}
+			| TRUE:t1 {:
+				RESULT = new Expresion(generador.getOp().TRUE,t1.getLexeme(), null, null,null, null,
+				 null, new Tipo(generador.getTipoVar().BOOLEAN,1,t1), generador);
+			:}
+			| FALSE: f1 {:
+				RESULT = new Expresion(generador.getOp().FALSE,f1.getLexeme(), null, null,null, null,
+				 null, new Tipo(generador.getTipoVar().BOOLEAN,1,f1), generador);
+			:}
+			| loc:l {:
+				//comprobar la existencia de la variable Identificador
+				Token nameVar;
+				if (l.getIdArray().getId()!=null) {
+					nameVar = l.getIdArray().getId();
+				} else {
+					nameVar = l.getIdent().getId();
+				}
+				if (symTable.consultarVar(nameVar, null)) {
+					//asignando su tipo
+					l.setTipo(symTable.getTipo(nameVar));
+					RESULT = l;
+				} else {
+					//asignando su tipo , aqui ya no es necesario ya que ya hay un error de inexistencia del id
+					l.setTipo(symTable.getTipo(nameVar));
+					RESULT = l;
+				}
+				
+			:}
+			| CADENA:c1 {:
+				RESULT = new Expresion(null,c1.getLexeme(), null, null,null, null, null,
+				 new Tipo(generador.getTipoVar().STRING,7,c1), generador);
+			:}
+		;
+
+expr_log ::= expr_log:ex1 OR:or expr_log2:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().OR,null, ex1, ex2,
+					null, ex1.getEtiq1(), ex2.getEtiq1(), new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			|expr_log2:l2 {:
+				RESULT = l2;
+			:}
+		;	
+expr_log2 ::= expr_log2:ex1 AND:and expr_log3:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().AND,null, ex1, ex2,
+					null, ex1.getEtiq1(), ex2.getEtiq1(), new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			|expr_log3:l3 {:
+				RESULT = l3;
+			:}
+		;
+expr_log3 ::= expr_log3:ex1 IGUAL cond_rel:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().IGUAL,null, ex1, ex2,
+					generador.unirQuad(ex1.getList(),ex2.getList()), new EtiqCondicion(generador.getNuevaEtiq(), generador.getNuevaEtiq()),
+					 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			  | expr_log3:ex1 DISTINTO cond_rel:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().DISTINTO,null, ex1, ex2,
+					generador.unirQuad(ex1.getList(),ex2.getList()), new EtiqCondicion(generador.getNuevaEtiq(), generador.getNuevaEtiq()),
+					 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			  | cond_rel:r1 {:
+				RESULT = r1;
+			:}
+		;
+
+cond_rel ::= expr_dec:ex1 MENOR expr_dec:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().MENOR,null, ex1, ex2,
+					generador.unirQuad(ex1.getList(),ex2.getList()), new EtiqCondicion(generador.getNuevaEtiq(), generador.getNuevaEtiq()),
+					 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			| expr_dec:ex1 MENOR_I expr_dec:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().MENOR_I,null, ex1, ex2,
+					generador.unirQuad(ex1.getList(),ex2.getList()), new EtiqCondicion(generador.getNuevaEtiq(), generador.getNuevaEtiq()),
+					 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			| expr_dec:ex1 MAYOR_I expr_dec:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().MAYOR_I,null, ex1, ex2,
+					generador.unirQuad(ex1.getList(),ex2.getList()), new EtiqCondicion(generador.getNuevaEtiq(), generador.getNuevaEtiq()),
+					 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			| expr_dec:ex1 MAYOR expr_dec:ex2 {:
+				//EVAL SEMANTICAS ANTES DE ENVIAR EL RESULT
+				RESULT = new Expresion(generador.getOp().MAYOR,null, ex1, ex2,
+					generador.unirQuad(ex1.getList(),ex2.getList()), new EtiqCondicion(generador.getNuevaEtiq(), generador.getNuevaEtiq()),
+					 null, new Tipo(generador.getTipoVar().BOOLEAN,1,null), generador);
+
+			:}
+			| expr_dec:ex1 {:
+				RESULT = ex1;
+			:}
+		;
+
+arreglo ::= ARRAY:a1 tipo_dim:tip vars1:vs1 {:
+				/*validar que alguna de las variables que se estan declarando/asignando no hallan sido declaradas anteriormente*/
+				tip.getTipo().setIsArray(true); //tipo array de tipo t
+				if (symTable.addVariables(vs1, tip.getTipo())) {		
+					RESULT = new InstruccionArray(tip, vs1, generador);
+				} else {
+					RESULT = null;
+				}			
+
+		:}
+;
+vars1 ::= vars1:vs1 COMA:c1 IDENTIFICADOR:e1 {:
+				vs1.add(new Id(e1,false));
+             	RESULT = vs1;	
+		:}
+			| IDENTIFICADOR:e1 {:
+				List<Id> vars = new ArrayList<>();
+              	vars.add(new Id(e1,false));
+              	RESULT = vars;
+		:}
+;
+
+loc ::= IDENTIFICADOR:e1 CORCH_A:ca expr_log:ex1 CORCH_C:cc {: //para asignacion de arrays n dim deberia retornar una lista de exp correspon->dimens
+			//l.add(ins);
+			ex1.setIsPosArray(true);  //es una posicion de array
+			ex1.setIdArray(new Id(e1,false));
+            RESULT = ex1;
+			//RESULT = new Expresion(null,ex1.getLugarTemp(), null, null,null,generador);
+		:}
+		|IDENTIFICADOR:e1 {:
+			//RESULT = new Id(e1.getLexeme);  no se asigna tipo todavia
+			RESULT = new Expresion(e1.getLexeme(), new Id(e1,false),generador);
+		:} 
+	;
+tipo_dim ::= tipo:t CORCH_A:ca expr_log:ex1 CORCH_C:cc {:
+				//un tipo y una ex1 dimension 1
+				RESULT = new TipoDim(t, ex1);
+		:}
+//para n dimensiones pero falta pensarlo un poco
+//		| tipo:t1 {:
+//			RESULT = t1; //retorna el tipo del array
+//		:}
+;
+sentencia ::=  IF:i PARENT_A:pa  expr_log:ex PARENT_C:cc instrucciones_bloque:list {:
+
+					RESULT = new InstruccionSentIf(new InstruccionIf(ex, list, generador), null, null, generador);
+				:}
+				| IF:i PARENT_A:pa  expr_log:ex PARENT_C:cc instrucciones_bloque:list ELSE:els instrucciones_bloque:list2 {:
+
+					RESULT = new InstruccionSentIf(new InstruccionIf(ex, list, generador), null,
+								 new InstruccionElse(list2, generador), generador);
+				:}
+				| IF:i PARENT_A:pa  expr_log:ex PARENT_C:cc instrucciones_bloque:list elsifs:elsifs {: 
+					RESULT = new InstruccionSentIf(new InstruccionIf(ex, list, generador), new InstruccionElsif(elsifs, generador),
+					 			null, generador);
+				:}
+				| IF:i PARENT_A:pa  expr_log:ex PARENT_C:cc instrucciones_bloque:list elsifs:elsifs ELSE:els instrucciones_bloque:list2 {:
+					RESULT = new InstruccionSentIf(new InstruccionIf(ex, list, generador), new InstruccionElsif(elsifs, generador),
+					 			new InstruccionElse(list2, generador), generador);
+
+				:}
+;
+//sentencia ::= sent_if:sent_if sent_if_else:if_else
+//	   		  |sent_if:sent_if END_IF:end
+//	   		  |sent_if:sent_if elsifs:elsifs END_IF:end
+//	   		
+//		;
+//sent_if_else ::= elsifs:elsifs ELSE:els instrucciones_bloque:list
+//					| ELSE:els instrucciones_bloque:list
+//					//| elsifs:elsifs
+//			;
+//sent_if ::= IF:i PARENT_A:pa  expr_log:ex PARENT_C:cc instrucciones_bloque:list
+//				
+//		;
+//
+elsifs ::= elsifs:els elsif:el {:
+				els.add(el);
+                RESULT = els;
+			:}
+			| elsif:el {:
+				List<InstruccionIf> instructions = new ArrayList<>();
+                instructions.add(el);
+                RESULT = instructions;
+			:}
+;
+elsif ::= ELSIF:els  PARENT_A:pa  expr_log:ex PARENT_C:cc instrucciones_bloque:list {:
+			RESULT = new InstruccionIf(ex, list, generador);
+		:}
+
+;
+
+sent_while ::= WHILE:wh PARENT_A:pa expr_log:ex PARENT_C:pc instrucciones_bloque:list {:
+				//validaciones semanticas
+				RESULT = new InstruccionWhile(ex,list,generador);
+
+	:}
+;
+sent_do_while ::= DO:dow instrucciones_bloque:list WHILE:wh PARENT_A:pa expr_log:ex PARENT_C:pc {:
+				//validaciones semanticas
+				RESULT = new InstruccionDo(list, ex, generador);
+
+	:}
+;
+sent_for ::= FOR:fr PARENT_A:pa asig:as DOS_PT:pt1 expr_log:ex DOS_PT:pt2 incremento:in PARENT_C:pc instrucciones_bloque:list {:
+				//val semanticas
+				RESULT = new InstruccionFor((InstruccionAsig)as, ex, in, list, generador);
+
+			:}
+				//|FOR:for PARENT_A:pa asig:as DOS_PT:pt1 expr_log:ex DOS_PT:pt2 incremento:in PARENT_C:pc instrucciones:list
+		;
+incremento ::= MAS:m1 MAS:m2 {:
+
+				:}
+				| MENOS:m1 MENOS:m2 {:
+
+				:}
+				| MAS:m1 expr_dec:ex {:
+					RESULT = new Incremento(generador.getOp().MAS, ex);
+
+				:}
+				| MENOS:m1 expr_dec:ex {:
+					RESULT = new Incremento(generador.getOp().MENOS, ex);
+				:}
+;
+escritura ::= PRINT:p CORCH_A:ca impres:im CORCH_C:cc {:
+					//val semanticas
+					RESULT = new InstruccionPrint(false, im, generador);
+			:}
+				| PRINTLN:p CORCH_A:ca impres:im CORCH_C:cc {:
+					//val semanticas
+					RESULT = new InstruccionPrint(true, im, generador);
+			:}
+;
+impres ::= impres:im COMA:c1 expr_log:ex {:
+				im.add(ex);
+                RESULT = im;
+			:}
+			| expr_log:ex {:
+				List<Expresion> exps = new ArrayList<>();
+                exps.add(ex);
+                RESULT = exps;
+
+			:}
+;
+instrucciones_bloque ::= CORCH_A:ca instrucciones:list CORCH_C:cc {:
+                    		RESULT = list;
+					:}
+						| instruccion:ins {:
+							List<Instruccion> instructions = new ArrayList<>();
+                    		instructions.add(ins);
+                    		RESULT = instructions;
+
+					:}
+						| CORCH_A:ca CORCH_C:cc {:
+							RESULT = null;
+
+					:}//ninguna instruccion 
+					;

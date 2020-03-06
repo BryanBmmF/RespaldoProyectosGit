@@ -1,4 +1,116 @@
+<acciones>
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Titulo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_producto1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo1 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#5A5A5A]
+            </atributo>
+    </atributos>
+</accion>
 
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Parrafo-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_producto1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [PARRAFO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [Este es el texto que aparece en el titulo2 :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [JUSTIFICAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#4A4A4A]
+            </atributo>
+    </atributos>
+</accion>
+<accion nombre= "AGREGAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Menu-1]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_producto1]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [MENU]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "PADRE" >
+                  [_producto1]
+            </atributo>
+   
+    </atributos>
+</accion>
+</acciones>
+
+
+**********
+<accion nombre="MODIFICAR_PAGINA">
+    <parametros>
+           <parametro nombre="ID">
+                  [_productos11]
+            </parAmetRo>
+           <parametro nombre="TITULO">
+                  [nuevo titulo p1h1]
+            </parAmetRo>
+              
+    </parametros>
+  <etiquetas>
+            <etiqueta valor= "etiqueta1"/ >
+            <etiqueta valor= "etiqueta2"/ >
+    </etiquetas>
+</accion>
+
+<accion nombre= "MODIFICAR_COMPONENTE" >
+    <parametros>
+            <parametro nombre= "ID" >
+                  [_Titulo-2]
+            </parametro>
+            <parametro nombre= "PAGINA" >
+                  [_historia2]
+            </parametro>
+            <parametro nombre= "CLASE" >
+                  [TITULO]
+            </parametro>
+    </parametros>
+    <atributos>
+            <atributo nombre= "TEXTO" >
+                  [TITULO MODIFICADO :) ]
+            </atributo>
+            <atributo nombre= "ALINEACION" >
+                  [CENTRAR]
+            </atributo>
+            <atributo nombre= "COLOR" >
+                  [#0000FF]
+            </atributo>
+    </atributos>
+</accion>
 /*********************
 <acciones>
 <accion nombre="NUEVA_PAGINA">
@@ -977,10 +1089,10 @@
 <accion nombre= "MODIFICAR_COMPONENTE" >
     <parametros>
             <parametro nombre= "ID" >
-                  [_comp-1]
+                  [_Imagen-2]
             </parametro>
             <parametro nombre= "PAGINA" >
-                  [_productos]
+                  [_historia2]
             </parametro>
             <parametro nombre= "CLASE" >
                   [IMAGEN]
@@ -988,20 +1100,19 @@
     </parametros>
     <atributos>
             <atributo nombre= "ORIGEN" >
-                  [https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
+                  [https://cdn-3.expansion.mx/dims4/default/283433d/2147483647/strip/true/crop/3500x2256+0+0/resize/800x516!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F7e%2F66%2F10119e5f4795997e48ce1f347a37%2F2017-11-29t173102z-180581302-hp1edbt1cnq33-rtrmadp-3-autoshow-la.JPG]
             </atributo>
             <atributo nombre= "ALTURA" >
-                  [75]
+                  [200]
             </atributo>
             <atributo nombre= "ANCHO" >
-                  [100]
+                  [300]
             </atributo>
             <atributo nombre= "ALINEACION" >
-                  [IZQUIERDA]
+                  [CENTRAR]
             </atributo>
     </atributos>
 </accion>
-
 <accion nombre= "MODIFICAR_COMPONENTE" >
     <parametros>
             <parametro nombre= "ID" >

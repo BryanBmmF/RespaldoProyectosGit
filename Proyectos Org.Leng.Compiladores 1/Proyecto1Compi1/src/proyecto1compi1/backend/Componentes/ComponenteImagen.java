@@ -108,7 +108,7 @@ public class ComponenteImagen extends Componente{
             String salida ="";
             salida +="\n<div ";
             if (alineacion!=null) {
-                    salida +="style=\"text-align:"+alineacion.toString().toLowerCase()+"\"";
+                    salida +="style=\"text-align:"+devolverIngles(alineacion.toString())+"\"";
             }
             salida +="> \n";
             salida +="\t<img src=\""+origen+"\"";
@@ -117,7 +117,28 @@ public class ComponenteImagen extends Componente{
        
             return salida;
     }
-
+    
+    public String devolverIngles(String palabra){
+                String alin ="";
+                
+                switch (palabra) {
+                case "CENTRAR":
+                        alin = "center";
+                    break;
+                case "JUSTIFICAR":
+                        alin = "justify";
+                    break;
+                case "DERECHA":
+                        alin = "right";
+                    break;
+                case "IZQUIERDA":
+                        alin = "left";
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            return alin;
+        }
         
         
         

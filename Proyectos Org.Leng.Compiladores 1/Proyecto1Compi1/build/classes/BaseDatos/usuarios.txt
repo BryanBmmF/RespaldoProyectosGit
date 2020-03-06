@@ -43,3 +43,25 @@
 
 </usuario>
 
+
+<usuario>
+	<nombre>
+		[_user7]
+	</nombre>
+	<pass>
+		[pass7]
+	</pass>
+
+</usuario>
+
+
+<usuario>
+	<nombre>
+		[_1]
+	</nombre>
+	<pass>
+		[1]
+	</pass>
+
+</usuario>
+

@@ -768,7 +768,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
             reiniciarPanelSalida();//reiniciando el panel que contendra la nueva salida
             //inicializarTablasVariables();//reiniciando tabla variables quitar comentario y probar
             reiniciarContadoresErrores();
-            //reiniciarErrores();
+            reiniciarErrores();
             reestablecerAtributosTexto();
             JScrollPane scrol = (JScrollPane)panel.getComponentAt(panel.getSelectedIndex());    
             JViewport port = (JViewport)scrol.getComponent(0);
@@ -1155,7 +1155,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                     reiniciarPanelSalida();//reiniciando el panel que contendra la nueva salida
                     inicializarTablasVariables();//reiniciando tabla variables
                     reiniciarContadoresErrores();
-                    //reiniciarErrores();
+                    reiniciarErrores();
                     reestablecerAtributosTexto();
                     scrol = (JScrollPane)panel.getComponentAt(i);    
                     port = (JViewport)scrol.getComponent(0);

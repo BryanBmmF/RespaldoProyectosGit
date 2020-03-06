@@ -1,0 +1,136 @@
+package codigo3d;
+import codigo3d.cuarteto.Cuarteto;
+import codigo3d.cuarteto.GeneradorCod;
+import codigo3d.cuarteto.Operador;
+import java_cup.runtime.*;
+import javax.swing.JTextArea;
+
+parser code {:
+
+	private int cont;
+	private JTextArea text;
+	private Operador op;
+	private GeneradorCod generador;
+
+	public String nuevoTemp(){
+		return "t"+cont++;
+	}
+
+
+	public Parser(Lexer lexer, JTextArea text) {
+		super(lexer);
+		this.cont = 1;
+		this.text = text;
+		this.op = null;
+		this.generador = new GeneradorCod();
+
+	}
+	public void syntax_error(Symbol cur_token) {
+		String error = "Error Sintactico en " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + " con el  Token: " + cur_token.value;
+		System.out.println(error);
+		text.setText(error);
+	}
+
+	public void unrecovered_sintax_error(Symbol cur_token) throws java.lang.Exception{
+		String error = "Error Sintactico en " + "Linea: "+(cur_token.left)+"	Columna: "+(cur_token.right)
+			 + " con el  Token: " + cur_token.value;
+		System.out.println(error);
+		text.setText(error);
+	}
+
+	
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal String	IGUAL;
+terminal String PARENT_A;
+terminal String PARENT_C;
+terminal String SUMA;
+terminal String RESTA;
+terminal String MULT;
+//terminal String DIV;
+
+terminal String PT_COMA ;
+terminal Integer NUMERO_ENTERO;
+terminal String IDENTIFICADOR;
+
+//non terminal expr_lista, expr_parte;
+non terminal Expr expr, expr2, expr3;//puede ser deunavez tipo integer
+non terminal String asignacion;
+non terminal GeneradorCod inicio;
+
+
+/* Precedences */
+precedence left SUMA, RESTA;
+precedence left MULT;
+
+/* The grammar : */
+
+
+
+start with inicio;
+
+inicio ::= asignacion:e1
+		{:
+			System.out.println(e1);
+			RESULT = generador;
+		:}
+;
+
+/* Las producciones de la gramática para expresiones aritmeticas */
+expr      ::= expr:e1 SUMA:e2 expr2:e3 
+					{: 
+						Expr ex = new Expr();
+						ex.setLugarTemp(nuevoTemp());
+						generador.addCuarteto(new Cuarteto(op.MAS,ex.getLugarTemp(), e1.getLugarTemp(), e3.getLugarTemp()));
+						
+						RESULT = ex;
+					:}
+            | expr2:e1
+            	{: 
+            		RESULT = e1;
+
+            	 :}
+        ;
+expr2 ::=  expr2:e1 MULT:e2 expr3:e3  
+				{: 
+					Expr ex = new Expr();
+						ex.setLugarTemp(nuevoTemp());
+						generador.addCuarteto(new Cuarteto(op.MULT,ex.getLugarTemp(), e1.getLugarTemp(), e3.getLugarTemp()));
+						RESULT = ex;
+				:}
+		   | expr3:e1
+		   		{: RESULT = e1; :} 
+		;
+expr3 ::= 	NUMERO_ENTERO:e1
+				{: 
+					Expr ex = new Expr();
+            		ex.setLugarTemp(""+e1.intValue());
+            		RESULT = ex;
+
+				 :} 
+        	| IDENTIFICADOR:e1
+        		{: 
+        			Expr ex = new Expr();
+            		ex.setLugarTemp(e1);
+            		RESULT = ex;
+
+        		:}
+        	| PARENT_A:e1 expr:e2 PARENT_C:e3
+        		{: 
+        			Expr ex = new Expr();
+            		ex.setLugarTemp(e2.getLugarTemp());
+            		RESULT = ex;
+
+        		:} 
+        	
+        ;
+
+asignacion ::= IDENTIFICADOR:e1 IGUAL:e2 expr:e3 PT_COMA:e4 
+					{:
+						generador.addCuarteto(new Cuarteto(op.ASIGN,e1, e3.getLugarTemp(),null));
+						RESULT = "";
+					:}	
+				
+			;

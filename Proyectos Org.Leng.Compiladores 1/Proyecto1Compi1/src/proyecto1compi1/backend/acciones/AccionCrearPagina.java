@@ -62,13 +62,13 @@ public class AccionCrearPagina extends Accion{
                 System.out.println("FECHA MODIFICACION: "+fechaModificacion.toString());
                 System.out.println("USUARIO MODIFICACION: "+usuarioModificacion);
                 System.out.println("ETIQUETAS: ");
-                for(Etiqueta eti: listaEtiquetas){
-                        System.out.println(eti.getValor());
-                }
+                //for(Etiqueta eti: listaEtiquetas){
+                //        System.out.println(eti.getValor());
+                //}
                 
                 if (id!=null && idSitio!=null) {
                         if (existeSitio()) {
-                                if (!existePagina()) {
+                                if (!existePagina()) {//si no existe la pagina
                                         agregarPagina();
                                 } else {
                                         notificarCliente("Error: La pagina con ID:"+id+" YA EXISTE en este sitio u otro");
@@ -120,6 +120,8 @@ public class AccionCrearPagina extends Accion{
                 for(Sitio sitio: bd.getListaSitios()){
                         for(Pagina pag: sitio.getListaPaginas()){
                                 if (pag.getId().equals(idPaginaPadre)) {
+                                        //se agrega esta pagina como hija
+                                        pag.getListaPagHijas().add(id);
                                         existe = true;
                                         break;
                                 }
@@ -171,9 +173,15 @@ public class AccionCrearPagina extends Accion{
                                 for(Pagina pag: bd.getListaSitios().get(position).getListaPaginas()){
                                         //agregar cada pagina al index
                                         if (pag.getIdPaginaPadre().equals("_sinPadre")) {
-                                                links+="\t\t\t<li><a href=\""+pag.getId()+".html\">"+pag.getId()+"</li>\n";
+                                                if (pag.getId().equals("_index")) {
+                                                        links+="\t\t\t<li><a href=\""+pag.getId().substring(1)+".html\">"+pag.getId().substring(1)+"</li>\n";
+                                                } else {
+                                                        links+="\t\t\t<li><a href=\""+pag.getId()+".html\">"+pag.getId()+"</li>\n";
+                                                }
+                                                
                                         }
                                 }
+                                /*Actualizacion del index del sitio*/
                                 String salida = "";
                                 salida+="<!DOCTYPE html>\n";
                                 salida+="\t<html>\n";

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/frontend/JFramePrincipal.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionScan.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionRetorno.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/TipoDim.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/Practica1Comp2.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionSub.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/analizadores/simbolos/TipoVar.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/analizadores/simbolos/Categoria.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/expresiones/Expresion.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/generadores/Operador.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/generadores/Cuarteto.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/analizadores/simbolos/TablaSimbolos.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/generadores/GeneradorCod.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionDo.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionAsig.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionPrint.java</file>
+            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compliladores%202/FinalComp2/src/practica1comp2/backend/instrucciones/InstruccionArray.java</file>
+        </group>
+    </open-files>
+</project-private>

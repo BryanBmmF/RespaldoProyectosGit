@@ -2,31 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionClears.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionPenUp.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionPositionX.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionRepeat.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionHideTurtle.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionPositionY.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/frontend/EdicionKok.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/parser.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/frontend/FramePrincipal.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionBackward.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/Practica2Compi1.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionToErase.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionLeft.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionRight.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/Lexer.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/Instruccion.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionToCenter.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionToDraw.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionColor.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionPenDown.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionShowTurtle.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionPositionXY.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/backend/instrucciones/InstruccionForward.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Practica2Compi1/src/practica2compi1/frontend/PanelGrafico.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

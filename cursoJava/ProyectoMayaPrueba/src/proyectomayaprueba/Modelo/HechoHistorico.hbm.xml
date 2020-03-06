@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/09/2019 02:29:57 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="proyectomayaprueba.Modelo.HechoHistorico" table="Hecho_Historico" catalog="BD_Maya" optimistic-lock="version">
+        <id name="idHechoHistorico" type="int">
+            <column name="idHecho_Historico" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cuentaLarga" class="proyectomayaprueba.Modelo.CuentaLarga" fetch="select">
+            <column name="Cuenta_Larga_idCuanta_Larga" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

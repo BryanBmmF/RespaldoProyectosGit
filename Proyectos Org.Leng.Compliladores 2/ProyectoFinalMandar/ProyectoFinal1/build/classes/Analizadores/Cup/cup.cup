@@ -1,0 +1,905 @@
+
+
+
+
+package Analizadores.Cup;
+
+
+import Analizadores.Flex.Lexer;
+import Instructions.Asignacion;
+import Instructions.Call;
+import Instructions.DeclaracionArreglo;
+import Instructions.Return;
+import Instructions.Declaracion;
+import java_cup.runtime.Symbol;
+import java.util.ArrayList;
+import java.util.List;
+import java_cup.runtime.XMLElement;
+import javax.swing.JTextArea;
+import Objetos.Token;
+import Instructions.Instruction;
+import Objetos.Logica;
+import Tablas.TablaSimbolos.TablaSimbolos;
+import Tablas.TablaTipos.TablaTipos;
+import Objetos.AccionVariable;
+import Instructions.*;
+import Objetos.*;
+import Valores.Ambitos;
+import CErrores.*;
+import Tablas.TablaSimbolos.Simbolos;
+import Valores.Temporales;
+
+
+
+parser code {:
+
+
+    TablaSimbolos tablaSimbolos;
+    TablaTipos tablaTipos;
+    Logica logica;
+    JTextArea area;
+
+
+    public parser(Lexer lex,TablaSimbolos tablaSimbolos,TablaTipos tablaTipos,JTextArea area) {
+        super(lex);
+        this.tablaSimbolos = tablaSimbolos;
+        this.tablaTipos = tablaTipos;
+        logica = new Logica();
+        this.area=area;
+    }
+
+
+
+  public void syntax_error(Symbol cur_token) {
+        Token token = (Token) cur_token.value;
+        System.out.println("OCURRIO UN ERROR SINTACTICO, FILA: " + token.getLine() + ", COLUMNA: " +token.getColumn() + " TOKEN:" +token.getLexeme());
+	//Errores.crearError("SINTACTICO","OCURRIO UN ERROR SINTACTICO CON EL TOKEN: "+token.value,token.left,token.right);
+	//Error error = Errores.ultimoError();
+	//logica.mostrarError(error,area);
+    }
+
+
+  public void unrecovered_sintax_error(Symbol s){
+	Token token = (Token) cur_token.value;
+        System.out.println("OCURRIO UN ERROR SINTACTICO, FILA: " + token.getLine() + ", COLUMNA: " +token.getColumn() + " TOKEN:" +token.getLexeme());
+	
+  }
+    
+	
+:}
+
+/* Terminals (tokens returned by the scanner). */
+terminal Token BOOLEANO,BOOLEAN,CHAR,BYTE,INT,LONG,FLOAT,DOUBLE,STRING,VOID,RETURN,MAIN,ARRAY;
+terminal Token COMA,PUNTO_COMA,DOS_PUNTOS,ASIGNACION;
+terminal Token SUMA,RESTA,MULTIPLICACION,DIVISION,MODULO,SEPARADOR;
+terminal Token NOT,AND,OR,IF,ELSIF,ELSE,WHILE,DO,FOR,PRINT,PRINTLN,SCANS,SCANN;
+terminal Token PARENTESIS_ABIERTO,PARENTESIS_CERRADO,CORCHETE_ABIERTO,CORCHETE_CERRADO;
+terminal Token MENOR,MAYOR,MENOR_IGUAL,MAYOR_IGUAL,DIFERENTE,IGUAL;
+terminal Token IDD,NUMERO_DOUBLE,NUMERO_FLOAT,LEX_STRING, NUMERO_ENTERO,NUMERO_BYTE,NUMERO_LONG;
+
+         
+
+/* Non-terminals */
+
+non terminal Object global;
+non terminal Dato valorLiteral;
+non terminal ExpresionAritmetica expresionAritmetica,exprAritmetica;
+non terminal ExpresionBooleana exprBooleana,expresionBooleana;
+non terminal ExpresionUnica expresionUnica;
+non terminal Condicion condicion;
+non terminal List<ExpresionAritmetica> dimensiones;
+non terminal Arreglo literalArreglo;
+non terminal Expresion expresion;
+non terminal List<Expresion> expresiones;
+non terminal Call estructura_call;
+non terminal Return estructura_return;
+non terminal BaseIf base_if;
+non terminal Else base_else;
+non terminal Elsif base_elsif;
+non terminal List<Elsif> ciclo_elsif;
+non terminal If estructura_if;
+non terminal While estructura_while;
+non terminal DoWhile estructura_do_while;
+non terminal For estructura_for;
+non terminal Print estructura_print;
+non terminal Println estructura_println;
+non terminal Scann estructura_scann;
+non terminal Scans estructura_scans;
+non terminal Subprograma subprogramas;
+non terminal String tipoVariable;
+non terminal AccionVariable asignacion,declaracion;
+non terminal List<AccionVariable> variables;
+non terminal List<Token> ids;
+non terminal List<Instruction> flujos,flujo,main,instructionsSubprograma,instructionSubprograma, continuacionSubprograma,continuacionMain;
+non terminal Boolean signo;
+non terminal DeclaracionArreglo arreglos;
+non terminal AsignacionArreglo asignacionArreglo;
+non terminal List<Instruction> instructions,instruction;
+non terminal List<Parametros> parametros;
+
+precedence left     SUMA, RESTA;
+precedence left     MULTIPLICACION, DIVISION,MODULO;
+
+precedence left     OR;
+precedence left     AND;
+precedence left     NOT;
+
+
+/* The grammar */
+start with global;
+
+global ::= instructions:e {:
+	logica.operar(e,tablaSimbolos,tablaTipos);
+:};
+
+instructions ::= instruction:e1 continuacionMain:e2 {:
+		for(int i=0;i<e2.size();i++){
+			e1.add(e2.get(i));
+		}
+		RESULT = e1;
+:};
+
+
+instruction::= instruction:instrucciones variables:lista PUNTO_COMA {:
+	
+	List<Instruction> instructions = new ArrayList<>();
+	for(int i=0;i<lista.size();i++){
+		Declaracion declaracion = new Declaracion(lista.get(i).getTipoDato(),lista.get(i).getId(), tablaSimbolos, tablaTipos);
+		declaracion.setAmbit(0);
+		if(declaracion.validate()){
+			instructions.add(declaracion);
+		}
+		if(lista.get(i).getTipoAccion().equals("ASIGNACION")){
+			Asignacion asignacion = new Asignacion(lista.get(i).getId(),lista.get(i).getExpresion(),tablaSimbolos,tablaTipos);
+			asignacion.setAmbit(0);
+			if( asignacion.validate()){
+				instructions.add(asignacion);
+			}
+		}	
+	}
+		
+		for(int i=0;i<instructions.size();i++){
+			instrucciones.add(instructions.get(i));
+		}
+		RESULT = instrucciones;
+		
+:}|  instruction:instructions arreglos:e PUNTO_COMA {:
+		e.setAmbit(0);
+		if(e.validate()){
+		instructions.add(e);
+		}
+		RESULT = instructions;
+	:}| instruction:lista subprogramas:subprograma {:
+		if(subprograma!=null){
+		lista.add(subprograma);
+		}
+		RESULT = lista;
+	:}
+	| variables:lista PUNTO_COMA {:
+
+List<Instruction> instructions = new ArrayList<>();
+
+	for(int i=0;i<lista.size();i++){
+		Declaracion declaracion = new Declaracion(lista.get(i).getTipoDato(),lista.get(i).getId(), tablaSimbolos, tablaTipos);
+		declaracion.setAmbit(0);
+		if(declaracion.validate()){
+			instructions.add(declaracion);
+		}
+		if(lista.get(i).getTipoAccion().equals("ASIGNACION")){
+			Asignacion asignacion = new Asignacion(lista.get(i).getId(),lista.get(i).getExpresion(),tablaSimbolos,tablaTipos);
+			asignacion.setAmbit(0);
+			if( asignacion.validate()){
+				instructions.add(asignacion);
+			}
+		}	
+	}
+
+		RESULT = instructions;
+		
+:}| arreglos:e PUNTO_COMA {:
+		List<Instruction> instructions = new ArrayList<>();
+		e.setAmbit(0);
+		if(e.validate()){
+		instructions.add(e);
+		}
+		RESULT = instructions;
+	:}
+	| subprogramas:e {:
+		List<Instruction> instructions = new ArrayList<>();
+		if(e!=null){
+		instructions.add(e);
+		}
+		RESULT = instructions;
+	
+	:}
+	| error PUNTO_COMA {:ArrayList<Instruction> lista= new ArrayList<>(); RESULT = lista;:};
+
+continuacionMain ::= SEPARADOR main:e {:RESULT = e;:};
+
+main ::= MAIN CORCHETE_ABIERTO flujos:e CORCHETE_CERRADO {:
+	boolean bandera = true, bandera2 = true;
+	for(int i=0;i<e.size();i++){	
+		e.get(i).setAmbit(0);			
+	}
+	
+	
+	
+	for(int i=0;i<e.size();i++){
+		if(e.get(i) instanceof Return){
+			Return r = (Return) e.get(i);
+			r.setTipoReturn("void");
+			CErrores.agregarError("SEMANTICO","RETURN", null , 0 , "SUBPROGRAMA", r.getToken().getLine(),r.getToken().getLine(),"LA INSTRUCCION RETURN  NO PUEDE IR EN EL MAIN, ES EXCLUSIVO DE FUNCIONES QUE DEVUELVEN VALORES.");
+			bandera = false;
+		}else{
+			bandera2 = e.get(i).validate();
+		}
+		if(!bandera2){
+			bandera = false;
+		}	
+	}
+	if(bandera){
+		RESULT = e;
+	}else{
+		e.clear();
+		RESULT = e;
+	}
+:};
+
+variables ::=  variables:e1 COMA asignacion:e2 {:
+	String tipo = e1.get(0).getTipoDato();
+	e2.setTipoDato(tipo);
+	e1.add(e2);
+	RESULT = e1; :}
+	
+	|variables:e1 COMA declaracion:e2 {:
+	String tipo = e1.get(0).getTipoDato();
+	e2.setTipoDato(tipo);
+	e1.add(e2);
+	RESULT = e1;
+	:}
+	
+	|tipoVariable:e1 asignacion:e2 {:
+		List<AccionVariable> list = new ArrayList<>();
+		e2.setTipoDato(e1);
+		list.add(e2);
+		RESULT = list;
+	:}
+	
+	|tipoVariable:e1 declaracion:e2 {:
+		List<AccionVariable> list = new ArrayList<>();
+		e2.setTipoDato(e1);
+		list.add(e2);
+		RESULT = list;
+	:}| error PUNTO_COMA {:List<AccionVariable> list = new ArrayList<>(); RESULT = list;:};
+
+
+asignacion ::= IDD:e ASIGNACION expresion:expresion {:
+		Dato dato = new Dato(e,"VARIABLE",null);		
+		RESULT = new AccionVariable("ASIGNACION",dato,expresion);	
+		:};
+declaracion ::= IDD:e {:
+		Dato dato = new Dato(e,"VARIABLE",null);		
+		RESULT = new AccionVariable("DECLARACION",dato,null);
+		:};
+
+
+arreglos ::= ARRAY:token tipoVariable:tipo dimensiones:dimensiones ids:ids{:
+		List<Dato> datos = new ArrayList<>();
+		for(int i=0;i<ids.size();i++){
+			datos.add(new Dato(ids.get(i),"ARREGLO",null));			
+		}
+		DeclaracionArreglo arreglo = new DeclaracionArreglo(tipo, datos, dimensiones, tablaSimbolos, tablaTipos,token);
+		RESULT = arreglo;
+	:};
+
+asignacionArreglo ::= IDD:id dimensiones:dimensiones ASIGNACION expresion:expresion {:
+	Dato dato = new Dato(id,"ARREGLO",null);
+	AsignacionArreglo arreglo = new AsignacionArreglo(dato, dimensiones,expresion,tablaSimbolos, tablaTipos);
+	RESULT = arreglo;
+:};
+
+
+
+dimensiones::= dimensiones:e1 CORCHETE_ABIERTO exprAritmetica:expresion CORCHETE_CERRADO {:
+		e1.add(expresion);
+		RESULT = e1;
+	:}
+	| CORCHETE_ABIERTO exprAritmetica:expresion CORCHETE_CERRADO {:
+		List<ExpresionAritmetica> lista = new ArrayList<>();
+		lista.add(expresion);
+		RESULT = lista;
+	:};
+	
+ids ::= ids:e1 COMA IDD:e2 {:
+	e1.add(e2);
+	RESULT = e1;
+:}| IDD:e {:
+	List<Token> lista = new ArrayList<>();
+	lista.add(e);
+	RESULT = lista;
+:};
+
+
+tipoVariable ::= BOOLEAN {:RESULT="Boolean";:}
+	|CHAR {:RESULT="Integer";:}
+	|BYTE {:RESULT="Byte";:}
+	|INT {:RESULT="Integer";:}
+	|LONG {:RESULT="Long";:}
+	|FLOAT {:RESULT="Float";:}
+	|DOUBLE {:RESULT="Double";:}
+	|STRING {:RESULT="String";:}
+	|VOID {:RESULT="void";:};
+
+subprogramas::= tipoVariable:tipo IDD:id PARENTESIS_ABIERTO parametros:parametros PARENTESIS_CERRADO CORCHETE_ABIERTO instructionsSubprograma:instrucciones  CORCHETE_CERRADO {:
+		boolean bandera = false,banderaReturn = false,bandera2 = true,banderaExiste=false;
+		int ambito = Ambitos.siguienteAmbito();
+		List<String> listaTipos = new ArrayList<>();
+		
+		for(int i=0;i<instrucciones.size();i++){
+			instrucciones.get(i).setAmbit(ambito);
+		}
+
+		Dato dato = new Dato(id,"VARIABLE",null);
+		if (tablaSimbolos.verDato(id.getLexeme(),0,"SUBPROGRAMA") ){
+			bandera = true;
+			banderaExiste = true;
+			CErrores.agregarError("SEMANTICO","DECLARACION", dato , 0 , "SUBPROGRAMA", id.getLine(),id.getLine(),"EL ID: "+id.getLexeme()+
+			" YA EXISTE EN LA TABLA DE SIMBOLOS POR LO CUAL NO SE PUEDE CREAR.");
+		}
+		
+		for(int i=0;i<parametros.size();i++){
+			if(parametros.get(i).getTipo().equals("void")){
+				bandera =true;
+				CErrores.agregarError("SEMANTICO","TIPO", parametros.get(i).getId() , ambito , "PARAMETRO", parametros.get(i).getId().getNombre().getLine(),parametros.get(i).getId().getNombre().getLine(),"EL ID: "+parametros.get(i).getId().getNombre().getLexeme()+
+			" TIENE COMO TIPO DE VARIABLE LA PALABRA RESERVADA VOID, ESTE TIPO NO SE ACEPTA EN VARIABLES, PARAMETROS O ARREGLOS, SOLO FUNCIONES");
+			}else{
+				listaTipos.add(parametros.get(i).getTipo());
+			}
+		}
+
+		
+		
+		
+
+
+		for (int i = 0; i < instrucciones.size(); i++) {
+            		if(instrucciones.get(i) instanceof Return ){
+                		banderaReturn = true;
+                		Return r = (Return) instrucciones.get(i);
+                		r.setTipoReturn(tipo);
+                                r.settSalida("tSalida"+id.getLexeme());
+                                r.setEtSalida("ETsalida"+id.getLexeme());
+                		if(tipo.equals("void")){
+                			bandera =true;
+                			CErrores.agregarError("SEMANTICO","RETURN", dato , 0 , "SUBPROGRAMA", r.getToken().getLine(),r.getToken().getLine(),
+            				" EL SUBPROGRAMA "+id.getLexeme()+" TIENE RETURN, CUANDO ES DE TIPO VOID Y NO DEBE DE TENER NINGUN RETURN.");
+            				instrucciones.remove(i);
+            				i--;
+                		}
+			}
+            	}
+
+		banderaReturn = logica.asignarReturn(instrucciones,tipo,"tSalida"+id.getLexeme());
+            	
+            	if(!banderaReturn && !tipo.equals("void")){
+	            	bandera =true;
+            		CErrores.agregarError("SEMANTICO","RETURN", dato , 0 , "SUBPROGRAMA", id.getLine(),id.getLine(),
+            				" EL SUBPROGRAMA "+id.getLexeme()+" NO TIENE NINGUN RETURN, DEBERIA DE TENER MINIMO UNO.");
+
+            	}
+            	
+            	
+            	
+            	for (int i = 0; i < instrucciones.size(); i++) {
+			if(instrucciones.get(i) instanceof Call){
+				Call call = (Call)instrucciones.get(i);
+				if(call.getId().getLexeme().equals(id.getLexeme())){
+					bandera = true;
+					CErrores.agregarError("SEMANTICO","RECURSION", dato , 0 , "SUBPROGRAMA", id.getLine(),id.getLine(),
+            				" EL SUBPROGRAMA "+id.getLexeme()+" TIENE RECURSION, LO CUAL NO ES PERMITIDO.");
+				}
+			}
+		}
+		
+		List<String> valores = new ArrayList<>();
+		for (int i = 0; i < parametros.size(); i++) {
+            		valores.add(parametros.get(i).getTipo());
+		}
+		Simbolos a=null;
+		if(!banderaExiste){
+	        a = new Simbolos(id.getLexeme(), "SUBPROGRAMA",tipo, ambito, parametros.size(), valores, instrucciones, "tSalida"+id.getLexeme() ,"ETsalida"+id.getLexeme());
+	        tablaSimbolos.addElementInGeneral(a);
+	        }
+		List<String> listadoParams = new ArrayList<>();
+        	for (int i = 0; i < parametros.size(); i++) {
+			listadoParams.add(parametros.get(i).getId().getNombre().getLexeme()+id.getLexeme());
+			Temporales.agregarT(listadoParams.get(listadoParams.size()-1), parametros.get(i).getTipo());
+            		Simbolos simb = new Simbolos(parametros.get(i).getId().getNombre().getLexeme(),"PARAMETRO", parametros.get(i).getTipo(),ambito);
+            		tablaSimbolos.addElementInAmbit(simb);
+		}
+		if(!banderaExiste){
+			a.setTemporalesParametros(listadoParams);
+		}		
+
+        	for (int i = 0; i < instrucciones.size(); i++) {
+            		bandera2 = instrucciones.get(i).validate();
+           		 if (!bandera2) {
+               		 	bandera = true;
+            		}
+		}
+
+		
+		
+		if(!bandera){
+		Subprograma subprograma = new Subprograma(tipo,dato,parametros,instrucciones,tablaSimbolos,tablaTipos);
+		RESULT = subprograma;
+		
+		}else{
+			logica.removerParametros(valores,ambito,tablaSimbolos);
+			if(!banderaExiste)
+			logica.removerFuncion(id.getLexeme(),tablaSimbolos); 
+			RESULT = null;
+		}
+		
+		
+	
+:}
+	|tipoVariable:tipo IDD:id PARENTESIS_ABIERTO PARENTESIS_CERRADO CORCHETE_ABIERTO instructionsSubprograma:instrucciones  CORCHETE_CERRADO {:
+		List<Parametros> parametros = new ArrayList<>();
+		boolean bandera = false,banderaReturn = false,bandera2 = true,banderaExiste=false;
+		int ambito = Ambitos.siguienteAmbito();
+		List<String> listaTipos = new ArrayList<>();
+		
+		for(int i=0;i<instrucciones.size();i++){
+			instrucciones.get(i).setAmbit(ambito);
+		}
+
+		Dato dato = new Dato(id,"VARIABLE",null);
+		if (tablaSimbolos.verDato(id.getLexeme(),0,"SUBPROGRAMA") ){
+			bandera = true;
+			banderaExiste = true;
+			CErrores.agregarError("SEMANTICO","DECLARACION", dato , 0 , "SUBPROGRAMA", id.getLine(),id.getLine(),"EL ID: "+id.getLexeme()+
+			" YA EXISTE EN LA TABLA DE SIMBOLOS POR LO CUAL NO SE PUEDE CREAR.");
+		}
+		
+		for(int i=0;i<parametros.size();i++){
+			if(parametros.get(i).getTipo().equals("void")){
+				bandera =true;
+				CErrores.agregarError("SEMANTICO","TIPO", parametros.get(i).getId() , ambito , "PARAMETRO", parametros.get(i).getId().getNombre().getLine(),parametros.get(i).getId().getNombre().getLine(),"EL ID: "+parametros.get(i).getId().getNombre().getLexeme()+
+			" TIENE COMO TIPO DE VARIABLE LA PALABRA RESERVADA VOID, ESTE TIPO NO SE ACEPTA EN VARIABLES, PARAMETROS O ARREGLOS, SOLO FUNCIONES");
+			}else{
+				listaTipos.add(parametros.get(i).getTipo());
+			}
+		}
+
+		
+		
+
+
+		for (int i = 0; i < instrucciones.size(); i++) {
+            		if(instrucciones.get(i) instanceof Return ){
+                		banderaReturn = true;
+                		Return r = (Return) instrucciones.get(i);
+                		r.setTipoReturn(tipo);
+                                r.settSalida("tSalida"+id.getLexeme());
+                                r.setEtSalida("ETsalida"+id.getLexeme());
+                		if(tipo.equals("void")){
+                			bandera =true;
+                			CErrores.agregarError("SEMANTICO","RETURN", dato , 0 , "SUBPROGRAMA", r.getToken().getLine(),r.getToken().getLine(),
+            				" EL SUBPROGRAMA "+id.getLexeme()+" TIENE RETURN, CUANDO ES DE TIPO VOID Y NO DEBE DE TENER NINGUN RETURN.");
+            				instrucciones.remove(i);
+            				i--;
+                		}
+			}
+            	}
+            	
+		banderaReturn = logica.asignarReturn(instrucciones,tipo,"tSalida"+id.getLexeme());
+
+            	if(!banderaReturn && !tipo.equals("void")){
+	            	bandera =true;
+            		CErrores.agregarError("SEMANTICO","RETURN", dato , 0 , "SUBPROGRAMA", id.getLine(),id.getLine(),
+            				" EL SUBPROGRAMA "+id.getLexeme()+" NO TIENE NINGUN RETURN, DEBERIA DE TENER MINIMO UNO.");
+
+            	}
+            	
+            	
+            	
+            	for (int i = 0; i < instrucciones.size(); i++) {
+			if(instrucciones.get(i) instanceof Call){
+				Call call = (Call)instrucciones.get(i);
+				if(call.getId().getLexeme().equals(id.getLexeme())){
+					bandera = true;
+					CErrores.agregarError("SEMANTICO","RECURSION", dato , 0 , "SUBPROGRAMA", id.getLine(),id.getLine(),
+            				" EL SUBPROGRAMA "+id.getLexeme()+" TIENE RECURSION, LO CUAL NO ES PERMITIDO.");
+				}
+			}
+		}
+		
+		List<String> valores = new ArrayList<>();
+		for (int i = 0; i < parametros.size(); i++) {
+            		valores.add(parametros.get(i).getTipo());
+		}
+		Simbolos a=null;
+		if(!banderaExiste){
+	        a = new Simbolos(id.getLexeme(), "SUBPROGRAMA",tipo, ambito, parametros.size(), valores, instrucciones, "tSalida"+id.getLexeme() ,"ETsalida"+id.getLexeme());
+	        tablaSimbolos.addElementInGeneral(a);
+	        }
+		List<String> listadoParams = new ArrayList<>();
+        	for (int i = 0; i < parametros.size(); i++) {
+			listadoParams.add(parametros.get(i).getId().getNombre().getLexeme()+id.getLexeme());
+			Temporales.agregarT(listadoParams.get(listadoParams.size()-1), parametros.get(i).getTipo());
+            		Simbolos simb = new Simbolos(parametros.get(i).getId().getNombre().getLexeme(),"PARAMETRO", parametros.get(i).getTipo(),ambito);
+            		tablaSimbolos.addElementInAmbit(simb);
+		}
+		if(!banderaExiste){
+			a.setTemporalesParametros(listadoParams);
+		}		
+
+        	for (int i = 0; i < instrucciones.size(); i++) {
+            		bandera2 = instrucciones.get(i).validate();
+           		 if (!bandera2) {
+               		 	bandera = true;
+            		}
+		}
+
+		
+		
+		if(!bandera){
+		Subprograma subprograma = new Subprograma(tipo,dato,parametros,instrucciones,tablaSimbolos,tablaTipos);
+		RESULT = subprograma;
+		
+		}else{
+			logica.removerParametros(valores,ambito,tablaSimbolos);
+			if(!banderaExiste)
+			logica.removerFuncion(id.getLexeme(),tablaSimbolos); 
+			RESULT = null;
+		}
+		
+		
+	:};
+
+parametros::= parametros:lista COMA tipoVariable:tipo IDD:id {:
+	Dato dato = new Dato(id,"VARIABLE",null);
+	Parametros parametros = new Parametros(tipo,dato);
+	lista.add(parametros);
+	RESULT = lista;
+	:}
+	| tipoVariable:tipo IDD:id{:
+	Dato dato = new Dato(id,"VARIABLE",null);
+	Parametros parametros = new Parametros(tipo,dato);
+	List<Parametros> lista = new ArrayList<>();
+	lista.add(parametros);
+	RESULT = lista;
+	:};
+
+
+instructionsSubprograma ::= instructionSubprograma:e1 continuacionSubprograma:e2 {:
+	for(int i=0;i<e2.size();i++){
+		e1.add(e2.get(i));
+	}
+	RESULT = e1;
+:};
+
+instructionSubprograma ::= variables:lista PUNTO_COMA {:
+	List<Instruction> instructions = new ArrayList<>();
+	for(int i=0;i<lista.size();i++){
+		Declaracion declaracion = new Declaracion(lista.get(i).getTipoDato(),lista.get(i).getId(), tablaSimbolos, tablaTipos);
+		instructions.add(declaracion);
+		if(lista.get(i).getTipoAccion().equals("ASIGNACION")){
+			Asignacion asignacion = new Asignacion(lista.get(i).getId(),lista.get(i).getExpresion(),tablaSimbolos,tablaTipos);
+			instructions.add(asignacion);
+		}	
+	}
+
+		RESULT = instructions;
+		
+:}
+
+	| arreglos:e PUNTO_COMA {:
+		List<Instruction> instructions = new ArrayList<>();
+		instructions.add(e);
+		RESULT = instructions;
+	:}
+	| instructionSubprograma:subprograma variables:lista PUNTO_COMA {:
+	
+	List<Instruction> instructions = new ArrayList<>();
+	for(int i=0;i<lista.size();i++){
+		Declaracion declaracion = new Declaracion(lista.get(i).getTipoDato(),lista.get(i).getId(), tablaSimbolos, tablaTipos);
+		instructions.add(declaracion);
+		if(lista.get(i).getTipoAccion().equals("ASIGNACION")){
+			Asignacion asignacion = new Asignacion(lista.get(i).getId(),lista.get(i).getExpresion(),tablaSimbolos,tablaTipos);
+			instructions.add(asignacion);
+		}	
+	}
+		
+		for(int i=0;i<instructions.size();i++){
+			subprograma.add(instructions.get(i));
+		}
+		RESULT = subprograma;
+		
+:}
+	| instructionSubprograma:instructions arreglos:e PUNTO_COMA {:
+		instructions.add(e);
+		RESULT = instructions;
+	:}
+	| error PUNTO_COMA {:ArrayList<Instruction> lista= new ArrayList<>(); RESULT = lista;:}; 
+	 
+continuacionSubprograma ::= SEPARADOR flujos:e {:RESULT = e;:};
+
+flujos ::= flujos:e1 flujo:e2 {:
+	for(int i=0;i<e2.size();i++){
+		e1.add(e2.get(i));
+	}
+	RESULT = e1;:}
+| flujo:e {:RESULT = e;:} ;
+
+flujo::= asignacion:e PUNTO_COMA {:
+		Asignacion asignacion = new Asignacion(e.getId(),e.getExpresion(),tablaSimbolos,tablaTipos);
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(asignacion);
+		RESULT = lista;
+	:}
+	|asignacionArreglo:e PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_if:e {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_while:e {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_do_while:e {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_for:e {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_print:e PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_println:e  PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_scann:e PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_scans:e PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_return:e PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|estructura_call:e PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+	:}
+	|error PUNTO_COMA {:
+		List<Instruction> lista = new ArrayList<>();
+		RESULT = lista;
+	:}
+	|error CORCHETE_CERRADO {:
+		List<Instruction> lista = new ArrayList<>();
+		RESULT = lista;
+	:};
+
+
+
+
+estructura_if ::= base_if:e {:
+		If iff = new If(e,null,null,tablaSimbolos,tablaTipos);
+		RESULT = iff;
+	:}	
+	| base_if:e1 ciclo_elsif:e2 
+	{:
+		If iff = new If(e1,e2,null,tablaSimbolos,tablaTipos);
+		RESULT = iff;
+	
+	:}
+	
+	| base_if:e1 base_else:e2 {:
+		If iff = new If(e1,null,e2,tablaSimbolos,tablaTipos);
+		RESULT = iff;
+	:}
+	
+	| base_if:e1 ciclo_elsif:e2 base_else:e3 {:
+	
+	If iff = new If(e1,e2,e3,tablaSimbolos,tablaTipos);
+	RESULT = iff;
+	:};
+
+
+ciclo_elsif ::= ciclo_elsif:e1 base_elsif:e2  {:
+		e1.add(e2);
+		RESULT = e1;
+:}
+	| base_elsif:e {:
+		List<Elsif> lista = new ArrayList<>();
+		lista.add(e);
+		RESULT = lista;
+		:};
+
+base_if ::= IF:token PARENTESIS_ABIERTO exprBooleana:condicional PARENTESIS_CERRADO CORCHETE_ABIERTO flujos:instructions CORCHETE_CERRADO {:
+	
+		BaseIf base = new BaseIf(condicional,instructions,token,tablaSimbolos,tablaTipos);
+		RESULT = base;
+:};	
+		
+base_else ::= ELSE:token CORCHETE_ABIERTO flujos:e CORCHETE_CERRADO{:
+		
+		Else sino = new Else(e,token,tablaSimbolos,tablaTipos);
+		RESULT = sino;
+:};
+
+base_elsif ::= ELSIF:token PARENTESIS_ABIERTO exprBooleana:condicional PARENTESIS_CERRADO CORCHETE_ABIERTO flujos:instructions CORCHETE_CERRADO {:
+		Elsif elsif = new Elsif(condicional, instructions, token,tablaSimbolos,tablaTipos);
+		RESULT = elsif;
+:};
+
+
+
+estructura_while ::= WHILE:token PARENTESIS_ABIERTO exprBooleana:e1 PARENTESIS_CERRADO CORCHETE_ABIERTO flujos:e2 CORCHETE_CERRADO {:
+			While nuevo = new While(e1,e2,tablaSimbolos,tablaTipos,token);
+			RESULT = nuevo;
+:}
+		|  WHILE:token PARENTESIS_ABIERTO exprBooleana:e1 PARENTESIS_CERRADO flujo:e2 {:
+			List<Instruction> lista = new ArrayList<>();	
+			lista.add(e2.get(0));
+			While nuevo = new While(e1,lista,tablaSimbolos,tablaTipos,token);
+			RESULT = nuevo;:};
+		
+estructura_do_while ::= DO:token CORCHETE_ABIERTO flujos:e1 CORCHETE_CERRADO WHILE PARENTESIS_ABIERTO exprBooleana:e2 PARENTESIS_CERRADO {:
+		DoWhile nuevo = new DoWhile(e2,e1,tablaSimbolos,tablaTipos,token);
+		RESULT = nuevo;
+:}
+		| DO:token flujo:e1 WHILE PARENTESIS_ABIERTO exprBooleana:e2 PARENTESIS_CERRADO {:
+		List<Instruction> lista = new ArrayList<>();
+		lista.add(e1.get(0));
+		DoWhile nuevo = new DoWhile(e2,lista,tablaSimbolos,tablaTipos,token);
+		RESULT =nuevo;
+		:};
+		
+estructura_for ::= FOR:token PARENTESIS_ABIERTO IDD:id ASIGNACION exprAritmetica:expr DOS_PUNTOS exprBooleana:condicional DOS_PUNTOS signo:signo exprAritmetica:expresion2 PARENTESIS_CERRADO CORCHETE_ABIERTO flujos:lista CORCHETE_CERRADO {:
+
+		Dato dato = new Dato(id,"VARIABLE",null);			
+		For nuevo = new For(expr,expresion2,condicional,dato,signo,lista,tablaSimbolos,tablaTipos,token);
+		RESULT = nuevo;
+:}
+		| FOR:token PARENTESIS_ABIERTO IDD:id ASIGNACION exprAritmetica:expr DOS_PUNTOS exprBooleana:condicional DOS_PUNTOS signo:signo exprAritmetica:expresion2 PARENTESIS_CERRADO flujo:instr {:
+		
+			Dato dato = new Dato(id,"VARIABLE",null);
+			List<Instruction> lista = new ArrayList<>();
+			lista.add(instr.get(0));
+			For nuevo = new For(expr,expresion2,condicional,dato,signo,lista,tablaSimbolos,tablaTipos,token);
+			RESULT = nuevo;
+	:};
+
+signo ::= SUMA {:RESULT = true;:}|RESTA {:RESULT = false;:};
+
+estructura_print::= PRINT:token CORCHETE_ABIERTO expresiones:e  CORCHETE_CERRADO {:	
+	Print print = new Print(e,tablaSimbolos,tablaTipos,token);
+	RESULT = print;
+	:}
+	| PRINT:token valorLiteral:e {:	
+	ExpresionUnica expr = new ExpresionUnica(e);
+	List<Expresion> lista = new ArrayList<>();
+	lista.add(expr);
+	Print print = new Print(lista,tablaSimbolos,tablaTipos,token);
+	RESULT = print;:};
+estructura_println::= PRINTLN:token CORCHETE_ABIERTO expresiones:e CORCHETE_CERRADO {:
+	Println print = new Println(e,tablaSimbolos,tablaTipos,token);
+	RESULT = print;
+	:}
+	| PRINTLN:token valorLiteral:e {:	
+	ExpresionUnica expr = new ExpresionUnica(e);
+	List<Expresion> lista = new ArrayList<>();
+	lista.add(expr);
+	Println print = new Println(lista,tablaSimbolos,tablaTipos,token);
+	RESULT = print;:};
+
+estructura_scann::= SCANN:token CORCHETE_ABIERTO IDD:e CORCHETE_CERRADO {:
+		Dato dato = new Dato(e,"VARIABLE",null);
+		ExpresionUnica expr = new ExpresionUnica(dato);
+		Scann s = new Scann(expr,tablaSimbolos,tablaTipos,token);
+		RESULT = s;
+	:};
+estructura_scans::=  SCANS:token CORCHETE_ABIERTO IDD:e CORCHETE_CERRADO  {:
+		Dato dato = new Dato(e,"VARIABLE",null);
+		ExpresionUnica expr = new ExpresionUnica(dato);
+		Scans s = new Scans(expr,tablaSimbolos,tablaTipos,token);
+		RESULT = s;
+:};
+
+estructura_call::=  IDD:id PARENTESIS_ABIERTO expresiones:expr PARENTESIS_CERRADO {:
+	Call call = new Call(id,expr,tablaSimbolos,tablaTipos);
+	RESULT = call;
+	:} 
+| IDD:id PARENTESIS_ABIERTO PARENTESIS_CERRADO {:
+	Call call = new Call(id, new ArrayList<Expresion>(),tablaSimbolos,tablaTipos);
+	RESULT = call;
+	:};
+
+expresiones::= expresiones:e1 COMA expresion:e2 {:
+	e1.add(e2);
+	RESULT = e1;
+:}
+| expresion:e {:
+	List<Expresion> lista = new ArrayList<>();
+	lista.add(e);
+	RESULT = lista;
+	:};
+
+estructura_return ::= RETURN:token expresion:expr {:RESULT = new Return(expr,tablaSimbolos,tablaTipos,token);:};
+
+
+expresion ::= expresionAritmetica:e {:Expresion expr = e;RESULT = expr;:}| expresionBooleana:e {:Expresion expr = e;RESULT = expr;:}| expresionUnica:e {:Expresion expr = e;RESULT = expr;:};
+
+expresionUnica ::= valorLiteral:e {:RESULT = new ExpresionUnica(e);:}| PARENTESIS_ABIERTO valorLiteral:e PARENTESIS_CERRADO {:RESULT = new ExpresionUnica(e);:};
+
+expresionAritmetica ::= exprAritmetica:e1 SUMA:token exprAritmetica:e2 {:RESULT = new ExpresionAritmetica(token,e1,e2);:}
+	| exprAritmetica:e1 RESTA:token exprAritmetica:e2 {:RESULT = new ExpresionAritmetica(token,e1,e2);:}
+	| exprAritmetica:e1 MULTIPLICACION:token exprAritmetica:e2 {:RESULT = new ExpresionAritmetica(token,e1,e2);:}
+	| exprAritmetica:e1 DIVISION:token exprAritmetica:e2 {:RESULT = new ExpresionAritmetica(token,e1,e2);:}
+	| exprAritmetica:e1 MODULO:token exprAritmetica:e2 {:RESULT = new ExpresionAritmetica(token,e1,e2);:}
+	| RESTA:token exprAritmetica:e {:RESULT = new ExpresionAritmetica(new Token("--",token.getLine(),token.getColumn()),e);:}
+	| PARENTESIS_ABIERTO expresionAritmetica:e PARENTESIS_CERRADO {:RESULT = e;:};
+	
+exprAritmetica ::= valorLiteral:e {:RESULT = new ExpresionAritmetica(e);:}| expresionAritmetica:e {:RESULT = e;:};
+
+
+expresionBooleana ::= exprBooleana:e1 OR:token exprBooleana:e2 {:RESULT = new ExpresionBooleana(token,e1,e2);:}
+	| exprBooleana:e1 AND:token exprBooleana:e2 {:RESULT = new ExpresionBooleana(token,e1,e2);:}
+	| NOT:token exprBooleana:e {:RESULT = new ExpresionBooleana(token,e);:}
+	| PARENTESIS_ABIERTO expresionBooleana:e PARENTESIS_CERRADO {:RESULT = e;:}
+	| condicion:e {:RESULT =  new ExpresionBooleana(e);:};
+	
+exprBooleana ::= valorLiteral:e {:RESULT = new ExpresionBooleana(e);:} | expresionBooleana:e {:RESULT = e;:};
+
+condicion ::= 
+	exprAritmetica:e1 MAYOR:token exprAritmetica:e2 {:RESULT = new Condicion(token,e1,e2);:}
+	| exprAritmetica:e1 MENOR:token exprAritmetica:e2 {:RESULT = new Condicion(token,e1,e2);:}
+	| exprAritmetica:e1 MAYOR_IGUAL:token exprAritmetica:e2 {:RESULT = new Condicion(token,e1,e2);:}
+	| exprAritmetica:e1 MENOR_IGUAL:token exprAritmetica:e2 {:RESULT = new Condicion(token,e1,e2);:}
+	| exprAritmetica:e1 DIFERENTE:token exprAritmetica:e2 {:RESULT = new Condicion(token,e1,e2);:}
+	| exprAritmetica:e1 IGUAL:token exprAritmetica:e2 {:RESULT = new Condicion(token,e1,e2);:};
+
+valorLiteral ::=  
+	NUMERO_ENTERO:e {:RESULT = new Dato(e,"Integer",null);:}
+	|NUMERO_BYTE:e {:RESULT = new Dato(e,"Byte",null);:}
+	|NUMERO_DOUBLE:e {:RESULT = new Dato(e,"Double",null);:}
+	|NUMERO_FLOAT:e {:RESULT = new Dato(e,"Float",null);:}
+	|NUMERO_LONG:e {:RESULT = new Dato(e,"Long",null);:}
+	|LEX_STRING:e {:RESULT = new Dato(e,"String",null);:}
+	|BOOLEANO:e {:RESULT = new Dato(e,"Boolean",null);:}
+	|IDD:e  {:RESULT = new Dato(e,"VARIABLE",null);:}
+	|literalArreglo:e {:RESULT = new Dato(e.getId(),"ARREGLO",e.getLista());:}
+	|estructura_call:e {:RESULT = new Dato(e.getId(),"SUBPROGRAMA",e.getLista());:}; 
+
+literalArreglo ::= IDD:id dimensiones:dimensiones {:
+	Arreglo arreglo= new Arreglo(id,dimensiones);
+	RESULT = arreglo;
+
+:};
+
+
+

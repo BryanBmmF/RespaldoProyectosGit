@@ -115,8 +115,6 @@
                           <Component id="status" min="-2" pref="190" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnAnalizar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -133,7 +131,6 @@
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="status" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAnalizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="244" max="32767" attributes="0"/>
@@ -191,16 +188,11 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAnalizar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Analizar Contenido"/>
+            <Property name="text" type="java.lang.String" value="Analizar Contenido y Enviar al Servidor"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnalizarActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Enviar al Servidor"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

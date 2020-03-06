@@ -5,6 +5,9 @@ package proyecto1compi1.backend.Componentes;
 
 import java.util.List;
 import proyecto1compi1.backend.etiquetas.Etiqueta;
+import proyecto1compi1.backend.sitios.BDSitios;
+import proyecto1compi1.backend.sitios.Pagina;
+import proyecto1compi1.backend.sitios.Sitio;
 
 /**
  *
@@ -94,7 +97,28 @@ public class ComponenteMenu extends Componente{
         
         @Override
         public String devolverEstructuraHTML() {
+            String links ="";
             String salida ="";
+            if (idPadre!=null) {
+                    BDSitios bd = BDSitios.getInstance();
+                    int position =0;
+                    for(Sitio sitio: bd.getListaSitios()){
+                            for(Pagina pag: sitio.getListaPaginas()){
+                                    if (pag.getId().equals(idPadre)) {   
+                                            //obtener los hijos
+                                            for(String hijo: pag.getListaPagHijas()){
+                                                 links+="\t\t\t<li><a href=\""+hijo+".html\">"+hijo+"</li>\n";   
+                                            }
+                                        
+                                    }
+                            }
+                    }
+            }
+            
+            salida+="\t\t<ul style=\"list-style-type:circle;\">\n";
+            salida+=links;
+            salida+="\t\t</ul>\n";
+            
             return salida;
         }
         

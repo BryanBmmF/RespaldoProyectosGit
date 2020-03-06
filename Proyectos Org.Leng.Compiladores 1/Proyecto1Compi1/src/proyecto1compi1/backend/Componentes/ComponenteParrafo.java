@@ -94,17 +94,39 @@ public class ComponenteParrafo extends Componente{
         public String devolverEstructuraHTML() {
             String salida ="";
             
-            salida +="\n<p style=\"";
+            salida +="\n\t\t\t<p style=\"";
             if (color!=null) {
                     salida +="color:"+color+"; ";
             }
             if (alineacion!=null) {
-                    salida +="text-align:"+alineacion.toString().toLowerCase()+"; ";
+                    salida +="text-align:"+devolverIngles(alineacion.toString())+"; ";
             }
             
             salida +="\">"+texto+"</p>";
            
             return salida;
+        }
+        
+        public String devolverIngles(String palabra){
+                String alin ="";
+                
+                switch (palabra) {
+                case "CENTRAR":
+                        alin = "center";
+                    break;
+                case "JUSTIFICAR":
+                        alin = "justify";
+                    break;
+                case "DERECHA":
+                        alin = "right";
+                    break;
+                case "IZQUIERDA":
+                        alin = "left";
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            return alin;
         }
         
 }

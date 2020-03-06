@@ -92,7 +92,7 @@ public class ComponenteVideo extends Componente{
     @Override
     public String devolverEstructuraHTML() {
             String salida ="";
-            salida +="\n<iframe width=\""+ancho+"\" height=\""+altura+"\" src=\""+origen+"\""+" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
+            salida +="\n\t\t\t<iframe width=\""+ancho+"\" height=\""+altura+"\" src=\""+origen+"\""+" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>\n";
             
             return salida;
     }

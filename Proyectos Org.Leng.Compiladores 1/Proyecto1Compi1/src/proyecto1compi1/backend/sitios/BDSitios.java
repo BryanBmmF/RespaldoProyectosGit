@@ -132,7 +132,7 @@ public class BDSitios {
                         salida+="\t</parametros>\n";
                         System.out.println("LISTA DE PAGINAS: ");
                         salida+="\t<paginas>\n";
-                        if (!sitio.getListaPaginas().isEmpty()) {
+                        if (sitio.getListaPaginas()!=null && !sitio.getListaPaginas().isEmpty()) {
                                  for(Pagina pag: sitio.getListaPaginas()){
                                         System.out.println(">>>>>>>PAGINA: ");
                                         salida+="\t\t<pagina>\n";
@@ -170,7 +170,7 @@ public class BDSitios {
                                         salida+="\t\t\t\t</parametro>\n";
                                         salida+="\t\t\t</parametros>\n";
                                         System.out.println("------COMPONENTES: ");
-                                        if (!pag.getListaComponentes().isEmpty()) {
+                                        if (pag.getListaComponentes()!=null && !pag.getListaComponentes().isEmpty()) {
                                                 salida+="\t\t\t<componentes>\n";
                                                 for(ComponenteCompleto com: pag.getListaComponentes()){
                                                         salida+="\t\t\t  <componente>\n";
@@ -195,7 +195,7 @@ public class BDSitios {
                                                 salida+="\t\t\t</componentes>\n";            
                                         }
                                         System.out.println("------ETIQUETAS: ");
-                                        if (!pag.getListaEtiquetas().isEmpty()) {
+                                        if (pag.getListaEtiquetas()!=null && !pag.getListaEtiquetas().isEmpty()) {
                                                 salida+="\t\t\t<etiquetas>\n";
                                                 for(Etiqueta eti: pag.getListaEtiquetas()){
                                                         salida+="\t\t\t\t<etiqueta valor = \""+eti.getValor()+"\"/>\n";
@@ -207,7 +207,7 @@ public class BDSitios {
                                         }
 
                                         System.out.println("------PAGINAS HIJAS: ");
-                                        if (!pag.getListaPagHijas().isEmpty()) {
+                                        if (pag.getListaPagHijas()!= null && !pag.getListaPagHijas().isEmpty()) {
                                                 salida+="\t\t\t<hijos>\n";
                                                 for(String hijo: pag.getListaPagHijas()){
                                                         salida+="\t\t\t\t<hijo valor = \""+hijo+"\"/>\n";

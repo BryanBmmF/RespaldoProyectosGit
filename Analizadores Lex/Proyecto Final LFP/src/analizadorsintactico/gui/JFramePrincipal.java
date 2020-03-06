@@ -660,7 +660,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     //metodo para deshacer texto en el Editor
     private void btnDeshacerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeshacerActionPerformed
         // TODO add your handling code here:
-             try {
+            try {
                     undoManager.undo();//manejador deshace
             } catch (CannotRedoException cre) {
                     cre.printStackTrace();

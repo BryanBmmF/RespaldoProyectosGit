@@ -61,151 +61,13 @@
 		<pagina>
 			<parametros>
 				<parametro nombre = "ID">
-					[_historia1]
-				</parametro>
-				<parametro nombre = "PATH">
-					[/var/www/html/_HISTORIA]
-				</parametro>
-				<parametro nombre = "TITULO">
-					[Primer Titulo]
-				</parametro>
-				<parametro nombre = "SITIO">
-					[_HISTORIA]
-				</parametro>
-				<parametro nombre = "PADRE">
-					[_sinPadre]
-				</parametro>
-				<parametro nombre = "USUARIO_CREACION">
-					[_user1]
-				</parametro>
-				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user1]
-				</parametro>
-			</parametros>
-			<componentes>
-			  <componente>
-				<parametros>
-					<parametro nombre = "ID">
-						[_Titulo-1]
-					</parametro>
-					<parametro nombre = "PAGINA">
-						[_historia1]
-					</parametro>
-					<parametro nombre = "CLASE">
-						[TITULO]
-					</parametro>
-				</parametros>
-				<atributos>
-					<atributo nombre = "TEXTO">
-						[Este es el texto que aparece en el titulo1 :)]
-					</atributo>
-					<atributo nombre = "ALINEACION">
-						[JUSTIFICAR]
-					</atributo>
-					<atributo nombre = "COLOR">
-						[#5A5A5A]
-					</atributo>
-				</atributos>
-			  </componente>
-			  <componente>
-				<parametros>
-					<parametro nombre = "ID">
-						[_Parrafo-1]
-					</parametro>
-					<parametro nombre = "PAGINA">
-						[_historia1]
-					</parametro>
-					<parametro nombre = "CLASE">
-						[PARRAFO]
-					</parametro>
-				</parametros>
-				<atributos>
-					<atributo nombre = "TEXTO">
-						[Este es el texto que aparece en el titulo2 :)]
-					</atributo>
-					<atributo nombre = "ALINEACION">
-						[JUSTIFICAR]
-					</atributo>
-					<atributo nombre = "COLOR">
-						[#4A4A4A]
-					</atributo>
-				</atributos>
-			  </componente>
-			  <componente>
-				<parametros>
-					<parametro nombre = "ID">
-						[_Imagen-1]
-					</parametro>
-					<parametro nombre = "PAGINA">
-						[_historia1]
-					</parametro>
-					<parametro nombre = "CLASE">
-						[IMAGEN]
-					</parametro>
-				</parametros>
-				<atributos>
-					<atributo nombre = "ORIGEN">
-						[https://www.google.com/search?q=linux&client=ubuntu&hs=RUV&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiCw6LwubnhAhWltlkKHbyxAHEQ_AUIDigB&biw=1317&bih=612#imgrc=YhXyQo2gxpzaaM:]
-					</atributo>
-					<atributo nombre = "ALTURA">
-						[75]
-					</atributo>
-					<atributo nombre = "ANCHO">
-						[100]
-					</atributo>
-					<atributo nombre = "ALINEACION">
-						[IZQUIERDA]
-					</atributo>
-				</atributos>
-			  </componente>
-			  <componente>
-				<parametros>
-					<parametro nombre = "ID">
-						[_Video-1]
-					</parametro>
-					<parametro nombre = "PAGINA">
-						[_historia1]
-					</parametro>
-					<parametro nombre = "CLASE">
-						[VIDEO]
-					</parametro>
-				</parametros>
-				<atributos>
-					<atributo nombre = "ORIGEN">
-						[https://www.youtube.com/watch?v=uKT24KzqMQU]
-					</atributo>
-					<atributo nombre = "ALTURA">
-						[100]
-					</atributo>
-					<atributo nombre = "ANCHO">
-						[150]
-					</atributo>
-				</atributos>
-			  </componente>
-			</componentes>
-			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
-			</etiquetas>
-			<hijos>
-			</hijos>
-		</pagina>
-		<pagina>
-			<parametros>
-				<parametro nombre = "ID">
 					[_historia2]
 				</parametro>
 				<parametro nombre = "PATH">
 					[/var/www/html/_HISTORIA]
 				</parametro>
 				<parametro nombre = "TITULO">
-					[Primer Titulo]
+					[UN NUEVO TITULO]
 				</parametro>
 				<parametro nombre = "SITIO">
 					[_HISTORIA]
@@ -241,13 +103,13 @@
 				</parametros>
 				<atributos>
 					<atributo nombre = "TEXTO">
-						[Este es el texto que aparece en el titulo2 :)]
+						[TITULO MODIFICADO :)]
 					</atributo>
 					<atributo nombre = "ALINEACION">
-						[JUSTIFICAR]
+						[CENTRAR]
 					</atributo>
 					<atributo nombre = "COLOR">
-						[#0000FF]
+						[#0000GG]
 					</atributo>
 				</atributos>
 			  </componente>
@@ -289,127 +151,28 @@
 				</parametros>
 				<atributos>
 					<atributo nombre = "ORIGEN">
-						[https://www.redeszone.net/app/uploads/2018/11/tsurugi-distribucion-linux.jpg]
+						[https://cdn-3.expansion.mx/dims4/default/283433d/2147483647/strip/true/crop/3500x2256+0+0/resize/800x516!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2F7e%2F66%2F10119e5f4795997e48ce1f347a37%2F2017-11-29t173102z-180581302-hp1edbt1cnq33-rtrmadp-3-autoshow-la.JPG]
 					</atributo>
 					<atributo nombre = "ALTURA">
-						[75]
+						[200]
 					</atributo>
 					<atributo nombre = "ANCHO">
-						[100]
+						[300]
 					</atributo>
 					<atributo nombre = "ALINEACION">
-						[IZQUIERDA]
-					</atributo>
-				</atributos>
-			  </componente>
-			  <componente>
-				<parametros>
-					<parametro nombre = "ID">
-						[_Video-2]
-					</parametro>
-					<parametro nombre = "PAGINA">
-						[_historia2]
-					</parametro>
-					<parametro nombre = "CLASE">
-						[VIDEO]
-					</parametro>
-				</parametros>
-				<atributos>
-					<atributo nombre = "ORIGEN">
-						[https://www.youtube.com/embed/xWcFYyIJ8xM]
-					</atributo>
-					<atributo nombre = "ALTURA">
-						[100]
-					</atributo>
-					<atributo nombre = "ANCHO">
-						[150]
+						[CENTRAR]
 					</atributo>
 				</atributos>
 			  </componente>
 			</componentes>
 			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
+				<etiqueta valor = "nueva_etiqueta11"/>
+				<etiqueta valor = "nueva_etiqueta22"/>
 			</etiquetas>
 			<hijos>
-			</hijos>
-		</pagina>
-		<pagina>
-			<parametros>
-				<parametro nombre = "ID">
-					[_historia3]
-				</parametro>
-				<parametro nombre = "PATH">
-					[/var/www/html/_HISTORIA]
-				</parametro>
-				<parametro nombre = "TITULO">
-					[Primer Titulo]
-				</parametro>
-				<parametro nombre = "SITIO">
-					[_HISTORIA]
-				</parametro>
-				<parametro nombre = "PADRE">
-					[_sinPadre]
-				</parametro>
-				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
-				</parametro>
-				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
-				</parametro>
-			</parametros>
-			<componentes>
-			</componentes>
-			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
-			</etiquetas>
-			<hijos>
-			</hijos>
-		</pagina>
-		<pagina>
-			<parametros>
-				<parametro nombre = "ID">
-					[_historia4]
-				</parametro>
-				<parametro nombre = "PATH">
-					[/var/www/html/_HISTORIA]
-				</parametro>
-				<parametro nombre = "TITULO">
-					[Primer Titulo]
-				</parametro>
-				<parametro nombre = "SITIO">
-					[_HISTORIA]
-				</parametro>
-				<parametro nombre = "PADRE">
-					[_sinPadre]
-				</parametro>
-				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
-				</parametro>
-				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
-				</parametro>
-			</parametros>
-			<componentes>
-			</componentes>
-			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
-			</etiquetas>
-			<hijos>
+				<hijo valor = "_historia21"/>
+				<hijo valor = "_historia22"/>
+				<hijo valor = "_historia23"/>
 			</hijos>
 		</pagina>
 		<pagina>
@@ -430,16 +193,193 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user1]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+				<etiqueta valor = "etiqueta1"/>
+				<etiqueta valor = "etiqueta2"/>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[_historia6]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/_HISTORIA]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[Primer Titulo]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[_HISTORIA]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_sinPadre]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+				<etiqueta valor = "etiqueta1"/>
+				<etiqueta valor = "etiqueta2"/>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[_historia21]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/_HISTORIA]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[Primer Titulo]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[_HISTORIA]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_historia2]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			  <componente>
+				<parametros>
+					<parametro nombre = "ID">
+						[_Menu-21]
+					</parametro>
+					<parametro nombre = "PAGINA">
+						[_historia21]
+					</parametro>
+					<parametro nombre = "CLASE">
+						[MENU]
+					</parametro>
+				</parametros>
+				<atributos>
+					<atributo nombre = "PADRE">
+						[_historia2]
+					</atributo>
+					<atributo nombre = "ETIQUETAS">
+						[etiqueta1|otraEtiqueta|Una_mas]
+					</atributo>
+				</atributos>
+			  </componente>
+			</componentes>
+			<etiquetas>
+				<etiqueta valor = "etiqueta1"/>
+				<etiqueta valor = "etiqueta2"/>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[_historia22]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/_HISTORIA]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[Primer Titulo]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[_HISTORIA]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_historia2]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+				<etiqueta valor = "etiqueta1"/>
+				<etiqueta valor = "etiqueta2"/>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[_historia23]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/_HISTORIA]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[Primer Titulo]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[_HISTORIA]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_historia2]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-11]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -570,133 +510,16 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user7]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
-				</parametro>
-			</parametros>
-			<componentes>
-			</componentes>
-			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
-			</etiquetas>
-			<hijos>
-			</hijos>
-		</pagina>
-		<pagina>
-			<parametros>
-				<parametro nombre = "ID">
-					[_novela3]
-				</parametro>
-				<parametro nombre = "PATH">
-					[/var/www/html/_NOVELA]
-				</parametro>
-				<parametro nombre = "TITULO">
-					[Primer Titulo]
-				</parametro>
-				<parametro nombre = "SITIO">
-					[_NOVELA]
-				</parametro>
-				<parametro nombre = "PADRE">
-					[_sinPadre]
-				</parametro>
-				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
-				</parametro>
-				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
-				</parametro>
-			</parametros>
-			<componentes>
-			</componentes>
-			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
-			</etiquetas>
-			<hijos>
-			</hijos>
-		</pagina>
-		<pagina>
-			<parametros>
-				<parametro nombre = "ID">
-					[_novela4]
-				</parametro>
-				<parametro nombre = "PATH">
-					[/var/www/html/_NOVELA]
-				</parametro>
-				<parametro nombre = "TITULO">
-					[Primer Titulo]
-				</parametro>
-				<parametro nombre = "SITIO">
-					[_NOVELA]
-				</parametro>
-				<parametro nombre = "PADRE">
-					[_sinPadre]
-				</parametro>
-				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
-				</parametro>
-				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
-				</parametro>
-			</parametros>
-			<componentes>
-			</componentes>
-			<etiquetas>
-				<etiqueta valor = "etiqueta1"/>
-				<etiqueta valor = "etiqueta2"/>
-			</etiquetas>
-			<hijos>
-			</hijos>
-		</pagina>
-		<pagina>
-			<parametros>
-				<parametro nombre = "ID">
-					[_novela5]
-				</parametro>
-				<parametro nombre = "PATH">
-					[/var/www/html/_NOVELA]
-				</parametro>
-				<parametro nombre = "TITULO">
-					[Primer Titulo]
-				</parametro>
-				<parametro nombre = "SITIO">
-					[_NOVELA]
-				</parametro>
-				<parametro nombre = "PADRE">
-					[_sinPadre]
-				</parametro>
-				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
-				</parametro>
-				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
-				</parametro>
-				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user7]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -788,16 +611,16 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user1]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user1]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -827,16 +650,16 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user1]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user1]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -866,16 +689,16 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user1]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user1]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -905,16 +728,16 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user1]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user1]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -944,16 +767,16 @@
 					[_sinPadre]
 				</parametro>
 				<parametro nombre = "USUARIO_CREACION">
-					[_user5]
+					[_user1]
 				</parametro>
 				<parametro nombre = "FECHA_CREACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "FECHA_MODIFICACION">
-					[2019-04-10]
+					[2019-04-11]
 				</parametro>
 				<parametro nombre = "USUARIO_MODIFICACION">
-					[_user5]
+					[_user1]
 				</parametro>
 			</parametros>
 			<componentes>
@@ -961,6 +784,222 @@
 			<etiquetas>
 				<etiqueta valor = "etiqueta1"/>
 				<etiqueta valor = "etiqueta2"/>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+	</paginas>
+</sitio>
+
+<sitio>
+	<parametros>
+		<parametro nombre = "ID">
+			[$sitio-1]
+		</parametro>
+		<parametro nombre = "PATH">
+			[/var/www/html]
+		</parametro>
+		<parametro nombre = "USUARIO_CREACION">
+			[_user1]
+		</parametro>
+		<parametro nombre = "FECHA_CREACION">
+			[2019-04-13]
+		</parametro>
+		<parametro nombre = "FECHA_MODIFICACION">
+			[2019-04-13]
+		</parametro>
+		<parametro nombre = "USUARIO_MODIFICACION">
+			[_user1]
+		</parametro>
+	</parametros>
+	<paginas>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[_index]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/$sitio-1]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[Pagina Inicial]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[$sitio-1]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_sinPadre]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[$p-1]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/$sitio-1]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[nuevo titulo p1]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[$sitio-1]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_sinPadre]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+				<etiqueta valor = "_e1"/>
+				<etiqueta valor = "_e2"/>
+			</etiquetas>
+			<hijos>
+				<hijo valor = "$p-1-h-1"/>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[$p-2]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/$sitio-1]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[nuevo titulo p2]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[$sitio-1]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[_sinPadre]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+				<etiqueta valor = "_e1"/>
+				<etiqueta valor = "_e2"/>
+			</etiquetas>
+			<hijos>
+				<hijo valor = "$p-2-h-1"/>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[$p-1-h-1]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/$sitio-1]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[nuevo titulo p1h1]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[$sitio-1]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[$p-1]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
+			</etiquetas>
+			<hijos>
+			</hijos>
+		</pagina>
+		<pagina>
+			<parametros>
+				<parametro nombre = "ID">
+					[$p-2-h-1]
+				</parametro>
+				<parametro nombre = "PATH">
+					[/var/www/html/$sitio-1]
+				</parametro>
+				<parametro nombre = "TITULO">
+					[hija 1 - pagina 2 - sitio 1]
+				</parametro>
+				<parametro nombre = "SITIO">
+					[$sitio-1]
+				</parametro>
+				<parametro nombre = "PADRE">
+					[$p-2]
+				</parametro>
+				<parametro nombre = "USUARIO_CREACION">
+					[_user1]
+				</parametro>
+				<parametro nombre = "FECHA_CREACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "FECHA_MODIFICACION">
+					[2019-04-13]
+				</parametro>
+				<parametro nombre = "USUARIO_MODIFICACION">
+					[_user1]
+				</parametro>
+			</parametros>
+			<componentes>
+			</componentes>
+			<etiquetas>
 			</etiquetas>
 			<hijos>
 			</hijos>

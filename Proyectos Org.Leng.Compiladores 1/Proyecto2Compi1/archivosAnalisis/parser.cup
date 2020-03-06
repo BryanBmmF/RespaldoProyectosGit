@@ -1215,8 +1215,6 @@ simbolos_esp ::= AMP_LT:e1
 					{: RESULT=e1+" "; :}//mas un separador
 				|IDENTIFICADOR:e1
 					{: RESULT=e1+" "; :}//identificador
-				|NUMERO_ENTERO:e1
-					{: RESULT=String.valueOf(e1); :}//identificador
 				|HTML:e1
 					{: RESULT=e1+" "; :}
 				|HEAD:e1

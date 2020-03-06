@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/09/2019 02:29:57 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="proyectomayaprueba.Modelo.KinHaab" table="Kin_Haab" catalog="BD_Maya" optimistic-lock="version">
+        <id name="idKinHaab" type="int">
+            <column name="idKin_Haab" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="diaHaab" class="proyectomayaprueba.Modelo.DiaHaab" fetch="select">
+            <column name="Dia_Haab_idDia_Haab" not-null="true" />
+        </many-to-one>
+        <many-to-one name="mesHaab" class="proyectomayaprueba.Modelo.MesHaab" fetch="select">
+            <column name="Mes_Haab_idMes_Haab" not-null="true" />
+        </many-to-one>
+        <set name="cuentaLargas" table="Cuenta_Larga" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Kin_Haab_idKin_Haab" not-null="true" />
+            </key>
+            <one-to-many class="proyectomayaprueba.Modelo.CuentaLarga" />
+        </set>
+    </class>
+</hibernate-mapping>

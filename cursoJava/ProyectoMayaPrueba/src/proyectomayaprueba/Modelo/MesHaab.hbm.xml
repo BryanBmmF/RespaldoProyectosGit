@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/09/2019 02:29:57 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="proyectomayaprueba.Modelo.MesHaab" table="Mes_Haab" catalog="BD_Maya" optimistic-lock="version">
+        <id name="idMesHaab" type="int">
+            <column name="idMes_Haab" />
+            <generator class="assigned" />
+        </id>
+        <set name="kinHaabs" table="Kin_Haab" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Mes_Haab_idMes_Haab" not-null="true" />
+            </key>
+            <one-to-many class="proyectomayaprueba.Modelo.KinHaab" />
+        </set>
+    </class>
+</hibernate-mapping>

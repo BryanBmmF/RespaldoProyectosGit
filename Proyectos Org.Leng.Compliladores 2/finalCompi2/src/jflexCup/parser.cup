@@ -1,0 +1,690 @@
+package jflexCup;
+
+import java_cup.runtime.*;
+import Objetos.*;
+import java.util.ArrayList;
+import java.util.List;
+
+parser code{:
+        ManejoDatos manejoDatos;
+        String tipo;
+        int tempWhile;
+        List<Integer> numsIf;
+        List<Integer> numsWh;
+        int valt=1;
+        int vall=1;
+        int valv=1;
+        int valf=1;
+        public int dimension=0;
+        List<Variable> varsTemp;
+        public parser(lexico lex,ManejoDatos manejoDatos) { 
+            super(lex);
+            this.manejoDatos=manejoDatos;
+            varsTemp=new ArrayList<>();
+            numsIf=new ArrayList<>();
+            numsWh=new ArrayList<>();
+        }
+        //manejo de Errores
+        public void syntax_error(Symbol s){
+            manejoDatos.addErrores(String.valueOf(s.value), "Sintactico", s.left, s.right);
+        }
+
+        //manejo de Operaciones
+        public Variable operar(Variable val1,String op,Variable val2,int fila,int columna){
+        
+            Variable resultado=new Variable("null","t"+valt,"null");
+                             manejoDatos.varsC.add(new Variable(val1.getTipo(),"t"+valt,"0"));
+            Instruccion ins=new Instruccion("t"+valt,op,"","");
+            valt++;
+            String valS;
+            if(val1.getNombre().equals("null")){
+                ins.setOp1(val1.getValor());
+                valS=val1.getValor()+op;
+            }else{
+                ins.setOp1(val1.getNombre());
+                valS=val1.getNombre()+op;
+            }
+            if(val2.getNombre().equals("null")){
+                ins.setOp2(val2.getValor());
+                valS+=val2.getValor();
+            }else{
+                ins.setOp2(val2.getNombre());
+                valS+=val2.getNombre();
+            }
+            manejoDatos.addInstruccion(ins);
+            if(val1.getTipo().equals(val2.getTipo())){
+                if(val1.getTipo().equals("int")){
+                    resultado.setTipo("int");
+                    resultado.setValor("0");
+                }else{
+                    resultado.setTipo("float");
+                    resultado.setValor("0f");
+                }
+            }else{
+                manejoDatos.addErrores(valS,"valores no compatibles",fila,columna);
+                resultado.setValor("0");
+            }
+            return resultado;
+        }
+
+        //manejo de Variables
+        public Variable getVariable(String nombre,int fila,int columna){
+            Variable variable = manejoDatos.getVariable(nombre,fila,columna);
+            if(variable==null){
+                variable=new Variable("null",nombre,"0");
+            }
+            return new Variable(variable.getTipo(),variable.getNombre(),variable.getValor());
+        }
+        public Variable operarMas(Variable op1,String op,Variable op2,int fila,int columna){
+            Variable resultado= new Variable("null","t"+valt,"0");
+            Variable var3d=new Variable("null","t"+valt,"0");
+            valt++;
+            String valS="";
+            if(!op1.getNombre().equals("null")){
+                valS=op1.getNombre()+"+";
+            }else{
+                valS=op1.getValor()+"+";
+            }
+            if(!op2.getNombre().equals("null")){
+                valS+=op2.getNombre();
+            }else{
+                valS+=op2.getValor();
+            }
+            var3d.setValor(valS);
+            if(op1.getTipo().equals(op2.getTipo())){
+                if(op1.getTipo().equals("int")){
+                    int res=op1.getValorI()+op2.getValorI();
+                    var3d.setTipo("int");
+                    resultado.setTipo("int");
+                    resultado.setValor(String.valueOf(res));
+                }else if(op1.getTipo().equals("float")){
+                    float res=op1.getValorF()+op2.getValorF();
+                    var3d.setTipo("float");
+                    resultado.setTipo("float");
+                    resultado.setValor(String.valueOf(res));
+                }else{
+                    manejoDatos.addErrores(valS,"valores de diferente tipo",fila,columna);
+                }
+            }else{
+                //no son del mismo tipo
+            }
+            manejoDatos.addVar3d(var3d);
+            return resultado;
+        }
+
+        public Variable operarMenos(Variable op1,String op,Variable op2,int fila,int columna){
+            Variable resultado= new Variable("null","t"+valt,"0");
+            Variable var3d=new Variable("null","t"+valt,"0");
+            valt++;
+            String valS="";
+            if(!op1.getNombre().equals("null")){
+                valS=op1.getNombre()+"-";
+            }else{
+                valS=op1.getValor()+"-";
+            }
+            if(!op2.getNombre().equals("null")){
+                valS+=op2.getNombre();
+            }else{
+                valS+=op2.getValor();
+            }
+            var3d.setValor(valS);
+
+            if(op1.getTipo().equals(op2.getTipo())){
+                if(op1.getTipo().equals("int")){
+                    int res=op1.getValorI()-op2.getValorI();
+                    var3d.setTipo("int");
+                    resultado.setTipo("int");
+                    resultado.setValor(String.valueOf(res));
+                }else if(op1.getTipo().equals("float")){
+                    float res=op1.getValorF()-op2.getValorF();
+                    var3d.setTipo("float");
+                    resultado.setTipo("float");
+                    resultado.setValor(String.valueOf(res));
+                }else{
+                    manejoDatos.addErrores(valS,"valores de diferente tipo",fila,columna);
+                }
+            }else{
+                //no son del mismo tipo
+            }
+            manejoDatos.addVar3d(var3d);
+            return resultado;
+        }
+
+        public Variable operarDiv(Variable op1,String op,Variable op2,int fila,int columna){
+            Variable resultado= new Variable("null","t"+valt,"0");
+            Variable var3d=new Variable("null","t"+valt,"0");
+            valt++;
+            String valS="";
+            if(!op1.getNombre().equals("null")){
+                valS=op1.getNombre()+"/";
+            }else{
+                valS=op1.getValor()+"/";
+            }
+            if(!op2.getNombre().equals("null")){
+                valS+=op2.getNombre();
+            }else{
+                valS+=op2.getValor();
+            }
+            var3d.setValor(valS);
+
+            if(op1.getTipo().equals(op2.getTipo())){
+                if(op1.getTipo().equals("int")){
+                    int res=op1.getValorI()+op2.getValorI();
+                    var3d.setTipo("int");
+                    resultado.setTipo("int");
+                    resultado.setValor(String.valueOf(res));
+                }else if(op1.getTipo().equals("float")){
+                    float res=op1.getValorF()+op2.getValorF();
+                    var3d.setTipo("float");
+                    resultado.setTipo("float");
+                    resultado.setValor(String.valueOf(res));
+                }else{
+                    manejoDatos.addErrores(valS,"valores de diferente tipo",fila,columna);
+                }
+            }else{
+                //no son del mismo tipo
+            }
+            manejoDatos.addVar3d(var3d);
+            return resultado;
+        }
+
+        public Variable operarPor(Variable op1,String op,Variable op2,int fila,int columna){
+            Variable resultado= new Variable("null","t"+valt,"0");
+            Variable var3d=new Variable("null","t"+valt,"0");
+            valt++;
+            String valS="";
+            if(!op1.getNombre().equals("null")){
+                valS=op1.getNombre()+"*";
+            }else{
+                valS=op1.getValor()+"*";
+            }
+            if(!op2.getNombre().equals("null")){
+                valS+=op2.getNombre();
+            }else{
+                valS+=op2.getValor();
+            }
+            var3d.setValor(valS);
+
+            if(op1.getTipo().equals(op2.getTipo())){
+                if(op1.getTipo().equals("int")){
+                    int res=op1.getValorI()+op2.getValorI();
+                    var3d.setTipo("int");
+                    resultado.setTipo("int");
+                    resultado.setValor(String.valueOf(res));
+                }else if(op1.getTipo().equals("float")){
+                    float res=op1.getValorF()+op2.getValorF();
+                    var3d.setTipo("float");
+                    resultado.setTipo("float");
+                    resultado.setValor(String.valueOf(res));
+                }else{
+                    manejoDatos.addErrores(valS,"valores de diferente tipo",fila,columna);
+                }
+            }else{
+                //no son del mismo tipo
+            }
+            manejoDatos.addVar3d(var3d);
+            return resultado;
+        }
+        public void cambiarValor(String nombre,Variable variable,int fila,int columna){
+            Variable variable1=manejoDatos.getVariable(nombre,fila,columna);
+            if(variable!=null){
+                
+                if(!variable1.getTipo().equals(variable.getTipo())){
+                    manejoDatos.addErrores(nombre,"Semantico",fila,columna);
+                }else{
+                    Instruccion ins=new Instruccion(variable1.getNombre(),"",variable.getNombre(),"");
+                    if(!variable.getNombre().equals("null")){
+                        ins.setOp1(variable.getNombre());
+                    }else{
+                        ins.setOp1(variable.getValor());
+                    }
+                    manejoDatos.addInstruccion(ins);    
+                }
+            }
+        }
+        public void addVarTemp(Variable variable,int fila,int columna){
+            String val="0";
+            switch(this.tipo){
+                    case "int":
+                        val="0";
+                        if(variable.getTipo().equals("null")||variable.getTipo().equals("int")){
+                            variable.setTipo("int");
+                            if(variable.getValor().equals("null")){
+                                variable.setValor("0");
+                            }
+                            this.manejoDatos.agregarVariable(variable,fila,columna);
+                        }else{
+                            //error semantico
+                            manejoDatos.addErrores(variable.getNombre(),"Semantico",fila,columna);
+                        }
+                    break;
+                    case "float":
+                        val="0";
+                        if(variable.getTipo().equals("null")||variable.getTipo().equals("float")){
+                            variable.setTipo("float");
+                            if(variable.getValor().equals("null")){
+                                variable.setValor("0");
+                            }
+                            this.manejoDatos.agregarVariable(variable,fila,columna);
+                        }else{
+                            //error Semantico
+                            manejoDatos.addErrores(variable.getNombre(),"Semantico",fila,columna);
+                        }
+                    break;
+                }
+            for(int i=0;i<manejoDatos.vars3d.size();i++){
+                if(manejoDatos.vars3d.get(i).getTipo().equals("null")){
+                    manejoDatos.vars3d.get(i).setTipo(tipo);
+                }
+                if(manejoDatos.vars3d.get(i).getValor().equals("null")){
+                    manejoDatos.vars3d.get(i).setValor(val);
+                }
+            }       
+            varsTemp.clear();
+
+            varsTemp.add(variable);
+        }
+        public String getValorString(Variable variable,int fila,int columna){
+            String resultado="";
+            if(variable.getTipo().equals("String")){
+                resultado=variable.getValor();
+            }else{
+                //Error Semantico
+                manejoDatos.addErrores(variable.getNombre(),"Semantico",fila,columna);
+            }
+            return resultado;
+        }
+        public void agregarVariableString(Variable variable,int fila,int columna){
+            this.tipo="String";
+            addVarTempString(variable,fila,columna);
+        }
+        public void addVarTempBoolean(Variable variable,int fila,int columna){
+                Variable var3d=new Variable("boolean",variable.getNombre(),variable.getValor());
+                manejoDatos.addVar3d(var3d);
+
+                if(tipo.equals("boolean")){
+                manejoDatos.agregarVariable(variable,fila,columna);
+                }else{
+                    //error semantico
+                    manejoDatos.addErrores(variable.getNombre(),"Semantico",fila,columna);
+                }
+        }
+        public void addVarTempString(Variable variable,int fila,int columna){
+                Variable var3d=new Variable("String",variable.getNombre(),variable.getValor());
+                manejoDatos.addVar3d(var3d);
+                
+                if(tipo.equals("String")){
+                    manejoDatos.agregarVariable(variable,fila,columna);
+                }else{
+                    //error semantico
+                    manejoDatos.addErrores(variable.getNombre(),"Semantico",fila,columna);
+                }
+        }
+        public void agregarVariableBoolean(int fila,int columna,Variable variable){
+            this.tipo="boolean";
+            this.addVarTempBoolean(variable,fila,columna);
+        }
+        public void agregarVariable(String tipo,int fila,int columna,Variable variable){
+            this.tipo=tipo;
+            this.addVarTemp(variable,fila,columna);
+            
+        }
+        public void agregarVariableArreglo(Arreglo arreglo,int fila,int columna){
+            this.manejoDatos.agregarVariable(new Variable("Arreglo",arreglo.getNombre(),"0"),fila,columna);
+            this.manejoDatos.agregarVariableArreglo(arreglo);
+        }
+        public void addCode3d(String nombre,Variable var){
+            Variable var3d=new Variable("null",nombre,"null");
+            if(var.getNombre().equals("null")){
+                var3d.setValor(var.getValor());
+            }else if(!var.getValor().equals("null")){
+                var3d.setValor(var.getNombre());
+            }
+            manejoDatos.addVar3d(var3d);
+        }
+        //impresiones
+        public void codPrints(String mensaje){
+            manejoDatos.addInstruccion(new Instruccion("prints","",mensaje,""));
+        }
+        public void codPrintn(Variable variable){
+            if(variable.getNombre().equals("null")){
+                manejoDatos.addInstruccion(new Instruccion("printn","",variable.getValor(),""));
+            }else{
+                manejoDatos.addInstruccion(new Instruccion("printn","",variable.getNombre(),""));
+            }
+        }
+        //lecturas
+        public void codScanS(String id,int fila,int columna){
+            Variable var=manejoDatos.getVariable(id,fila,columna);
+            if(var!=null){
+                if(var.getTipo().equals("String")){
+                    manejoDatos.addInstruccion(new Instruccion("scanS","",id,""));
+                }else{
+                    manejoDatos.addErrores(id,"variable no es String",fila,columna);
+                }
+                
+            }
+        }
+        public void codScanN(String id,int fila,int columna){
+            Variable var=manejoDatos.getVariable(id,fila,columna);
+            if(var!=null){
+                if(var.getTipo().equals("int")||var.getTipo().equals("float")){
+                    manejoDatos.addInstruccion(new Instruccion("scanN","",id,""));
+                }else{
+                    manejoDatos.addErrores(id,"variable no es tipo Numerico",fila,columna);
+                }
+                
+            }
+
+        }
+        //Sentencia Logicas
+        public String codIf(Variable var1,String op,Variable var2){
+            if(!numsIf.isEmpty()){
+                if(numsIf.get(numsIf.size()-1)==vall){
+                    vall++;
+                }
+            }
+            String nombre="L"+vall;
+            String op1;
+            String op2;
+            if(var1.getNombre().equals("null")){
+                op1=var1.getValor();
+            }else{
+                op1=var1.getNombre();
+            }
+            if(var2.getNombre().equals("null")){
+                op2=var2.getValor();
+            }else{
+                op2=var2.getNombre();
+            }
+            Instruccion ins=new Instruccion(nombre,op,op1,op2);
+            Instruccion ins2=new Instruccion("if","goto",nombre,"L"+(vall+1));
+            manejoDatos.addInstruccion(ins2); 
+            manejoDatos.addInstruccion(ins);   
+            vall++;
+            numsIf.add(vall);
+            return nombre;
+        }
+        public String codIfUn(String val){
+            if(!numsIf.isEmpty()){
+                if(numsIf.get(numsIf.size()-1)==vall){
+                    vall++;
+                }
+            }
+            String nombre="L"+vall;
+            Instruccion ins=new Instruccion(nombre,"",val,"");
+            Instruccion ins2=new Instruccion("ifUn","goto",nombre,"L"+(vall+1));
+            manejoDatos.addInstruccion(ins2); 
+            manejoDatos.addInstruccion(ins);   
+            vall++;
+            numsIf.add(vall);
+            return val;
+        }
+        public String getVarBoolean(String val,int fila,int columna){
+            Variable var=manejoDatos.getVariable(val,fila,columna);   
+            if(var!=null){
+                if(!var.getTipo().equals("boolean")){
+                    manejoDatos.addErrores(val,"variable no es booleana",fila,columna);
+                }else{
+                    if(!numsIf.isEmpty()){
+                        if(numsIf.get(numsIf.size()-1)==vall){
+                            vall++;
+                        }
+                    }
+                    String nombre="L"+vall;
+                    Instruccion ins=new Instruccion(nombre,"",val,"");
+                    Instruccion ins2=new Instruccion("ifUn","goto",nombre,"L"+(vall+1));
+                    manejoDatos.addInstruccion(ins2); 
+                    manejoDatos.addInstruccion(ins);   
+                    vall++;
+                    numsIf.add(vall);
+                }
+            }
+            return val;
+        }
+        public void codBool(String id,String val,int fila,int columna){
+            Variable var=manejoDatos.getVariable(id,fila,columna);
+            if(var!=null){
+                if(var.getTipo().equals("boolean")){
+                    Instruccion ins=new Instruccion(id,"",val,"");
+                    manejoDatos.addInstruccion(ins);
+                }else{
+                    manejoDatos.addErrores(id,"no es booleano",fila,columna);
+                }
+            }
+            
+        }
+        public void fin(){
+            Instruccion ins=new Instruccion("fin","","L"+numsIf.get(numsIf.size()-1),"");
+            manejoDatos.addInstruccion(ins);
+            vall++;
+            numsIf.remove(numsIf.size()-1);
+        }
+        public void codElse(){
+            Instruccion ins=new Instruccion("else","","L"+numsIf.get(numsIf.size()-1),"L"+(numsIf.get(numsIf.size()-1)+1));
+            manejoDatos.addInstruccion(ins);
+            numsIf.remove(numsIf.size()-1);
+            vall++;
+            numsIf.add(vall);
+        }
+        public String codWhile(Variable var1,String op,Variable var2){
+            String nombre="L"+vall;
+            String op1;
+            String op2;
+            if(var1.getNombre().equals("null")){
+                op1=var1.getValor();
+            }else{
+                op1=var1.getNombre();
+            }
+            if(var2.getNombre().equals("null")){
+                op2=var2.getValor();
+            }else{
+                op2=var2.getNombre();
+            }
+            Instruccion ins=new Instruccion(nombre,op,op1,op2);
+            Instruccion ins2=new Instruccion("while",nombre,"L"+(vall+1),"L"+(vall+2));
+            manejoDatos.addInstruccion(ins2); 
+            manejoDatos.addInstruccion(ins);
+            numsWh.add(vall);
+            vall=vall+3;
+            return nombre;
+        }
+        public void finWhile(){
+            Instruccion ins=new Instruccion("finWhile","","L"+(numsWh.get(numsWh.size()-1)),"L"+(numsWh.get(numsWh.size()-1)+2));
+            manejoDatos.addInstruccion(ins);
+            numsWh.remove(numsWh.size()-1);
+        }
+:}        
+        
+
+/* Terminals (tokens returned by the scanner). */
+
+terminal String PARA,PARC,LLAVEA,LLAVEC,PUNTOCOMA,COMA,COMILLA,ASIGNAR,MAS,MENOS,POR,DIV,OR,AND,IGUAL,DIFERENTE,MAYOR,MENOR,ERROR;
+terminal String MAIN,WHILE,PRINTS,PRINTN,IF,ELSE,STRING,ID,INT,FLOAT,LITERAL;
+terminal String FLOTANTE,ENTERO,BOOLEAN,TRUE,FALSE,CORA,CORC,SCANS,SCANN,BREAK;
+
+/* Non-terminals */
+
+non terminal            inicio,seccion1,seccion2,varsBoolean,asignacion,vars,varsString,instrucciones,cambiarValor,impresiones,estructuraPrints,estructuraPrintn,lecturas;
+non terminal            booleano,instruccionElse,instruccionIf,estructuraIf,estructuraWhile,instrucciones2,insBreak;
+non terminal Variable   valoresD,operacion,operacion2,variable,variableS,variableBoolean,tipValores,valoresS;
+non terminal String     tipo,opeRelacionales,opeRelacionales2,opeRelacionales3;
+non terminal Integer    cantidad;
+non terminal Arreglo    arreglo;
+
+    precedence left OR,AND;
+    precedence left IGUAL,DIFERENTE;
+    precedence left MAYOR,MENOR;
+    precedence left MAS, MENOS; 
+    precedence left POR, DIV;
+
+
+/* The grammar */
+start with inicio;
+
+    inicio ::=  seccion1
+            | seccion1 seccion2
+    ;
+    //Secciones
+    seccion1::= asignacion
+             | asignacion seccion1
+             | error seccion1
+             | error
+    ;
+    seccion2 ::= MAIN PARA PARC LLAVEA instrucciones LLAVEC
+                |MAIN PARA PARC LLAVEA LLAVEC
+    ;
+    //dentro de main
+
+    instrucciones ::= cambiarValor
+                    | cambiarValor instrucciones
+                    | impresiones    
+                    | impresiones instrucciones
+                    | lecturas
+                    | lecturas instrucciones
+                    | estructuraIf
+                    | estructuraIf instrucciones
+                    | estructuraWhile
+                    | estructuraWhile instrucciones
+    ;
+    instrucciones2 ::= cambiarValor
+                    | cambiarValor instrucciones2
+                    | impresiones    
+                    | impresiones instrucciones2
+                    | lecturas
+                    | lecturas instrucciones2
+                    | estructuraIf
+                    | estructuraIf instrucciones2
+                    | estructuraWhile
+                    | estructuraWhile instrucciones2
+                    | insBreak instrucciones2
+                    | insBreak
+    ;
+    
+    insBreak::= BREAK PUNTOCOMA {:parser.manejoDatos.addInstruccion(new Instruccion("break","","",""));:};
+    //Area de Variables
+    
+    cambiarValor ::= ID:a ASIGNAR tipValores:e PUNTOCOMA {:parser.cambiarValor(a,e,eleft,eright);:}
+                    |ID:a ASIGNAR opeRelacionales3 PUNTOCOMA {:parser.codBool(a,"1",aleft,aright);parser.codElse();parser.codBool(a,"0",aleft,aright);parser.fin();:}
+    ;
+
+    tipValores ::= operacion:e  {:RESULT=e;:}
+                |  LITERAL:e    {: RESULT = new Variable("String","null",e);:}
+                |  TRUE:e       {: RESULT = new Variable("boolean","null","1");:}
+                |  FALSE:e      {: RESULT = new Variable("boolean","null","0");:}
+    ;
+
+    operacion ::= operacion:a MAS operacion:e {:RESULT=parser.operar(a,"+",e,eleft,eright);:} 
+               |  operacion:a MENOS operacion:e {:RESULT=parser.operar(a,"-",e,eleft,eright);:}
+               |  operacion:a POR operacion:e {:RESULT=parser.operar(a,"*",e,eleft,eright);:}
+               |  operacion:a DIV operacion:e {:RESULT=parser.operar(a,"/",e,eleft,eright);:} 
+               |  PARA operacion:e PARC {:RESULT=e;:}
+               |  valoresD:e {:RESULT=e;:}
+    ;
+
+    asignacion ::= vars PUNTOCOMA
+                | varsBoolean PUNTOCOMA
+                | varsString PUNTOCOMA
+    ;
+    
+    vars ::= vars COMA variable:e {:parser.addVarTemp(e,eleft,eright);:}
+           |  tipo:a  variable:e {:parser.agregarVariable(a,eleft,eright,e);:}
+           |  tipo:a  arreglo:e {:parser.dimension=0;e.setTipo(a);parser.agregarVariableArreglo(e,eleft,eright);:}  
+    ;
+    tipo ::= INT:e {:RESULT=e;:}
+           | FLOAT:e  {:RESULT=e;:}  
+    ;
+    varsString ::=  varsString COMA variableS:e {: parser.addVarTempString(e,eleft,eright);:}
+                |   STRING:a variableS:e {:parser.agregarVariableString(e,eleft,eright);:}
+                |   STRING:a arreglo:e {:parser.dimension=0;e.setTipo(a);parser.agregarVariableArreglo(e,eleft,eright);:}
+    ;
+    variableS ::= ID:e {:RESULT=new Variable("String",e,"\"\"");:} 
+           |   ID:a ASIGNAR valoresS:e {: RESULT = new Variable("String",a,parser.getValorString(e,eleft,eright));:}  
+           |   ID:a ASIGNAR LITERAL:e  {: RESULT = new Variable("String",a,e);:}
+    ;
+    
+    
+    variable ::= ID:e {:parser.addCode3d(e,new Variable("null",e,"null"));RESULT = new Variable("null",e,"null");:} 
+              | ID:a ASIGNAR operacion2:e {:parser.addCode3d(a,e);e.setNombre(a);RESULT=e;:} 
+    ;
+    varsBoolean ::= varsBoolean COMA variableBoolean:e {:parser.addVarTempBoolean(e,eleft,eright);:}  
+                   | BOOLEAN:a  variableBoolean:e  {:parser.agregarVariableBoolean(eleft,eright,e);:}
+                   | BOOLEAN:a  arreglo:e {:parser.dimension=0;e.setTipo(a);parser.agregarVariableArreglo(e,eleft,eright);:}
+    ;
+    variableBoolean ::= ID:e    {:RESULT=new Variable("boolean",e,"0");:} 
+              | ID:a ASIGNAR TRUE:e {:RESULT = new Variable("boolean",a,"1");:} 
+              | ID:a ASIGNAR FALSE:e {:RESULT = new Variable("boolean",a,"0");:}
+    ;
+    operacion2::= operacion2:a MAS operacion2:e {:RESULT=parser.operarMas(a,"+",e,eleft,eright);:} 
+               |  operacion2:a MENOS operacion2:e {:RESULT=parser.operarMenos(a,"-",e,eleft,eright); :}
+               |  operacion2:a POR operacion2:e {: RESULT=parser.operarPor(a,"/",e,eleft,eright);:} 
+               |  operacion2:a DIV operacion2:e {: RESULT=parser.operarDiv(a,"*",e,eleft,eright);:}
+               |  PARA operacion2:e PARC {:RESULT=e;:}
+               |  valoresD:e {:RESULT=e;:}
+    ;
+    valoresD::= ID:e {:RESULT= parser.getVariable(e,eleft,eright);:}
+            | ENTERO:e {:RESULT=new Variable("int","null",e);:}
+            | FLOTANTE:e {:RESULT=new Variable("float","null",e.substring(0,e.length()-1));:}
+    ;
+    valoresS::=ID:e {:RESULT= parser.getVariable(e,eleft,eright);:}
+    ;
+        
+    arreglo ::= ID:a cantidad:e {:RESULT=new Arreglo(a,"null",parser.dimension,e);:} 
+    ;
+    cantidad ::=CORA ENTERO:a CORC cantidad:e {:parser.dimension++;RESULT=Integer.parseInt(a)*e;:}
+              |CORA ENTERO:e CORC {:parser.dimension++;RESULT=Integer.parseInt(e);:}    
+    ;
+    //imprimir
+
+    impresiones::= estructuraPrints
+                | estructuraPrintn
+    ;
+
+    estructuraPrints::= PRINTS PARA LITERAL:e PARC PUNTOCOMA {:parser.codPrints(e);:}
+    ;
+    estructuraPrintn::= PRINTN PARA operacion:e PARC PUNTOCOMA {:parser.codPrintn(e);:}
+    ;
+    //lecturas
+    lecturas::= SCANS PARA ID:e PARC PUNTOCOMA {: parser.codScanS(e,eleft,eright);:}
+             |  SCANN PARA ID:e PARC PUNTOCOMA {:parser.codScanN(e,eleft,eright);:}   
+    ;
+    
+
+    //estruccturas logicas
+    estructuraIf ::=  instruccionIf {:parser.fin();:}
+                    | instruccionIf  {:parser.codElse();:} instruccionElse {:parser.fin();:}  
+    ;
+    instruccionIf::= IF PARA booleano PARC LLAVEA LLAVEC 
+                |   IF PARA booleano PARC LLAVEA instrucciones LLAVEC 
+    ;
+    instruccionElse::= ELSE LLAVEA  LLAVEC 
+                |   ELSE LLAVEA  instrucciones LLAVEC  
+    ;
+    booleano::= opeRelacionales
+    ;
+    opeRelacionales::=operacion:a MENOR operacion:e       {:RESULT=parser.codIf(a,"<",e);:}
+                    | operacion:a MAYOR operacion:e       {:RESULT=parser.codIf(a,">",e);:}  
+                    | operacion:a IGUAL operacion:e       {:RESULT=parser.codIf(a,"==",e);:}  
+                    | operacion:a DIFERENTE operacion:e   {:RESULT=parser.codIf(a,"!=",e);:}
+                    | TRUE:e {:RESULT=parser.codIfUn("1");:}
+                    | FALSE:e {:RESULT=parser.codIfUn("0");:}
+                    | ID:e {:RESULT=parser.getVarBoolean(e,eleft,eright);:}
+    ;
+    opeRelacionales2::=operacion:a MENOR operacion:e      {:RESULT=parser.codWhile(a,"<",e);:}
+                    | operacion:a MAYOR operacion:e       {:RESULT=parser.codWhile(a,">",e);:}  
+                    | operacion:a IGUAL operacion:e       {:RESULT=parser.codWhile(a,"==",e);:}  
+                    | operacion:a DIFERENTE operacion:e   {:RESULT=parser.codWhile(a,"!=",e);:}
+                    | TRUE:e {:RESULT=e;:}
+                    | FALSE:e {:RESULT=e;:}
+                    | ID:e {:RESULT=parser.getVarBoolean(e,eleft,eright);:}
+    ;
+    opeRelacionales3::=operacion:a MENOR operacion:e       {:RESULT=parser.codIf(a,"<",e);:}
+                    | operacion:a MAYOR operacion:e       {:RESULT=parser.codIf(a,">",e);:}  
+                    | operacion:a IGUAL operacion:e       {:RESULT=parser.codIf(a,"==",e);:}  
+                    | operacion:a DIFERENTE operacion:e   {:RESULT=parser.codIf(a,"!=",e);:}
+    ;
+    //ciclos
+    estructuraWhile::= WHILE PARA opeRelacionales2 PARC LLAVEA  LLAVEC  {:parser.finWhile();:}
+                    |  WHILE PARA opeRelacionales2 PARC LLAVEA   instrucciones2 LLAVEC {:parser.finWhile();:} 
+    ;
+        

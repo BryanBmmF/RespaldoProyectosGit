@@ -36,12 +36,12 @@ public class AccionAgregarComponente extends Accion{
         @Override
         public void ejecutarAciion() {
             
-            System.out.println("Se agregara un nuevo Componente.......");
-            //parametros
-            System.out.println("ID: "+id);
-            System.out.println("ID_PAGINA: "+idPagina);
-            
-            BDSitios bd = BDSitios.getInstance();
+                System.out.println("Se agregara un nuevo Componente.......");
+                //parametros
+                System.out.println("ID: "+id);
+                System.out.println("ID_PAGINA: "+idPagina);
+
+                BDSitios bd = BDSitios.getInstance();
                 int position = 0;
                 int positionComp = 0;
                 boolean compExist = false;
@@ -89,7 +89,11 @@ public class AccionAgregarComponente extends Accion{
                                         salida+="<!DOCTYPE html>\n";
                                         salida+="\t<html>\n";
                                         salida+="\t\t<head>\n";
-                                        salida+="\t\t\t<title>"+sitio.getId()+"</title>\n";
+                                        if (pag.getTitulo()!=null) {
+                                                salida+="\t\t\t<title>"+pag.getTitulo()+"</title>\n";
+                                        } else {
+                                                salida+="\t\t\t<title> </title>\n";
+                                        }
                                         salida+="\t\t</head>\n";
                                         salida+="\t\t<body>\n";
                                         salida+=componentes;

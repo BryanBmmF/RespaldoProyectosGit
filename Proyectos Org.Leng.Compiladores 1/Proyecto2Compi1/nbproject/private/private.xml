@@ -2,23 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/frontend/Exportador.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/archivos/ControladorDeArchivos.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/InstruccionPrint.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/frontend/JFramePrincipal.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/InstruccionAsignacion.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/Instruccion.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/Lexer.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/parserInterprete.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/parser.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/InstruccionDeclaracion.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/Proyecto2Compi1.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/sym2.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/InstruccionFor.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/InstruccionWhile.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/backend/instrucciones/InstruccionIF.java</file>
-            <file>file:/home/bryan/NetBeansProjects/Proyectos%20Org.Leng.Compiladores%201/Proyecto2Compi1/src/proyecto2compi1/Lexer2.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

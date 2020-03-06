@@ -22,7 +22,7 @@ public class TutorialRedim {
     public static void main(String[] args) throws IOException {
         // TODO code application logic here
         Imagen obj = new Imagen();
-        ImageIO.write(obj.redimensionar("src/graficos/limpiar.png", 0.10), "png", new File("src/graficos2/limpiar.png"));
+        ImageIO.write(obj.redimensionar("src/graficos/tg2.png", 0.15), "png", new File("src/graficos2/tg2.png"));
         
     }
 }
