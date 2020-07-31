@@ -14,11 +14,8 @@ import javax.swing.JOptionPane;
 import proyecto2ipc2.backend.DAO.Interfaces.ClienteDAO;
 import proyecto2ipc2.backend.Hotel.Cliente;
 import proyecto2ipc2.database.Conexion;
-import static proyecto2ipc2.database.OperadorEsquema.CONSULTAR_CLIENTE;
-import static proyecto2ipc2.database.OperadorEsquema.CONSULTAR_CLIENTES;
 import static proyecto2ipc2.database.OperadorEsquema.ERR_CONSULTA;
 import static proyecto2ipc2.database.OperadorEsquema.ERR_INSERCION;
-import static proyecto2ipc2.database.OperadorEsquema.INSERTAR_CLIENTE;
 
 /**
  *

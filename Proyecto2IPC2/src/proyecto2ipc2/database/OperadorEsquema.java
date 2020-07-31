@@ -35,7 +35,7 @@ public class OperadorEsquema {
         public static final String CONSULTAR_RESTAURANTE="SELECT RESTAURANTE.ID,RESTAURANTE.Nombre,RESTAURANTE.Direccion FROM RESTAURANTE INNER JOIN "
                 + "                                 REG_EMPLEADO_REST ON REG_EMPLEADO_REST.Id_Restaurante=RESTAURANTE.ID WHERE User_Empleado_Rest=?";        
         public static final String CONSULTAR_USER="SELECT*FROM USUARIO WHERE User=?";
-        public static final String CONSULTAR_CLIENTE="SELECT*FROM CLIENTE WHERE NIT=?";
+        
         public static final String CONSULTAR_MENU="SELECT*FROM MENU WHERE ID=? AND ID_Restaurante=?";
         public static final String CONSULTAR_RESTAURANTE_UNICO="SELECT*FROM RESTAURANTE WHERE ID=?";
         public static final String CONSULTAR_RESTAURANTE_UNICO2="SELECT*FROM RESTAURANTE WHERE Nombre=?";
@@ -53,7 +53,7 @@ public class OperadorEsquema {
         public static final String INSERTAR_RESTAURANTE="INSERT INTO RESTAURANTE(Nombre,Direccion)VALUES(?,?)";
         public static final String INSERTAR_INGRESO_RESTAURANTE="INSERT INTO REG_INGRESOS_RESTAURANTE(Ingreso,Fecha_Ingreso,ID_Restaurante) VALUES (?,?,?)";
         public static final String INSERTAR_VALORACION_RESTAURANTE="INSERT INTO VALORACION_REST (Puntuacion,Comentario,Fecha_Valoracion,ID_Restaurante,NIT_Cliente) VALUES(?,?,?,?,?)";
-        public static final String INSERTAR_CLIENTE="INSERT INTO CLIENTE VALUES(?,?,?,?,?)";
+        //public static final String INSERTAR_CLIENTE="INSERT INTO CLIENTE VALUES(?,?,?,?,?)";
         public static final String INSERTAR_MENU="INSERT INTO MENU(ID,Tipo,Nombre,Descripcion,Precio,Costo_Fabricacion,ID_Restaurante,Promo) VALUES(?,?,?,?,?,?,?,?)";
         public static final String INSERTAR_RESERVACION="INSERT INTO RESERVACION(Nombre_Huesped,Precio_Habitacion,"
                 + "                                         Fecha_Ingreso,Fecha_Retiro,Estado,NIT_Cliente,Numero_Habitacion,ID_Hotel_Habitacion) VALUES(?,?,?,?,?,?,?,?)";
@@ -78,7 +78,7 @@ public class OperadorEsquema {
         public static final String CONSULTAR_EMPLEADOS_ADMIN_PROYECTO="SELECT*FROM EMPLEADO WHERE Estado=? AND Tipo=?"; 
         public static final String CONSULTAR_USUARIOS="SELECT*FROM USUARIO"; 
         public static final String CONSULTAR_MENUS="SELECT*FROM MENU";
-        public static final String CONSULTAR_CLIENTES="SELECT Nit FROM CLIENTE";
+        //public static final String CONSULTAR_CLIENTES="SELECT Nit FROM CLIENTE";
         public static final String CONSULTAR_NOMBRES_RESTAURANTES="SELECT*FROM RESTAURANTE";
         public static final String CONSULTAR_NUMERO_HABITACIONES="SELECT COUNT(*)FROM HABITACION WHERE ID_Hotel=?";
         public static final String CONSULTAR_NUMERO_MENUS="SELECT COUNT(*)FROM MENU WHERE ID_Restaurante=?";
